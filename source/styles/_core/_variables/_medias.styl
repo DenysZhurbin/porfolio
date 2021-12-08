@@ -1,0 +1,70 @@
+$media-screen-gap = 16px
+$media-screen-min = 320px
+// Small screen / tablet
+$media-screen-tablet = 640px
+$media-screen-tablet-md = 768px
+$media-screen-tablet-lg = 1024px
+// Medium screen / desktop
+$media-screen-desktop = 960px
+$media-screen-desktop-lg = 1248px
+
+$media-screen-iphone-12-mini-width = 360px
+$media-screen-iphone-12-mini-height = 780px
+
+$media-screen-iphone-8-width = 375px
+$media-screen-iphone-8-height = 667px
+
+$media-screen-iphone-12-width = 390px
+$media-screen-iphone-12-height = 844px
+
+$media-screen-pixel-5-width = 393px
+$media-screen-pixel-5-height = 851px
+
+$media-screen-samsung-s10-width = 412px
+$media-screen-samsung-s10-height = 722px
+
+$media-screen-iphone-11-width = 414px
+$media-screen-iphone-11-height = 896px
+
+$media-screen-iphone-12-max-width = 428px
+$media-screen-iphone-12-max-height = 926px
+
+above-iphone-8($orientation = false)
+  if $orientation = horizontal
+    @media (min-height $media-screen-iphone-8-width) and (min-width $media-screen-iphone-8-height)
+      {block}
+
+  else
+    @media (min-width $media-screen-iphone-8-width) and (min-height $media-screen-iphone-8-height)
+      {block}
+
+above-iphone-x($orientation = false)
+  if $orientation = horizontal
+    @media (min-height $media-screen-iphone-11-width) and (min-width $media-screen-iphone-11-height)
+      {block}
+
+  else
+    @media (min-width $media-screen-iphone-11-width) and (min-height $media-screen-iphone-11-height)
+      {block}
+
+above-iphone-8plus($orientation = false)
+  if $orientation = horizontal
+    @media (min-height $media-screen-iphone-11-width) and (min-width $media-screen-iphone-11-width)
+      {block}
+
+  else
+    @media (min-width $media-screen-iphone-11-width) and (min-height $media-screen-iphone-11-width)
+      {block}
+
+only-safari()
+  body.is-safari &
+    {block}
+
+only-ie11()
+  body.is-ie11 &
+    {block}
+
+only-safari-and-ie11()
+  body.is-safari &
+  body.is-ie11 &
+    {block}

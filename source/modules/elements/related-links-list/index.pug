@@ -1,0 +1,6 @@
+mixin related-links-list(listItems)
+	.related-links-list
+		each item in listItems
+			.related-links-list__item
+				a(href="#" title= item).related-links-list__link
+					= item

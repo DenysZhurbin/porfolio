@@ -1,0 +1,117 @@
+include ../modules/modal/index
+
+doctype html
+head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap")
+    link(rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap")
+    noscript
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap")
+    link(href="stylesheets/authorization-widget.css" rel="stylesheet")
+
+mixin authorizationWidget(mode)
+    .authorization-widget(data-authorization-method="registration")
+        form(action="" novalidate).form.form--remind-password
+            .form__inner
+                .form__row.form__row--mode-titles
+                    .form__mode-title(data-form-mode="login")
+                        | Вход
+                    .form__mode-title(data-form-mode="registration")
+                        | Регистрация
+
+                .form__row
+                    input.form-input(name="input-email" type="email" placeholder="E-mail" required)
+
+                .form__row
+                    input.form-input(type="text" name="input-messenger" placeholder="Telegram" required)
+
+                .form__row.form__row--submit
+                    button.form-submit.is-disabled(type="submit")
+                        | Вход
+
+        form(action="" novalidate).form.form--login
+            .form__inner
+                .form__row.form__row--mode-titles
+                    .form__mode-title.is-active(data-form-mode="login")
+                        | Вход
+                    .form__mode-title(data-form-mode="registration")
+                        | Регистрация
+
+                .form__row
+                    input.form-input(name="input-email" type="email" placeholder="E-mail" required)
+
+                .form__row
+                    input.form-input(name="input-password" type="password" placeholder="Пароль" required)
+
+                .form__row.form__row--submit
+                    button.form-submit.is-disabled(type="submit")
+                        | Вход
+
+                .form__row.form__row--remind-password
+                    span(data-form-mode="remind-password" tabindex="0").remind-password.js-remind-password
+                        | Восстановить пароль
+
+        form(action="" novalidate).form.form--registration
+            .form__inner
+                .form__row.form__row--mode-titles
+                    .form__mode-title(data-form-mode="login")
+                        | Вход
+                    .form__mode-title.is-active(data-form-mode="registration")
+                        | Регистрация
+                .form__row.form__row--columns.form__row--user-category
+                    .form__row-column
+                        .form__text-switcher(data-form-user-category="advertiser")
+                            | Рекламодатель
+                    .form__row-column
+                        .form__text-switcher.is-active(data-form-user-category="webmaster")
+                            | Веб - мастер
+                .form__row.form__row--columns
+                    .form__row-column
+                        input.form-input(name="input-login" type="text" placeholder="Логин" required)
+                    .form__row-column
+                        input.form-input(name="input-email" type="email" placeholder="E-mail" required)
+                .form__row.form__row--columns.form__row--messenger
+                    .form__row-column
+                        input.form-input(name="input-name" type="text" placeholder="Имя" required)
+                    .form__row-column.has-dropdown-toggler
+                        span#dropdownRegistrationName.dropdown-toggler.dropdown-toggle(data-bs-toggle="dropdown" aria-expanded="false")
+                        ul(aria-labelledby="dropdownRegistrationName").dropdown-menu.js-registration-messenger-dropdown
+                            li(data-registration-messanger="Skype").dropdown-item
+                                | Skype
+                            li(data-registration-messanger="Telegram").dropdown-item
+                                | Telegram
+                        input.form-input(type="text" name="input-messenger" placeholder="Telegram" required)
+                        .help-info(data-bs-toggle="tooltip" data-bs-html="true" title="<div><div class='tooltip__title'>Доступно два варианта</div><div class='tooltip__subtitle'>Skype / Телеграм</div><ol><li><strong>логин</strong> skype</li><li><strong>телефон</strong> или <strong>@имя пользователя</strong> телеграма</li></ol></div>")
+
+                .form__row.form__row--columns
+                    .form__row-column
+                        input.form-input(name="input-password" type="password" placeholder="Пароль" required)
+                    .form__row-column
+                        input.form-input(name="input-password-confirm" type="password" placeholder="Повторить пароль" required)
+                .form__row.form__row--agreement
+                    label.label-checkbox
+                        input(name="agreement-checkbox" type="checkbox" required)
+                        | Я принимаю условия <a href="#">Пользовательского соглашения</a> и даю своё согласие на обработку персональных данных
+                .form__row.form__row--submit
+                    button.form-submit.is-disabled(type="submit")
+                        | Регистрация
+
+html(lang="en")
+    body.demo
+        .page-section.page-section--demo
+            .actions-panel
+                a(href="#").js-show-modal-login Вход
+                a(href="#").js-show-modal-registration Регистрация
+
+        .page-section.page-section--demo
+            +authorizationWidget()
+
+        +modal(id="modal-authorization-widget")
+            +authorizationWidget()
+
+        script(src="javascripts/vendor.bundle.js")
+        script(src="javascripts/authorization-widget.js")

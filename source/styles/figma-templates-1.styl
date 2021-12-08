@@ -1,0 +1,198 @@
+@import "./_core/_base/_main/_reset.styl"
+@import "./_core/_mixins.styl"
+@import "./_core/_variables.styl"
+@import "../modules/modal"
+
+$mobile = 480px
+$tablet = 768px
+$desktop = 960px
+
+@font-face {
+    font-family: 'Roboto Medium';
+    src: url('../fonts/Roboto/Roboto-Medium.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Regular';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*
+  box-sizing border-box
+
+a
+  text-decoration: none
+  color: white
+  font-size: 16px
+  line-height: 24px
+
+body
+  margin 0
+  background-color: rgb(0, 0, 0)
+  font-family: "Roboto Regular";
+  color: white
+
+.logo
+  img
+    Width 40px
+
+.page-section--intro
+    .page-section__inner
+      background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat
+      min-height: 830px
+      padding-bottom: 100px;
+
+.page-section__inner
+  max-width 1920px
+  margin: 0 auto
+
+.page-header
+  display: flex
+  justify-content: space-between
+  line-height: 24px
+  padding: 40px 0 0 80px
+  margin-bottom: 190px;
+
+.header-menu
+  display: flex
+
+.page-header__menu
+  display: flex
+  align-items: center
+
+.header-menu__item
+  margin-right: 40px;
+  &:last-child
+      margin-right: 0
+  a
+    padding: 8px
+
+.page-header__actions
+  display: flex
+  align-items: center
+
+.authorization-links__item
+  a
+    padding: 10px 30px;
+    background linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+    border-radius: 50px;
+    user-select: none;
+    &:hover
+      background linear-gradient(94.26deg, #9765cf 9.51%, #634dff 90.23%);
+    &:active
+      box-shadow: 2px 3px 10px rgb(0 0 0 / 50%);
+
+.page-header__actions
+  padding: 0 80px 0 270px;
+
+.intro-titles
+  width: 1226px;
+  padding: 0 0 0 312px;
+  font-size: 64px;
+  line-height: 90px;
+  font-family: "Roboto Medium";
+  text-align: left;
+  font-style: normal;
+  letter-spacing: 0em;
+  margin-bottom: 50px
+
+.time-counters
+  display: flex
+  padding-left: 312px
+
+.time-counters__item
+  margin-right: 30px
+  &:last-child
+    margin-right: 0
+
+.time-counter
+  background: rgba(18, 18, 18, 1);
+  padding: 20px 30px
+  height: 112px
+  text-align: center;   
+
+.unit-of-time-number
+  font-size: 36px
+  line-height: 50px
+  font-family: "Roboto Medium";
+  font-weight: 700;
+
+.unit-of-time
+  font-size: 16px
+  line-height: 22px
+  font-weight: 400;  
+  color: #717171
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section.page-section--short-statistics
+  .page-section__inner
+    background-color: #0B0B0B
+    padding: 21px 20px
+
+.page-section__inner-wraper
+  max-width 1376px
+  margin: 0 auto
+  padding: 10px 40px
+  display: flex
+  align-items: center
+
+.page-section__actions
+    a
+      padding: 10px 30px;
+      background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
+      border-radius: 50px;
+      user-select: none;
+      &:hover
+        background linear-gradient(94.78deg, #c54037 11.19%, #651766 93.72%);
+      &:active
+        box-shadow: 2px 3px 10px #464646;
+
+.page-section__short-statistics
+  padding-left: 81px
+  display: flex
+
+.short-statistics__column-one 
+  min-width: 251px
+
+.short-statistics
+  padding: 5px 0
+  display: flex
+  justify-content: space-between
+
+.short-statistics__category
+  color: #717171
+
+.short-statistics__column-two
+  padding-left: 81px
+  .short-statistics
+    justify-content: flex-start
+
+.short-statistics__diagram
+  width: 714px
+  height: 6px
+  background-color: white
+  margin-bottom: 5px
+
+.short-statistics__diagram-item
+  width: 440px
+  height: 6px
+  background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
+
+.short-statistics__values
+  color: #717171
+  display: flex
+  justify-content: space-between
+
+.short-statistics--digram-wraper
+  display: block
+
+.short-statistics__value
+  padding-left: 30px
+
+
+

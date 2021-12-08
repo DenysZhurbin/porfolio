@@ -1,0 +1,648 @@
+-
+	const animationDuration = ".5s"
+	const animationHack = "visibility: hidden"
+	const logoSrc = {
+		pdffiller: "images/_global/header/logo-pdffiller.svg",
+		pdffillerWhite: "images/_global/header/logo-pdffiller-white.svg",
+		pdffillerNew: "images/_global/header/logo-pdffiller-new.svg",
+		airslate: "images/_global/header/logo-airslate.svg",
+		signnow: "images/_global/header/logo-sign-now.svg",
+		uslegal: "images/_global/header/logo-uslegal.svg",
+		uslegalnew: "images/_global/header/logo-uslegal-new.svg",
+		airslateSubscriber: "images/_global/header/airslate-pdffiller-logo.png"
+	}
+
+	const myDocsMobileMenu = [
+		{
+			name: "My Docs",
+			hasDropdown: false,
+			isActive: true
+		},
+		{
+			name: "For business",
+			hasDropdown: true,
+			leftSidedDropdownBlocks: [
+				{
+					headingLink: "Industries",
+					links: [
+						{name: "Medical"},
+						{name: "Insurance"},
+						{name: "Real Estate"},
+						{name: "Tax & Finance"},
+						{name: "Legal"},
+						{name: "Human Resources"},
+						{name: "See All"}
+					],
+				}
+			],
+			rightSidedDropdownBlocks: [
+				{
+					headingLink: "Products",
+					links: [
+						{name: "Document Generation"},
+						{name: "Contract Management"},
+						{name: "Contract Negotiation"},
+						{name: "Robotic Process Automation"},
+						{name: "Web Forms"}
+					],
+				},
+			]
+		},
+		{
+			name: "Solutions",
+			hasDropdown: true,
+			leftSidedDropdownBlocks: [
+				{
+					headingLink: "For Developers"
+				},
+				{
+					headingLink: "Integrations",
+					links: [
+						{name: "Salesforce"},
+						{name: "Dynamics"},
+						{name: "See All"}
+					]
+				},
+				{
+					headingLink: "API",
+					links: [
+						{name: "API Documentation"},
+						{name: "API Pricing"}
+					]
+				}
+			],
+			rightSidedDropdownBlocks: [
+				{
+					headingLink: "For Resellers"
+				},
+				{
+					headingLink: "Apps",
+					links: [
+						{name: "Desktop app"},
+						{name: "Gsuite Add-ons"},
+						{name: "Mobile app"},
+						{name: "Extensions"}
+					],
+				},
+			]
+		},
+		{
+			name: "Support",
+			hasDropdown: false
+		},
+		{
+			name: "Logout",
+			hasDropdown: false
+		}
+	]
+	const myDocsMainMenu = [
+		{
+			name: "My Docs",
+			hasDropdown: true,
+			isActive: true,
+			leftSidedDropdownBlocks: [
+				{
+					links: [
+						{name: "Dashboard"},
+						{name: "Documents"},
+						{
+							name: "In/Out Box",
+							hasSubmenu: true,
+							submenuLinks: [
+								{name: "Received Email"},
+								{name: "Received Fax"},
+								{name: "Signature Requests"},
+								{name: "Sent Email"},
+								{name: "Sent Fax"}
+							]
+						},
+						{name: "Signed Documents"},
+						{name: "Browse USLegal"},
+						{name: "LinkToFill Documents"},
+						{name: "Shared Documents"},
+						{name: "Customize"}
+					],
+				}
+			],
+		},
+		{
+			name: "For business",
+			hasDropdown: true,
+			leftSidedDropdownBlocks: [
+				{
+					headingLink: "Industries",
+					links: [
+						{name: "Medical"},
+						{name: "Insurance"},
+						{name: "Real Estate"},
+						{name: "Tax & Finance"},
+						{name: "Legal"},
+						{name: "Human Resources"},
+						{name: "See All"}
+					],
+				}
+			],
+			rightSidedDropdownBlocks: [
+				{
+					headingLink: "Products",
+					links: [
+						{name: "Document Generation"},
+						{name: "Contract Management"},
+						{name: "Contract Negotiation"},
+						{name: "Robotic Process Automation"},
+						{name: "Web Forms"}
+					],
+				},
+			]
+		},
+		{
+			name: "Solutions",
+			hasDropdown: true,
+			leftSidedDropdownBlocks: [
+				{
+					headingLink: "For Developers"
+				},
+				{
+					headingLink: "Integrations",
+					links: [
+						{name: "Salesforce"},
+						{name: "Dynamics"},
+						{name: "See All"}
+					]
+				},
+				{
+					headingLink: "API",
+					links: [
+						{name: "API Documentation"},
+						{name: "API Pricing"}
+					]
+				}
+			],
+			rightSidedDropdownBlocks: [
+				{
+					headingLink: "For Resellers"
+				},
+				{
+					headingLink: "Apps",
+					links: [
+						{name: "Desktop app"},
+						{name: "Gsuite Add-ons"},
+						{name: "Mobile app"},
+						{name: "Extensions"}
+					],
+				},
+			]
+		},
+		{
+			name: "Support",
+			hasDropdown: false
+		}
+	]
+
+	const mainMenu = [
+		{
+			name: "Home",
+			hasDropdown: false,
+			isActive: true
+		},
+		{
+			name: "For business",
+			hasDropdown: true,
+			leftSidedDropdownBlocks: [
+				{
+					headingLink: "Industries",
+					links: [
+						{name: "Medical"},
+						{name: "Insurance"},
+						{name: "Real Estate"},
+						{name: "Tax & Finance"},
+						{name: "Legal"},
+						{name: "Human Resources"},
+						{name: "See All"}
+					],
+				}
+			],
+			rightSidedDropdownBlocks: [
+				{
+					headingLink: "Products",
+					links: [
+						{name: "Document Generation"},
+						{name: "Contract Management"},
+						{name: "Contract Negotiation"},
+						{name: "Robotic Process Automation"},
+						{name: "Web Forms"}
+					],
+				},
+			]
+		},
+		{
+			name: "Solutions",
+			hasDropdown: true,
+			leftSidedDropdownBlocks: [
+				{
+					headingLink: "For Developers"
+				},
+				{
+					headingLink: "Integrations",
+					links: [
+						{name: "Salesforce"},
+						{name: "Dynamics"},
+						{name: "See All"}
+					]
+				},
+				{
+					headingLink: "API",
+					links: [
+						{name: "API Documentation"},
+						{name: "API Pricing"}
+					]
+				}
+			],
+			rightSidedDropdownBlocks: [
+				{
+					headingLink: "For Resellers"
+				},
+				{
+					headingLink: "Apps",
+					links: [
+						{name: "Desktop app"},
+						{name: "Gsuite Add-ons"},
+						{name: "Mobile app"},
+						{name: "Extensions"}
+					],
+				},
+			]
+		},
+		{
+			name: "Features",
+			hasDropdown: false
+		},
+		{
+			name: "Support",
+			hasDropdown: false
+		},
+		{
+			name: "Pricing",
+			hasDropdown: false
+		},
+		{
+			name: "Log in",
+			hasDropdown: false
+		}
+	]
+
+	const myDocsMainMenuV2 = [
+		{
+			name: "My Docs",
+			hasDropdown: true,
+			isActive: true,
+			leftSidedDropdownBlocks: [
+				{
+					links: [
+						{name: "Dashboard"},
+						{name: "Documents"},
+						{
+							name: "In/Out Box",
+							hasSubmenu: true,
+							submenuLinks: [
+								{name: "Received Email"},
+								{name: "Received Fax"},
+								{name: "Share with Me"},
+								{name: "Signature Requests"},
+								{name: "Sent Email"},
+								{name: "Sent Fax"}
+							]
+						},
+						{name: "Signed Documents"},
+						{name: "Browse USLegal"},
+						{name: "LinkToFill Documents"},
+						{name: "Shared Documents"},
+						{name: "Customize"}
+					],
+				}
+			],
+		},
+		{
+			name: "For business",
+			hasDropdown: true,
+			leftSidedDropdownBlocks: [
+				{
+					headingLink: "Industries",
+					links: [
+						{name: "Medical", mod: "medical"},
+						{name: "Insurance", mod: "insurance"},
+						{name: "Real Estate", mod: "real-estate"},
+						{name: "Tax & Finance", mod: "tax-and-finance"},
+						{name: "Legal", mod: "legal"},
+						{name: "Human Resources", mod: "human-resources"},
+						{name: "See All", mod: "see-all"}
+					],
+				}
+			],
+			rightSidedDropdownBlocks: [
+				{
+					headingLink: "Products",
+					links: [
+						{name: "Document Generation", mod: "document-generation"},
+						{name: "Contract Management", mod: "contract-management"},
+						{name: "Robotic Process Automation", mod: "robotic-process-automation"},
+						{name: "Web Forms", mod: "web-forms"}
+					],
+				},
+			]
+		},
+		{
+			name: "Solutions",
+			hasDropdown: true,
+			leftSidedDropdownBlocks: [
+				{
+					headingLink: "For Developers"
+				},
+				{
+					headingLink: "Integrations",
+					links: [
+						{name: "Salesforce"},
+						{name: "Dynamics"},
+						{name: "See All", mod: "see-all"}
+					]
+				},
+				{
+					headingLink: "API",
+					links: [
+						{name: "API Documentation"},
+						{name: "API Pricing"}
+					]
+				}
+			],
+			rightSidedDropdownBlocks: [
+				{
+					headingLink: "For Resellers"
+				},
+				{
+					headingLink: "Apps",
+					links: [
+						{name: "Desktop app"},
+						{name: "Gsuite Add-ons"},
+						{name: "Mobile app"},
+						{name: "Extensions"}
+					],
+				},
+			]
+		}
+	]
+
+	const mainMenuV2 = [
+		{
+			name: "Home",
+			hasDropdown: false,
+			isActive: true
+		},
+		{
+			name: "For business",
+			hasDropdown: true,
+			leftSidedDropdownBlocks: [
+				{
+					headingLink: "Industries",
+					links: [
+						{name: "Medical", mod: "medical"},
+						{name: "Insurance", mod: "insurance"},
+						{name: "Real Estate", mod: "real-estate"},
+						{name: "Tax & Finance", mod: "tax-and-finance"},
+						{name: "Legal", mod: "legal"},
+						{name: "Human Resources", mod: "human-resources"},
+						{name: "See All", mod: "see-all"}
+					],
+				}
+			],
+			rightSidedDropdownBlocks: [
+				{
+					headingLink: "Products",
+					links: [
+						{name: "Document Generation", mod: "document-generation"},
+						{name: "Contract Management", mod: "contract-management"},
+						{name: "Robotic Process Automation", mod: "robotic-process-automation"},
+						{name: "Web Forms", mod: "web-forms"}
+					],
+				},
+			]
+		},
+		{
+			name: "Solutions",
+			hasDropdown: true,
+			leftSidedDropdownBlocks: [
+				{
+					headingLink: "For Developers"
+				},
+				{
+					headingLink: "Integrations",
+					links: [
+						{name: "Salesforce"},
+						{name: "Dynamics"},
+						{name: "See All", mod: "see-all"}
+					]
+				},
+				{
+					headingLink: "API",
+					links: [
+						{name: "API Documentation"},
+						{name: "API Pricing"}
+					]
+				}
+			],
+			rightSidedDropdownBlocks: [
+				{
+					headingLink: "For Resellers"
+				},
+				{
+					headingLink: "Apps",
+					links: [
+						{name: "Desktop app"},
+						{name: "Gsuite Add-ons"},
+						{name: "Mobile app"},
+						{name: "Extensions"}
+					],
+				},
+			]
+		},
+		{
+			name: "Features",
+			hasDropdown: false
+		},
+		{
+			name: "Pricing",
+			hasDropdown: false
+		}
+	]
+
+	const footerFunctionality = [
+		{
+			title: "Convert & Compress",
+			links: [
+				{name: "Compress PDF", class: "compress-pdf",},
+				{name: "PDF Converter", class: "pdf-convertor",},
+				{name: "OCR PDF", class: "ocr-pdf",},
+				{name: "Add image to PDF", class: "add-image-to-pdf",},
+				{name: "Edit scanned PDF", class: "edit-scanned-pdf",},
+			],
+		},
+		{
+			title: "Split & Merge",
+			links: [
+				{name: "Split PDF", class: "split-pdf",},
+				{name: "Merge PDF", class: "merge-pdf",},
+				{name: "Combine & Reorder", class: "combine-and-reorder",},
+				{name: "Extract Pages", class: "extract-pages",},
+			],
+		},
+		{
+			title: "Convert from PDF",
+			links: [
+				{name: "PDF to Word", class: "pdf-to-word",},
+				{name: "PDF to Excel", class: "pdf-to-excel",},
+				{name: "PDF to PPT", class: "pdf-to-ppt",},
+				{name: "PDF to JPG", class: "pdf-to-jpg",},
+			],
+		},
+		{
+			title: "View & Edit",
+			links: [
+				{name: "Edit PDF", class: "edit-pdf",},
+				{name: "Delete Pages", class: "delete-pages",},
+				{name: "Rotate PDF", class: "rotate-pdf",},
+				{name: "PDF Reader", class: "pdf-reader",},
+				{name: "Edit & Fill", class: "edit-and-fill",},
+				{name: "Page Numbering", class: "page-numbering",},
+				{name: "Watermark", class: "watermark",},
+			],
+		},
+		{
+			title: "Convert to PDF",
+			links: [
+				{name: "Word to PDF", class: "word-to-pdf",},
+				{name: "Excel to PDF", class: "excel-to-pdf",},
+				{name: "PPT to PDF", class: "ppt-to-pdf",},
+			],
+		},
+		{
+			title: "Sign & Security",
+			links: [
+				{name: "eSign PDF", class: "esign-pdf",},
+				{name: "Protect PDF", class: "protect-pdf",},
+			],
+		},
+	]
+
+	const footerLinks = [
+		{
+			title: "About us",
+			links: [
+				{name: "Leadership"},
+				{name: "Blog"},
+				{name: "Contact Us"},
+				{name: "GDPR Compliance"},
+				{name: "Become a partner"},
+				{name: "Affiliate program"},
+				{name: "Tax Guide"},
+				{name: "Release Notes"},
+				{name: "HIPAA Compliance"},
+			],
+			columnTablet: 1,
+			columnTabletLG: 1
+		},
+		{
+			title: "Forms library",
+			links: [
+				{name: "Top 100 Forms"},
+				{name: "PDF Search Engine"},
+				{name: "A-Z Forms Listing"},
+				{name: "Forms Catalog"},
+				{name: "IRS Tax Forms"},
+				{name: "Popular Search"},
+				{name: "W-2 Form", small: true},
+				{name: "W9", small: true},
+				{name: "Form 1099-MISC"},
+				{name: "DS11", small: true},
+				{name: "DS82", small: true},
+				{name: "1096", small: true},
+				{name: "Tax Calendar"},
+				{name: "Documents Templates"},
+			],
+			columnTablet: 2,
+			columnTabletLG: 2
+		},
+		{
+			title: "Functions",
+			links: [
+				{name: "Features"},
+				{name: "LinkToFill"},
+				{name: "SendToSign"},
+				{name: "Document Management"},
+			],
+			columnTablet: 3,
+			columnTabletLG: 3
+		},
+		{
+			title: "Comparison",
+			links: [
+				{name: "Adobe Acrobat Alternative"},
+			],
+			columnTablet: 3,
+			columnTabletLG: 3
+		},
+		{
+			title: "Integrations",
+			links: [
+				{name: "Salesforce"},
+				{name: "Dynamics"},
+				{name: "Zapier"},
+			],
+			columnTablet: 3,
+			columnTabletLG: 3
+		},
+		{
+			title: "Support",
+			links: [
+				{name: "FAQ"},
+				{name: "Pricing"},
+				{name: "DMCA"},
+				{name: "Academy"},
+			],
+			columnTablet: 3,
+			columnTabletLG: 4
+		},
+		{
+			title: "For Business",
+			links: [
+				{name: "Insurance"},
+				{name: "Medical"},
+				{name: "Real Estate"},
+				{name: "Human Resources"},
+				{name: "Tax & Finance"},
+				{name: "Legal"},
+			],
+			columnTablet: 1,
+			columnTabletLG: 4
+		},
+		{
+			title: "Developers",
+			links: [
+				{name: "Get Started"},
+				{name: "API Documentation"},
+				{name: "API Pricing"},
+			],
+			columnTablet: 3,
+			columnTabletLG: 5
+		},
+		{
+			title: "Free Resources",
+			links: [
+				{name: "Electronic Signature"},
+				{name: "Legal Documents Online"},
+				{name: "SellMyForms.com"},
+				{name: "airSlate workflows"},
+				{name: "airSlate PDF"},
+			],
+			columnTablet: 2,
+			columnTabletLG: 5
+		},
+	]

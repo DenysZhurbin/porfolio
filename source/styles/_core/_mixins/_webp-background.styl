@@ -1,0 +1,29 @@
+webp-background($src)
+  webpImage = ""
+  webpImageRetinaQuality = ""
+  defaultImage = ""
+  defaultImageImageRetinaQuality = ""
+
+  for src in arguments
+    $path = substr(src, 0, length(src) - 4)
+    $extension = extname(src)
+    webpImage += s("url(%s)", $path + ".webp") + ","
+    webpImageRetinaQuality += s("url(%s)", $path + "@2x.webp") + ","
+    defaultImage += s("url(%s)", $path + $extension) + ","
+    defaultImageImageRetinaQuality += s("url(%s)", $path + "@2x" + $extension) + ","
+
+  webpImage = unquote(substr(webpImage, 0, length(webpImage) - 1))
+  webpImageRetinaQuality = unquote(substr(webpImageRetinaQuality, 0, length(webpImageRetinaQuality) - 1))
+  defaultImage = unquote(substr(defaultImage, 0, length(defaultImage) - 1))
+  defaultImageImageRetinaQuality = unquote(substr(defaultImageImageRetinaQuality, 0, length(defaultImageImageRetinaQuality) - 1))
+
+  background-image webpImage
+
+  +retina()
+    background-image webpImageRetinaQuality
+
+  +only-safari-and-ie11()
+    background-image defaultImage
+
+    +retina()
+      background-image defaultImageImageRetinaQuality

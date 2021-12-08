@@ -1,0 +1,22 @@
+extends page
+
+block page
+	.layout-responsive(role="main")
+		.layout-responsive__header
+			block header
+
+
+		.layout-responsive__body
+			block main
+
+		.layout-responsive__footer
+			block footer
+				+page-footer()
+
+		.layout-responsive__mobile-menu(data-offcanvas-menu aria-hidden="true")
+			block mobileMenu
+				+mobile-menu()
+
+	.layout-overlay(data-offcanvas-overlay)
+
+	block modals

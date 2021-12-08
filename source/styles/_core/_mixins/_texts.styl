@@ -1,0 +1,32 @@
+// Usage: normal text
+text-normal()
+  font-weight $font-weight-normal
+  font-size $font-size-base
+  font-family $font-family-base
+  line-height $line-height-base
+
+// Usage: secondary text, hints, tags
+text-small()
+  font-weight $font-weight-normal
+  font-size $font-size-small
+  line-height $line-height-small
+
+// Usage: validation
+text-error()
+  color $color-error
+  font-weight $font-weight-normal
+  font-size $font-size-small
+  line-height $line-height-small
+
+text-accent()
+  color $slate-blue-600
+  font-weight $font-weight-semiBold
+
+text-reduced-with-dots()
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+
+font-smoothing()
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale

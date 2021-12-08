@@ -1,0 +1,236 @@
+//- extends ../layouts/responsive-simple
+
+//- include lagoon/includes/authorization-widget
+
+block head
+  title figma-templates-1
+  meta(charset="UTF-8")
+  //- link(rel="shortcut icon" href="./favicons/favicon.ico" type="image/x-icon")
+
+block styles
+  link(rel="stylesheet" href="./stylesheets/figma-templates-1.css")
+
+block main
+  section.page-section.page-section--intro#intro
+    .page-section__inner
+      .page-header
+        .page-header__logo
+          .logo
+            img(src="./images/figma-templates-1/logo-main.svg" alt="Logo").logo__image
+
+        .page-header__menu
+          .header-menu
+            .header-menu__item
+              a(href="#")
+                | Главная 
+            .header-menu__item
+              a(href="#")
+                | Курсы
+            .header-menu__item
+              a(href="#")
+                | Расписание
+            .header-menu__item
+              a(href="#")
+                | Преподаватели
+            .header-menu__item
+              a(href="#")
+                | Рассылка
+            .header-menu__item
+              a(href="#")
+                | Контакты
+
+          .page-header__actions
+            .authorization-links
+              .authorization-links__item
+                a(href="#").button
+                  | Зайти в кабинет
+
+      .intro-titles
+        .section-title
+          | Первый курс<br>по компьютерной сборке
+
+      .time-counters
+        .time-counters__item
+          .time-counter
+            .unit-of-time-number
+              | 18
+            .unit-of-time
+              | Дней
+        .time-counters__item
+          .time-counter
+            .unit-of-time-number
+              | 18
+            .unit-of-time
+              | Часов
+        .time-counters__item
+          .time-counter
+            .unit-of-time-number
+              | 18
+            .unit-of-time
+              | Минут
+        .time-counters__item
+          .time-counter
+            .unit-of-time-number
+              | 18
+            .unit-of-time
+              | Секунд                    
+
+  section.page-section.page-section--short-statistics
+    .page-section__inner
+      .page-section__inner-wraper
+        .page-section__actions
+          .to-order-links
+            .to-order-links__item
+              a(href="#").button
+                | Заказать курс   
+        .page-section__short-statistics
+          .short-statistics__column-one 
+            .short-statistics
+              .short-statistics__category
+                | Учеников всего:
+              .short-statistics__value
+                | 200
+            .short-statistics
+              .short-statistics__category
+                | Успешно закончили курс:
+              .short-statistics__value
+                | 190
+          .short-statistics__column-two           
+            .short-statistics
+              .short-statistics__category
+                | Заработано учениками:
+              .short-statistics__value
+                | 400 000₽
+            .short-statistics.short-statistics--digram-wraper
+              .short-statistics__diagram
+                .short-statistics__diagram-item
+              .short-statistics__values
+                .short-statistics__value
+                  | 0
+                .short-statistics__value
+                  | 1 000 000₽               
+     
+
+  section.page-section.page-section--to-advertisers#about-us
+    .page-section__inner
+      .section-title
+        | О нас
+
+      p
+        | Основная задача нашей компании - предоставить нашим партнерам наиболее подходящие маркетинговые решения, разработанные специально для их индивидуальных потребностей.
+      p
+        | Мы разработали собственную платформу, которая постоянно обновляется и дополняется новым функционалом, ориентированным на успешный результат рекламных кампаний.
+
+      .advertisers#advertisers
+        .advertisers__column.advertisers__column--to-advertisers
+          .section-title
+            | Рекламодателям
+
+          p Мы специализируемся на привлечении целевых клиентов и устраняем все источники мошеннического трафика, благодаря чему вы получаете высококачественный, стабильный и масштабируемый трафик.
+          p Наша команда маркетологов имеет большой опыт создания конкурентоспособных предложений на основе мониторинга рынка и тестирования производительности продвижения в различных источниках трафика, что помогает достигать высоких результатов и качественный пользовательский опыт.
+
+          .c2a-title
+            | Присоединяйтесь к нам уже сегодня для долгосрочного сотрудничества!
+
+
+        .advertisers__column.advertisers__column--benefits
+          .benefits
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/public-relation.png")
+                | Оперативная техническая и клиентская поддержка
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/global.png")
+                | Контроль качества трафика - анти-фрод система
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/add.png")
+                | API - интеграция
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/dollar.png")
+                | Оплата за реальный результат
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/value.png")
+                | Мы подберем клиентов под любой продукт и поможем его продвинуть
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/users.png")
+                | Максимально прозрачная статистика
+
+  section.page-section.page-section--webmaster#webmaster
+    .page-section__inner
+      .webmasters
+        .webmasters__column
+          .section-title
+            | Веб-мастерам
+
+          p Работая с нами вы получаете доступ к лучшим предложениям на рынке.
+          p Наша платформа содержит необходимые инструменты для эффективного заработка.
+          p Используя которые, вы получаете максимальный доход.
+          p И помогает вам в этом, дружелюбная поддержка персонального менеджера.
+
+          .c2a-title
+            | Присоединяйтесь к нам, для максимальной монетизации вашего трафика.
+
+        .webmasters__column
+          .benefits
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/master1.png")
+                | Авторские оффера и лояльные условия
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/master2.png")
+                | Своевременные платежи
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/master3.png")
+                | Высокий уровень поддержки персонального менеджера
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/master4.png")
+                | Детальная статистика
+
+  section.page-section.page-section--footer#contacts
+    .page-section__inner
+      .footer
+        .footer__logo
+          .logo
+            img(src="" alt="Logo").logo__image
+
+        .footer__menu
+          .footer-menu
+            .footer-menu__item
+              a(href="#about-us")
+                | О нас
+            .footer-menu__item
+              a(href="#advertisers")
+                | Рекламодателям                
+          .footer-menu
+            .footer-menu__item
+              a(href="#webmaster")
+                | Веб-мастерам
+            .footer-menu__item              
+              a(href="#contacts")
+                | Регистрация
+
+        .footer__socials
+          .footer__company-name
+            | Templates #18. More on Figma.info
+
+block scripts
+  script(type="text/javascript" src="javascripts/vendor.bundle.js")
+  script(type="text/javascript" src="javascripts/lagoon.js")

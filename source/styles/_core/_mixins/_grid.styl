@@ -1,0 +1,55 @@
+grid-row($rowGap = false)
+  display flex
+  flex-wrap wrap
+
+  if $rowGap
+    grid-row-gap($rowGap)
+
+grid-row-gap($rowGap)
+  margin-right (-($rowGap) / 2) px
+  margin-left (-($rowGap) / 2) px
+
+grid-column($currentColumn, $maxColumns, $columnGap = false)
+  grid-column-width($currentColumn, $maxColumns)
+
+  if $columnGap
+    grid-column-padding($columnGap)
+
+grid-column-width($currentColumn, $maxColumns)
+  width ((100 / $maxColumns) * $currentColumn) %
+
+grid-column-padding($columnGap)
+  padding-right ($columnGap / 2) px
+  padding-left ($columnGap / 2) px
+
+grid-column-margin($columnGap)
+  margin-right ($columnGap / 2) px
+  margin-left ($columnGap / 2) px
+
+grid-column-width-auto($columnGap = false)
+  flex-basis 0
+  flex-grow 1
+  max-width 100%
+
+  if $columnGap
+    grid-column-padding($columnGap)
+
+grid-column-auto($columnGap = false)
+  flex 0 0 auto
+  width auto
+
+  if $columnGap
+    grid-column-padding($columnGap)
+
+flex-center-x()
+  display flex
+  justify-content center
+
+flex-center-y()
+  display flex
+  align-items center
+
+flex-center-xy()
+  display flex
+  align-items center
+  justify-content center

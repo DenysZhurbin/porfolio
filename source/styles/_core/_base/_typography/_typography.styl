@@ -1,0 +1,81 @@
+@font-face
+  font-weight 300
+  font-style normal
+  font-family "Open Sans"
+  src url("../fonts/OpenSans/OpenSans-Light.eot")
+  src:
+    url("../fonts/OpenSans/OpenSans-Light.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans/OpenSans-Light.woff2") format("woff2"),
+    url("../fonts/OpenSans/OpenSans-Light.woff") format("woff"),
+    url("../fonts/OpenSans/OpenSans-Light.ttf") format("truetype")
+  font-display swap
+
+@font-face
+  font-weight 400
+  font-style normal
+  font-family "Open Sans"
+  src url("../fonts/OpenSans/OpenSans-Regular.eot")
+  src:
+    url("../fonts/OpenSans/OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"),
+    url("../fonts/OpenSans/OpenSans-Regular.woff") format("woff"),
+    url("../fonts/OpenSans/OpenSans-Regular.ttf") format("truetype")
+  font-display swap
+
+@font-face
+  font-weight 600
+  font-style normal
+  font-family "Open Sans"
+  src url("../fonts/OpenSans/OpenSans-SemiBold.eot")
+  src:
+    url("../fonts/OpenSans/OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"),
+    url("../fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"),
+    url("../fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype")
+  font-display swap
+
+@font-face
+  font-weight 700
+  font-style normal
+  font-family "Open Sans"
+  src url("../fonts/OpenSans/OpenSans-Bold.eot")
+  src:
+    url("../fonts/OpenSans/OpenSans-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans/OpenSans-Bold.woff2") format("woff2"),
+    url("../fonts/OpenSans/OpenSans-Bold.woff") format("woff"),
+    url("../fonts/OpenSans/OpenSans-Bold.ttf") format("truetype")
+  font-display swap
+
+@font-face
+  font-weight 800
+  font-style normal
+  font-family "Open Sans"
+  src url("../fonts/OpenSans/OpenSans-ExtraBold.eot")
+  src:
+    url("../fonts/OpenSans/OpenSans-ExtraBold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans/OpenSans-ExtraBold.woff2") format("woff2"),
+    url("../fonts/OpenSans/OpenSans-ExtraBold.woff") format("woff"),
+    url("../fonts/OpenSans/OpenSans-ExtraBold.ttf") format("truetype")
+  font-display swap
+
+b
+strong
+  font-weight $font-weight-bolder
+
+p
+  margin-top 0
+
+.text-centered
+  text-align center
+
+.text-accent
+  text-accent()
+
+.line-break
+  display block
+
+.hide-string-at-screen-sm
+  display none
+
+  +above($media-screen-tablet)
+    display inline

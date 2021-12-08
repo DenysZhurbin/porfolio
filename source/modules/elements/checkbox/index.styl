@@ -1,0 +1,58 @@
+$checkbox-default-size = 16px
+.checkbox
+  display flex
+  cursor pointer
+  text-indent 24px
+  position relative
+
+  input
+    position absolute
+    opacity 0
+    z-index -1
+
+    &:disabled ~ .checkbox__icon
+      background-color $light-grey-300
+      border-color #ccc
+      pointer-events none
+      cursor not-allowed
+
+    &:focus ~ .checkbox__icon
+      box-shadow 0 0 0 2px $gray-100
+
+    &:checked ~ .checkbox__icon
+      // background-color $orange-500
+      background-image url("../images/_global/check.svg")
+      background-size 10px
+      background-repeat no-repeat
+      background-position center
+      border-color #FF9000
+      background-color #FF9000
+
+      &:hover
+        border-color #ff9000
+
+  .checkbox__icon
+    display inline-block
+    padding-top 1px
+    position absolute
+    top 0
+    left 0
+    width 16px
+    height 16px
+    min-width $checkbox-default-size
+    border-radius 4px
+    border 1px solid $gray-300
+    background-color $white
+    cursor pointer
+    transition background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease
+
+    &:hover
+      border-color $gray-500
+
+  .checkbox__label
+    font-size 12px
+    line-height 18px
+    user-select none
+
+    a
+      display inline-block

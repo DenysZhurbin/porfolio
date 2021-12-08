@@ -1,0 +1,186 @@
+//TODO refactor pug
+.resources-list
+  grid-row(16)
+
+.resources-list--horizontal
+  .resource
+    +above($media-screen-desktop)
+      justify-content flex-start
+      width calc(50% - 16px)
+
+  .resource__image-wrapper
+    +above($media-screen-desktop)
+      width auto
+      margin-bottom 0
+
+  .resource__image
+    +above($media-screen-desktop)
+      width 160px
+      text-align left
+
+  .resource__description
+    +above($media-screen-desktop)
+      display flex
+      grid-column-width-auto()
+      flex-direction column
+      text-align left
+      padding 4px 0 4px 24px
+
+  .resource__link
+    +above($media-screen-desktop)
+      margin-top auto
+
+.resource
+  background-color $light-grey-200
+  width 100%
+  grid-row()
+  grid-column-margin(16)
+  justify-content center
+  padding 20px 24px 23px
+  margin-bottom 17px
+  cursor pointer
+  transition .2s all
+
+  +above($media-screen-tablet)
+    width calc(50% - 16px)
+
+  +above($media-screen-desktop)
+    width calc(33.33333% - 16px)
+    padding-top 29px
+    padding-bottom 20px
+    margin-bottom 20px
+
+  &:hover
+    background-color $white
+    box-shadow 0 10px 25px 0 rgba($black, 0.15)
+
+.resource__image-wrapper,
+.resource__description
+  width 100%
+  text-align center
+
+.resource__image-wrapper
+  margin-bottom 14px
+
+  +above($media-screen-tablet)
+    margin-bottom 17px
+
+  +above($media-screen-desktop)
+    margin-bottom 13px
+
+.resource__image
+  width 156px
+
+  +above($media-screen-desktop)
+    width 194px
+
+.resource__title
+  font-size $font-size-base
+  line-height $line-height-base
+  font-weight $font-weight-bolder
+  margin-bottom 4px
+  color $gray-900
+
+  +above($media-screen-tablet)
+    margin-bottom 4px
+
+  +above($media-screen-desktop)
+    font-size $font-size-bigger
+    margin-bottom 9px
+
+.resource__size
+  font-size 10px
+  color $dark-grey-color
+  line-height 16px
+  margin-bottom 21px
+
+  +above($media-screen-tablet)
+    margin-bottom 19px
+
+  +above($media-screen-desktop)
+    font-size $font-size-small
+    line-height 16px
+
+.resource__link
+  font-size $font-size-small
+  color $red-error
+  line-height $line-height-small
+  font-weight $font-weight-bolder
+  text-transform uppercase
+  transition .2s all
+
+  +above($media-screen-desktop)
+    font-size $font-size-base
+    line-height $line-height-base
+
+  &:hover
+    color $red-hover
+
+.resource__text
+  color $gray-900
+  font-size 10px
+  line-height normal
+  opacity .7
+  font-weight $font-weight-normal
+  margin-bottom 8px
+
+  +above($media-screen-desktop)
+    font-size $font-size-small
+
+
+.resource--transparent
+  background-color transparent
+  padding 0
+  margin-bottom 34px
+
+  +above($media-screen-tablet)
+    margin-bottom 0
+
+  +above($media-screen-desktop)
+    width calc(50% - 16px)
+    justify-content flex-start
+
+  &:last-child
+    margin-bottom 0
+
+  &:hover
+    background-color transparent
+    box-shadow none
+
+  .resource__image-wrapper
+    width 148px
+    padding-right 20px
+    margin-bottom 0
+
+    +above($media-screen-desktop)
+      width 130px
+
+  .resource__description
+    grid-column-width-auto()
+    text-align left
+    display flex
+    flex-direction column
+
+    +above($media-screen-desktop)
+      max-width 200px
+
+  .button
+    margin-top auto
+    font-size $font-size-bigger
+    font-weight $font-weight-bolder
+    max-width 140px
+    padding-left 14px
+    padding-right 14px
+
+    +above($media-screen-desktop)
+      padding-top 6px
+      padding-bottom 6px
+
+  .resource__image
+    width 100%
+
+  .resource__size
+    font-size $font-size-small
+    color $gray-800
+    opacity .7
+    margin-bottom 10px

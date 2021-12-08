@@ -1,0 +1,18 @@
+mixin video(attributes)
+	-
+		const videoId = attributes.videoId || "";
+		const color = attributes.previewColor || "red";
+		const linkText = attributes.linkText;
+	
+		delete attributes.videoId;
+		delete attributes.color;
+		delete attributes.linkText;
+
+	.video-player(class= "video-player--" + color)&attributes(attributes)
+		.video-player__lazyframe(
+			data-vendor="youtube"
+			data-src="https://www.youtube.com/embed/" + videoId + "?autoplay=1")
+
+		if linkText
+			a.video-player__link(href="https://www.youtube.com/watch?v=" + videoId target="_blank")
+				| #{linkText}

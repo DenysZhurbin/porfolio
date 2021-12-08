@@ -1,0 +1,125 @@
+.video-player
+  .video-player__lazyframe
+    position relative
+    margin-bottom 17px
+    border-radius $border-radius
+    background-size contain
+    background-repeat no-repeat
+    box-shadow 0 10px 20px 2px rgba($black, 0.1)
+
+    +above($media-screen-tablet)
+      margin-bottom 22px
+
+    +above($media-screen-desktop)
+      margin-bottom 30px
+
+    &:hover
+      cursor pointer
+
+    &::before
+      display block
+      padding-top 56.25%
+      width 100%
+      content ""
+
+    &[data-ratio="16:9"]::before
+      padding-top 56.25%
+
+    &[data-ratio="4:3"]::before
+      padding-top 75%
+
+    &[data-ratio="1:1"]::before
+      padding-top 100%
+
+    iframe
+      position absolute
+      position-zero()
+      z-index 5
+      width 100%
+      height 100%
+
+    &::after
+      pseudo()
+      top 50%
+      left 50%
+      width 35px
+      height 25px
+      background-image url("../images/_modules/elements/video/play-icon-white.svg")
+      background-size contain
+      background-repeat no-repeat
+      transition transform 0.2s
+      transform translate(-50%, -50%)
+
+      +above($media-screen-tablet)
+        width 54px
+        height 38px
+
+    &:hover::after
+      transform translate(-50%, -50%) scale(1.5)
+
+  .video-player__link
+    position relative
+    padding-left 24px
+    color $title-color
+    font-weight $font-weight-bolder
+    font-size $font-size-small
+    line-height 1.67
+
+    &:hover
+      color $red-hover
+
+    &::after
+      pseudo()
+      top 2px
+      left 0
+      width 20px
+      height 16px
+      background-image url("../images/_modules/elements/video/play-icon-red.svg")
+      background-size 20px 15px
+      background-repeat no-repeat
+
+  &.video-player--red
+    .video-player__lazyframe
+      background-color #e95e50
+      background-image url("../images/_modules/elements/video/preview-video-red.svg")
+
+  &.video-player--blue
+    .video-player__lazyframe
+      background-color #4259b4
+      background-image url("../images/_modules/elements/video/preview-video-blue.svg")
+
+.video-player__link
+  position relative
+  display inline-block
+  margin-bottom 12px
+  padding-left 24px
+  color $title-color
+  font-weight $font-weight-normal
+  font-size $font-size-small
+  line-height $line-height-small
+
+  +above($media-screen-tablet)
+    font-size $font-size-base
+    line-height $line-height-base
+
+  +above($media-screen-desktop)
+    margin-bottom 16px
+
+  &:last-child
+    margin-bottom 0
+
+  &:hover
+    color $red-hover
+
+  &::after
+    pseudo()
+    top 2px
+    left 0
+    width 20px
+    height 14px
+    background-image url("../images/_modules/elements/video/play-icon-red.svg")
+    background-size contain
+    background-repeat no-repeat
+
+    +above($media-screen-tablet)
+      top 5px

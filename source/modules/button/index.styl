@@ -1,0 +1,165 @@
+// TODO fix problem with Span not having box shadow on focus
+
+.button
+a.button
+  button-sm()
+  display inline-block
+  position relative
+  border 2px solid $button-color
+  border-radius $border-radius
+  background-color $button-color
+  background-image none
+  font-weight $font-weight-semiBold
+  font-family $font-family-base
+  color $white
+  vertical-align middle
+  text-align center
+  text-decoration none
+  letter-spacing 0.3px
+  cursor pointer
+  transition all 0.15s ease-in
+  user-select none
+  touch-action manipulation
+  -webkit-font-smoothing antialiased
+
+  +above($media-screen-tablet)
+    font-size $font-size-bigger
+    line-height $line-height-base
+    font-weight $font-weight-bolder
+    padding 10px 16px
+
+  +above($media-screen-desktop)
+    font-size $font-size-bigger
+    line-height $line-height-base
+
+  &:focus
+  &:active
+  &--active
+    box-shadow 0 0 0 2px $gray-100
+
+  &:active
+  &--active
+    background-image none
+
+  &:disabled,
+  &[disabled],
+  &.is-disabled
+    &
+    &:hover
+    &:focus
+    &:active
+      outline none
+      border 2px solid $button-color
+      background $button-color
+      box-shadow none
+      color $white
+      opacity .5
+      cursor not-allowed
+
+  &.is-disabled--custom
+    pointer-events none
+
+  &:hover
+  &:focus
+  &:active
+  &--active
+    outline none
+
+  &:hover
+  &:focus
+  &:active
+    border 2px solid $button-hover-color
+    background $button-hover-color
+    color $white
+    text-decoration none
+
+.button--secondary
+a.button--secondary
+  border 2px solid $button-secondary-color
+  background-color $button-secondary-color
+
+  &:focus
+    box-shadow 0 0 0 2px $gray-100
+
+  &:active
+  &--active
+    outline none
+    border 2px solid $button-secondary-active-color
+    background-color $button-secondary-active-color
+    background-image none
+    box-shadow 0 0 0 2px $gray-100
+
+  &:disabled,
+  &[disabled],
+  &.is-disabled
+    &
+    &:hover
+    &:focus
+    &:active
+      border 2px solid $button-secondary-color
+      background $button-secondary-color
+
+  &:hover
+  &:focus
+  &:active
+    border 2px solid $button-secondary-hover-color
+    background $button-secondary-hover-color
+
+#header .g-btn
+.button--bordered
+a.button--bordered
+  border solid 2px $button-color
+  background-color transparent
+  color $text-color-darken
+
+  +above($media-screen-tablet)
+    button-md()
+    padding 5px
+
+  +above($media-screen-desktop)
+    button-lg()
+    padding 5px
+
+  &:focus
+    border solid 2px $button-hover-color
+    background-color $button-hover-color
+
+  &:active
+    border solid 2px $orange-600
+    background-color $orange-600
+    box-shadow 0 0 0 2px $gray-100
+
+  &:hover
+    border solid 2px $button-hover-color
+    background-color $button-hover-color
+
+  &:disabled,
+  &[disabled],
+  &.is-disabled
+    &
+    &:hover
+    &:focus
+    &:active
+      border 2px solid $light-orange-600
+      background-color transparent
+      color $gray-800
+
+.button--sm
+  button-sm()
+
+  +above($media-screen-tablet)
+    button-sm()
+
+  +above($media-screen-desktop)
+    button-sm()
+
+.button--md
+  +above($media-screen-tablet)
+    button-md()
+
+  +above($media-screen-desktop)
+    button-md()
+
+.button--lg
+  +above($media-screen-desktop)
+    button-lg()

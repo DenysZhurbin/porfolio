@@ -1,0 +1,74 @@
+// Validation tooltips
+.parsley-errors-list
+  padding-top 4px
+  text-error()
+
+input
+  color $gray-900
+
+.form-input
+  padding 8px 12px
+  width 100%
+  border 1px solid $input-border-color
+  border-radius $border-radius
+  box-shadow inset 0 2px 4px 0 rgba($black, 0.1)
+  font-family $font-family-sans
+  color $text-color-darken
+  font-size $font-size-base
+  line-height 16px
+  height 32px
+  transition border-color 0.15s ease-in-out
+
+  &:focus
+  &.is-focused
+    outline none
+    box-shadow $input-box-shadow
+
+  &:hover
+    border 1px solid $gray-500
+
+  +placeholder()
+    color $input-placeholder-color
+
+  &.parsley-error
+    border-color $border-color-error
+
+    &:focus
+      border-color $input-border-color
+
+.form-input--textarea
+  min-height 76px
+
+.form-input:disabled
+  border 1px solid $gray-100
+  background-color $light-grey-300
+  cursor not-allowed
+
+.form-submit
+.button.form-submit
+  width 100%
+  button-sm()
+
+  +above($media-screen-tablet)
+    button-sm()
+
+  +above($media-screen-desktop)
+    button-sm()
+
+  +above($media-screen-desktop-lg)
+    button-sm()
+
+.form__row
+  margin-bottom 12px
+
+.form__row--submit
+  margin-top 16px
+  margin-bottom 0
+
+.form__label
+  display inline-block
+  margin-bottom 10px
+  color $gray-900
+  font-weight $font-weight-bolder
+  font-size $font-size-base
+  line-height 1

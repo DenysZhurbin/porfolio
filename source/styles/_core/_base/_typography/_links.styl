@@ -1,0 +1,25 @@
+a, .link
+	background-color transparent
+	color $link-color
+	text-decoration none
+	font-weight $font-weight-semiBold
+	cursor pointer
+	transitions()
+
+	&:disabled,
+	&[disabled],
+	&.is-disabled
+		color $red-hover
+		cursor default
+		pointer-events none
+
+	&:active
+	&:hover
+		outline none
+		color $red-hover
+
+.link-action
+	@extend .link
+	display inline-block
+	border-bottom 1px dashed
+	vertical-align inherit

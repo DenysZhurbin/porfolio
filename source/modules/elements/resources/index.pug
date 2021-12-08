@@ -1,0 +1,102 @@
+mixin resources-list(mods)
+	- var modifier = ""
+
+	if (mods)
+		if (mods.constructor === Array)
+			each mod in mods
+				- modifier += " resources-list--"+mod
+		else
+			- modifier = "resources-list--"+mods
+
+	.resources-list(class=modifier)
+		block
+
+mixin resource(title, linkText, path, attributes)
+	-
+		let resourceTag = "div";
+		let resourceText, resourceSize;
+		const imgPath = path.substring(0, path.length - 4)
+		const imgFormat = path.slice(-3);
+		const isLink = attributes.href || null;
+		const hasText = attributes.hasText || null;
+		const hasSize = attributes.hasSize || null;
+
+		if (isLink) {
+			resourceTag = "a";
+		}
+
+		if (hasText) {
+			resourceText = hasText;
+			delete attributes.hasText;
+		}
+
+		if (hasSize) {
+			resourceSize = hasSize;
+			delete attributes.hasSize;
+		}
+
+	#{resourceTag}(class="resource")&attributes(attributes)
+		.resource__image-wrapper
+			img(src= path
+				srcset= imgPath + "@2x." + imgFormat + " 2x"
+			).resource__image
+
+		.resource__description
+			.resource__title
+				= title
+
+			if (resourceSize)
+				.resource__size
+					| PDF, 870 kb
+
+			if (resourceText)
+				.resource__text
+					block
+
+			.resource__link
+				= linkText
+
+mixin resource-transparent(title, linkText, path, attributes)
+	-
+		let resourceTag = "div";
+		let resourceText, resourceSize;
+		const imgPath = path.substring(0, path.length - 4)
+		const imgFormat = path.slice(-3);
+		const isLink = attributes.href || null;
+		const hasText = attributes.hasText || null;
+		const hasSize = attributes.hasSize || null;
+
+		if (isLink) {
+			resourceTag = "a";
+		}
+
+		if (hasText) {
+			resourceText = hasText;
+			delete attributes.hasText;
+		}
+
+		if (hasSize) {
+			resourceSize = hasSize;
+			delete attributes.hasSize;
+		}
+
+	#{resourceTag}(class="resource resource--transparent")&attributes(attributes)
+		.resource__image-wrapper
+			img(src= path
+				srcset= imgPath + "@2x." + imgFormat + " 2x"
+			).resource__image
+
+		.resource__description
+			if (resourceSize)
+				.resource__size
+					| PDF, 870 kb
+
+			.resource__title
+				= title
+
+			if (resourceText)
+				.resource__text
+					block
+
+			+button().button--bordered
+				= linkText

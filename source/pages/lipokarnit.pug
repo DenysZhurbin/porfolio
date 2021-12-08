@@ -1,0 +1,779 @@
+extends ../layouts/responsive-simple
+
+block head
+  title Пройдіть безкоштовний тест і отримайте рекомендації для схуднення
+  meta(charset="UTF-8")
+  link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+  link(rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap")
+  link(rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap")
+  noscript
+
+  link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap")
+
+block styles
+  link(rel="stylesheet" href=config.path.styles + "/lipokarnit.css")
+
+block main
+  +page-section("primary")
+    img(src="./images/lipokamit/intro-decoration.png" alt="Greeting image decoration").intro-decoration
+
+    +section-title Русова Наталія Петрівна - эндокринолог, лікар першої кваліфікаційної категорії. Засновник і провідний фахівець «Асоціації дієтологів України».
+
+    +section-subtitle Дайте відповідь на кілька питань і отримаєте рекомендації для схуднення
+
+    +button(tabindex="0").button--start-test.js-start-quiz Розпочати тест
+
+  +page-section("quiz")
+    .quiz.js-quiz-slider
+      .quiz__section
+        +section-title Виберіть Вашу стать
+
+        form.form-quiz-sex(action="")
+          label.label-radio
+            input(type="radio" name="scales" value="Чоловік")#quiz1__answer1
+            | Чоловік
+
+          label.label-radio
+            input(type="radio" name="scales" value="Жінка")#quiz1__answer2
+            | Жінка
+
+      .quiz__section
+        +section-title Вкажіть Ваш вік
+
+        form.form-quiz-age(action="")
+          input(type="number")#quiz-age-input.form-input
+          label(for="quiz-age-input").form-label
+            | років
+
+      .quiz__section
+        +section-title Які параметри Вашого тіла в даний момент
+
+        form.form-quiz-parameters(action="")
+          .form-row
+            label.form-label(for="quiz-height-input")
+              | Зріст, см
+            input(type="number" required)#quiz-height-input.form-input
+
+          .form-row
+            label.form-label(for="quiz-weight-input")
+              | Вага, кг
+            input(type="number" required)#quiz-weight-input.form-input
+
+      .quiz__section
+        +section-title В яких зонах надлишкові кілограми проявляються найбільше всього
+
+        form.form-quiz-zones(action="")
+          label.label-checkbox
+            input(type="checkbox" name="problem-zones")
+            | Живіт
+          label.label-checkbox
+            input(type="checkbox" name="problem-zones")
+            | Боки
+          label.label-checkbox
+            input(type="checkbox" name="problem-zones")
+            | Руки
+          label.label-checkbox
+            input(type="checkbox" name="problem-zones")
+            | Ноги
+          label.label-checkbox
+            input(type="checkbox" name="problem-zones")
+            | Обличчя
+
+      .quiz__section
+        +section-title Як давно Ви набрали зайву вагу
+
+        form.form-quiz-extra-weight(action="")
+          .form-row
+            label.label-radio
+              input(type="radio" name="extra-weight" value="Менше місяця тому")
+              | Менше місяця тому
+
+            label.label-radio
+              input(type="radio" name="extra-weight" value="Скоро буде пів року")
+              | Скоро буде пів року
+
+          .form-row
+            label.label-radio
+              input(type="radio" name="extra-weight" value="Не менше ніж два роки тому")
+              | Не менше ніж два роки тому
+
+            label.label-radio
+              input(type="radio" name="extra-weight" value="Більше ніж два роки тому")
+              | Більше ніж два роки тому
+
+      .quiz__section
+        +section-title Як Ви думаєте, що спонукало Вас до набору зайвої ваги
+
+        form.form-quiz-extra-weight-reasons(action="")
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Пологи
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Шкідливі звички
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Стресс
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Порушення сну
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Проблеми у родині
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Робота
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Інше
+
+      .quiz__section
+        +section-title На скільки швидко Вам потрібно схуднути
+
+        form.form-quiz-slimming-value(action="")
+          .form-row
+            label.label-radio
+              input(type="radio" name="slimming-value" value="Ще вчора")
+              | Ще вчора
+
+            label.label-radio
+              input(type="radio" name="slimming-value" value="За тиждень")
+              | За тиждень
+
+          .form-row
+            label.label-radio
+              input(type="radio" name="slimming-value" value="За місяць максимум")
+              | За місяць максимум
+
+            label.label-radio
+              input(type="radio" name="slimming-value" value="Є кілька місяців в запасі")
+              | Є кілька місяців в запасі
+
+      .quiz__section
+        +section-title Бажана вага?
+
+        form.form-quiz-desired-weight(action="")
+          input(type="number" required)#quiz-desired-weight-input.form-input
+          label(for="quiz-desired-weight-input").form-label
+            | кг
+
+    .quiz__actions
+      .quiz__arrow-next.is-disabled(tabindex="0")
+        | Вперед
+
+      +button(disabled="disabled").button--quiz-calculate-result.js-quiz-calculate-result Отримати результат
+
+  +page-section("test-result")
+    .assistant-panel
+      .assistant-panel__avatar
+        img(src="./images/lipokamit/assistant-avatar.png")
+
+      .assistant-panel__name
+        | Наталія
+
+    section
+      .section-title.text-center ДЯКУЄМО ЗА ВАШІ ВІДПОВІДІ!
+      +section-subtitle Вас консультує:
+
+      figure
+        img(src="./images/lipokamit/assistant.jpeg" alt="").intro-decoration
+        figcaption <strong>Русова Наталія Петрівна</strong> - эндокринолог, лікар першої кваліфікаційної категорії. Засновник і провідний фахівець «Асоціації дієтологів України».
+
+      +section-title За результатами, пройденого Вами тесту, були виявлені серйозні проблеми з зайвою вагою. Варто звернути увагу на ризик захворювань:
+
+      table(cellspacing=0)
+        tr
+          th Захворювання
+          th Імовірність
+        tr
+          td Цукровий діабет II типу
+          td.js-weight-issue-1
+        tr
+          td Ожиріння III ступеня
+          td.js-weight-issue-2
+        tr
+          td Патології ШКТ
+          td.js-weight-issue-3
+        tr
+          td Атеросклероз
+          td.js-weight-issue-4
+
+      p Інфаркти, інсульти, цукровий діабет, гіпертонія, варикоз, панкреатит, гормональні та інші порушення в роботі організму викликає надмірна вага.
+      p Це дуже небезпечно, проте більшість продовжує закривати на проблему очі, вони намагаються переконати себе, що все добре, хоча це не так.
+      p За останніми даними Всесвітньої асоціації охорони здоров'я, смертність у світі від ускладнень, викликаних ожирінням, збільшилась на 15%, в той час, як у нас вона збільшилась на цілих 17%, або на 2,5 млн жінок на рік.
+
+    section
+      +section-title Заслужений ендокринолог України Русова Н. П. розповіла, чому вже в цьому році дієтологи УСЬОГО СВІТУ можуть залишитися без роботи.
+
+      p.question
+        img(src="./images/lipokamit/zhur.jpeg" alt="")
+        | <strong>Кореспондент: На минулій конференції дієтологів, зі сцени Ви заявили про те, що Ви і Ваші колеги дієтологи найближчим часом можете залишитись без роботи, розкажіть докладніше про це.</strong>
+      p.answer
+        img(src="./images/lipokamit/rusova.jpg" alt="")
+        | <strong>Русова Н. П.</strong> Низькокалорійні дієти і синтетичні препарати ПРАЦЮЮТЬ ПРОТИ ВАШОГО ЗДОРОВ'Я. Так, вони можуть дати тимчасовий ефект, але вже через 6-7 тижнів просто «знищать» ваш метаболізм. Організм почне вимагати солодке, нагромаджувати жир і економити енергію. Тому після невдалої спроби скинути вагу - ми набираємо навіть більше, ніж було.
+      p На щастя, у сучасній дієтології є рішення. І через нього я можу залишитися без роботи (сміється).
+      p В кінці минулого року в наукових ЗМІ «прогримів» засіб Ліпокарніт – корисний за своїми властивостями, який втричі збільшує швидкість метаболізму і стимулює природну втрату ваги.
+      p Подумайте тільки - за один місяць можна втрачати від 15 до 17 кг, паралельно очищаючи свій організм. І це рішення стало настільки геніальним і простим, що навіть не віриться.
+      p.question
+        img(src="./images/lipokamit/zhur.jpeg" alt="")
+        | <strong>Кореспондент: Що таке <a href="#form-order-product">Ліпокарніт</a>?</strong>
+      p.answer
+        img(src="./images/lipokamit/rusova.jpg" alt="")
+        | <strong>Русова Н.П.:</strong> Якщо організму не вистачає вітаміну C, то ми їмо апельсин. Якщо мало фосфору - їмо рибу. А що ми робимо, коли накопичується жир? Мучимо себе дієтою! Але природа влаштована не так. І щоб зрозуміти цю просту істину, дієтологам знадобилося майже 8 років.
+      p Виявилося, що при зайвій вазі організм потребує мікроелементи, які відповідають за розщеплення жирів. Зокрема, це супер-антиоксиданти, які спалюють не тільки підшкірний, але навіть найнебезпечніший - вісцеральний жир.
+      .centered-content
+        img(src="./images/lipokamit/lipokarnit.jpg" alt="product")
+      p.blinking-text
+        a(href="#form-order-product") ОТРИМАТИ Ліпокарніт ЗА 9 ГРН*
+      p <a href="#form-order-product">Ліпокарніт</a> – це 100% натуральний концентрат, в якому міститься 25 екстрактів, в тому числі экстракт худії (пригнічує відчуття голоду - прим. редакції), корінь якону та шафран. Клінічно доведено, що <a href="#form-order-product">Ліпокарніт</a> прискорює обмін речовин декілька разів і збільшує ліполіз (розщеплення жирів) майже в 7 (!) разів.
+      p Схуднення на 4 кг на тиждень відбувається завдяки прискоренню природних процесів організму. А значить, Вам не потрібно себе мучити інтенсивними навантаженнями і строгою дієтою.
+      p <a href="#form-order-product">Ліпокарніт</a> – це єдине ефективне рішення в боротьбі із зайвою вагою.
+
+      strong Основні властивості <a href="#form-order-product">Ліпокарніт</a>:
+      ul.dash-list
+        li Спалювання жиру
+        li Зменшення апетиту
+        li Нормалізація гормонального фону
+        li Омолодження та очищення організму
+        li Тонізуючий ефект за рахунок зниження жирової маси
+
+      p Засіб є біологічним активатором. Це означає, що в ньому є лише ті натуральні компоненти, які сприяють процесу ліполізу. Доведено, що Ліпокарніт – це єдиний препарат, який здатний прибрати жир не тільки з стегон і живота, а й з більш «складних» зон: рук в області трицепса, підборіддя і шиї. 98 з 100 опитаних старше 55 років підтвердили, що засіб допоміг позбутися навіть від жирового прошарку під лопатками, що раніше було можливо лише шляхом ліпосакції.
+      p <a href="#form-order-product">Ліпокарніт</a> не тільки прибирає зайву вагу, але і підтримує низький відсоток жиру в організмі. І ось, який результат Ви отримаєте:
+
+      figure
+        img(src="./images/lipokamit/773-4bc3069d6f2d3606c02626c51ac8934a.jpeg" alt="")
+        figcaption Катерина Косих, 38 років
+
+      figure
+        img(src="./images/lipokamit/743-3e90538182ba79fda2b784489e58f282.jpeg" alt="")
+        figcaption Олександра Новікова, 40 років
+
+      figure
+        img(src="./images/lipokamit/238-1fc15a1a04c976ac3fd2e9b2fddc9ec0.jpeg" alt="")
+        figcaption Ірина Олікова, 35 років
+
+      figure
+        img(src="./images/lipokamit/527-9e1deb201e9f95e2b79bf998611e09b3.jpeg" alt="")
+        figcaption Владислав Нікіфоров, 39 років
+
+      p.blinking-text
+        a(href="#form-order-product") ОТРИМАТИ Ліпокарніт ЗА 9 ГРН*
+
+    section
+      .dashed
+        +section-title <a href="#form-order-product">Ліпокарніт</a> АКТИВУЄ В ОРГАНІЗМІ 5 СТАДІЙ ЖИРОСПАЛЮВАННЯ:
+
+        ul
+          li <strong>1-3 день</strong> – виведення зайвої води. Ідуть набряки з області ніг та обличчя. У цей період рекомендується пити мінімум 1.5 літра чистої води щодня.
+          li <strong>4-5 дні</strong> – прискорення метаболізму. Організм почне сам витрачати від 4000 ккал на добу (при фізичних навантаженнях від 4500 ккал - прим. редакції).
+          li <strong>5-7 день</strong> – активація ліполізу. Починається процес спалювання жирової тканини і її переробки в енергію. Ви відчуєте бадьорість і приплив сил.
+          li <strong>8-11 день</strong> – очищення кишечника від шлаків. Ви відчуєте легкість в животі.
+          li <strong>11+ днів</strong> – спалювання вісцерального жиру. Іде жир з внутрішніх органів. Це не сильно відіб'ється на вазі, але виразно корисно для здоров'я.
+
+      p.warning-note ВАЖЛИВО: <i>засіб сильно пригнічує апетит. Не забувайте нормально і правильно харчуватися під час схуднення - це тільки посилить результат.</i>
+
+    section
+      +section-title Думка експертів
+
+      figure
+        img(src="./images/lipokamit/200-74815d52829d6c7fb821fffd3d6575ab.jpeg" alt="")
+        figcaption <strong>Ісаєв Олексій Миколайович</strong> - лікар дієтолог-ендокринолог. Досвід роботи - 27 років
+
+      p.answer
+        img(src="./images/lipokamit/isaev.jpg" alt="")
+        <strong>Ісаєв О. М:</strong> Найголовніше в схудненні - не нашкодити своєму організму. Тому не можна постійно сидіти на дієті, це болісно і шкідливо. Таблетки, спортивні жироспалювачі та інша хімія лише пригнічує організм, навантажує печінку і провокує гормональний збій (і повернути його в норму буде майже неможливо). Зниження ваги повинно бути природним і не порушувати внутрішні процеси організму!
+      p На даний момент, <a href="#form-order-product">Ліпокарніт</a> – єдиний засіб, що відповідає цим завданням. Активні мікроелементи провокують прискорення обміну речовин і спалювання жирової маси, а їх концентрат в кожній таблетці <a href="#form-order-product">Ліпокарніт</a> підсилює ці процеси майже в 8 разів. Я гарантую, що цей засіб найкращий, який існує в сучасній дієтології. Я рекомендую його всім! Одна моя клієнтка за 12 тижнів втратила 38 зайвих кілограмів, і це в 72 роки. Уявляєте?!
+
+      figure
+        img(src="./images/lipokamit/438-d606908f0763cfa176b06ba0f38d75d8.jpeg" alt="")
+        figcaption <strong>Краснова Ольга Володимирівна</strong> - лікар дієтолог-ендокринолог. Досвід роботи - 18 років
+
+      p.answer
+        img(src="./images/lipokamit/krasnova.jpg" alt="")
+        | <strong>Краснова О. В:</strong> До мене часто приходять жінки буквально зі сльозами на очах. Спробували все, а результату або немає, або вага постійно повертається. Раніше я радила їм заспокоїтися, взяти себе в руки і почати все спочатку. Але сьогодні є вихід - <a href="#form-order-product">Ліпокарніт</a>. Його можна приймати як добавку до харчування, і природним шляхом скинути до 17 кг на місяць.
+
+    .accent-section.accent-section--best-time-c2a
+      .accent-section__inner
+        | ВАЖЛИВО! В РЕЗУЛЬТАТІ ДОСЛІДЖЕНЬ БУЛО ВСТАНОВЛЕНО, ЩО <span class="js-set-current-month"></span> - НАЙКРАЩИЙ ЧАС ДЛЯ ПОЧАТКУ СХУДНЕННЯ. ЗАВДЯКИ СТАБІЛІЗАЦІЇ СЕРЕДНЬОЇ ТЕМПЕРАТУРИ ПРИСКОРЮЮТЬСЯ ОБМІННІ ПРОЦЕСИ В ОРГАНІЗМІ, ЕФЕКТ ВІД ЗАСТОСУВАННЯ ЗАСОБУ ПОСИЛЮЄТЬСЯ. СХУДНЕННЯ ВІДБУВАЄТЬСЯ НА 37% ШВИДШЕ, НІЖ В ІНШУ ПОРУ РОКУ
+
+    p.blinking-text
+      a(href="#form-ordeстанніми даними Всеr-product") ОТРИМАТИ Ліпокарніт ЗА 9 ГРН*
+
+    p <a href="#form-order-product">Ліпокарніт</a> повністю натуральний засіб, який підходить всім, незалежно від статі, віку або стану здоров'я.
+
+    .accent-section
+      .accent-section__title
+        | Результати лабораторних тестів <a href="#form-order-product">Ліпокарніт</a> в НДІ Дієтології і спорту:
+
+      p Група піддослідних (100 осіб), що мають надлишкову масу тіла, протягом місяця приймала <a href="#form-order-product">Ліпокарніт щодня</a>, не змінюючи при цьому звичайний раціон. В ході дослідження були отримані наступні результати:
+
+      ol
+        li(custom-list-counter="1") Втрата жирової маси від 12 до 15 кг.
+          ul
+            li при позбавленні від ваги в 15кг – 95%
+            li при позбавленні від ваги в 12кг - 100%
+
+      p *Під втратою в даному випадку розуміється позбавлення від жирової маси і її відсутності 1 місяць.
+
+      ol(start="2")
+        li(custom-list-counter="2") Помітне поліпшення обміну речовин.
+        li(custom-list-counter="3") Підвищення тонусу і фізичної активності.
+        li(custom-list-counter="4") Поліпшення роботи печінки і ендокринної системи.
+
+      p Доведено, що <a href="#form-order-product">Ліпокарніт</a> надає потужний вплив на прискорення метаболізму і спалювання жирової маси. Він показаний до застосування особам, які мають надлишкову вагу, особам з порушеним обміном речовин і цукровим діабетом.
+
+    section.warning-area
+      +section-title Увага: остерігайтеся підробок!
+
+      .warning-section
+        +section-title("warning-section") Умови отримання <a href="#form-order-product">Ліпокарніт</a> по акції:
+
+        ul
+          li
+            strong Проживати в регіоні участі програми (України)
+            br
+            | Скористатися знижкою можуть тільки жителі регіонів, в яких в даний момент діє дисконтна програма
+
+          li
+            strong Тільки для особистого використання
+            br
+            | Це потрібно для боротьби з перекупниками, які намагаються масово викуповувати <a href="#form-order-product">Ліпокарніт</a> і перепродувати його зі своєю націнкою
+
+          li
+            strong Оформити заявку через офіційний сайт програми, з урахуванням знижки нижче
+            br
+            | Це гарантія ціни виробника і захист від перекупників
+
+    section
+      p.warning-text Оновлено: <span class="js-set-current-month-with-day"></span> 2021 року: запасів «Ліпокарніт» залишилося дуже мало, тому виробник прийняв рішення закінчити роздачу препарату за 9 грн*  <span class="js-set-current-month-with-day"></span> року (включно).
+
+      p Переконайтеся, що на сторінці є захисна голограма:
+      p
+        img(src="./images/lipokamit/hologram.png" alt="").image-hologram
+      p Захисна голограма - це 100% гарантія якості. Це показує, що ви перебуваєте на офіційному веб-сайті, і вони вам надішлють оригінал Ліпокарніт, і що вам будуть надані необхідна консультація і підтримка.
+
+      .centered-content
+        img(src="./images/lipokamit/lipokarnit.jpg" alt="product")
+
+    section
+      .order-limit
+        .order-limit__title <span class="order-limit__date js-set-current-date"></span> Залишилось упаковок за програмою
+        .order-limit__counter
+          .order-limit__counter-value
+          .order-limit__counter-caption упаковки(а)
+        .order-limit__note Перевірка регіону: <span class="color-green">У вашому регіоні на цей час діє програма гарантів</span>
+
+    section
+      form.form-order-product#form-order-product
+        .form-header
+          img(src="./images/lipokamit/hologram.png" alt="").image-hologram
+          .form-title Офіційна форма замовлення
+
+          .form-subtitle N 11982 від 12000 / 01.11.2021
+
+          .form-accent-frame Аби отримати Ліпокарніт за 9 грн*, введіть своє ім'я та номер контактного телефону в&nbsp;поля&nbsp;нижче та натисніть кнопку "ОТРИМАТИ ЗА 9 ГРН*"
+
+        .form-body
+          .form-row
+            label(for="form-order-name").form-label Ваше ім'я (обов'язково)
+            input(type="text" placeholder="Ваше ім'я" required)#form-order-name.form-input
+
+          .form-row
+            label(for="form-order-phone").form-label Номер телефону (обов'язково)
+            input(type="tel" name="phone" placeholder="Номер телефону" required)#form-order-phone.form-input
+
+          .form-row.form-row--submit
+            +button(type="submit") ОТРИМАТИ ЗА <span class="line-break">9&nbsp;ГРН&nbsp;*</span>
+
+        .form-footer
+          span.time-limit-text Прийом замовлень закінчується:&nbsp;&nbsp;<span class="time-limit">00:00</span>
+          br
+          | * Ваші дані та дані тесту відправляються прямо на завод, ніхто крім нього не має до них доступу.
+          br
+          | * при замовленні курсу.
+
+    section.comments
+      +section-title ОБГОВОРЕННЯ
+      +section-subtitle <strong>127</strong> користувачів залишили <strong>203</strong> коментаря
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-417-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Катерина Хохлова
+          .comment__author-message
+            | Наскільки я знаю, з <span class="js-set-current-month-with-day"></span> 2021 г. хочуть поставити ціну в 3000 грн. за упаковку. У всякому випадку, на цьому наполягають аптеки, які планують закуповувати <a href="#form-order-product">Ліпокарніт</a>. Але поки в аптеки нічого не відвантажено і, в зв'язку з такими обставинами, невідомо коли буде. Так що поки єдина можливість отримати <a href="#form-order-product">Ліпокарніт</a> по акції - це замовити його через офіційний сайт .
+            br
+            | Головне не зловживайте дозуванням, так як препарат дуже сильний, і замість 10 ви можете скинути всі 20 кг! Я його купувала ще до акції на <a href="#form-order-product">офіційному сайті</a>, купу грошей віддала, але ні про що не шкодую, дивіться якою я стала!
+            img(src="./images/lipokamit/comments/904-355c43a641a53d8d7768d6b3e27224c8.jpeg" alt="")
+          .comment__publish-date
+            | Опубліковано 22 години тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/198-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Айнұр Мерзадинова
+          .comment__author-message
+            | Дівки ну знаєте, я спробувала <a href="#form-order-product">Ліпокарніт</a> і не скільки не шкодую, головне акуратно все приймала, і згідно з інструкцією, без фанатизму, ось мій результат - мінус 30 кілограмів за місяць! Навіть пам'ятаю як місяць тому залишала заявку на <a href="#form-order-product">офіційному сайті</a>, соромилася, хвилювалася, але тепер то ні про що не шкодую!
+            img(src="./images/lipokamit/comments/278-e006b1bb04698fa6947d518ac96476d6.jpeg" alt="")
+          .comment__publish-date
+            | Опубліковано 20 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-664-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Олена Ананьєва
+          .comment__author-message
+            | На жаль не можу пишатися довготривалим результатом, тому що приймаю <a href="#form-order-product">Ліпокарніт</a> тільки тиждень, але не повірите - за перші 7 днів я схудла на 3 кг і залишилося тільки 18! У мене все вийде! Мусить вийти :)
+          .comment__publish-date
+            | Опубліковано 20 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-653-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Ірина Кожем'яко
+          .comment__author-message
+            | Привіт, я пробувала приймати <a href="#form-order-product">Ліпокарніт</a> і за місяць схудла тільки на 4 кг (((
+          .comment__publish-date
+            | Опубліковано 19 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/676-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Надія Василенко
+          .comment__author-message
+            | Привіт, я схудла на 11 кг за місяць і через рік вага стабільна, <a href="#form-order-product">Ліпокарніт</a> мені батько привіз з Америки коли він там тільки з'явився! Ось моє фото:
+            img(src="./images/lipokamit/comments/237-db7a707a7d81af0bce7d1e1a4368f0e6.jpeg" alt="")
+          .comment__publish-date
+            | Опубліковано 18 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-230-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Жанна Паньшина
+          .comment__author-message
+            | Мені теж вдалося схуднути, замовляла до речі теж по акції <a href="#form-order-product">Ліпокарніт</a> прямо у виробника!
+          .comment__publish-date
+            | Опубліковано 16 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-511-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Маргарита Іванова
+          .comment__author-message
+            | Почала приймати, їла все що подобається, при цьому схудла на 9 кг. Я вважаю, що <a href="#form-order-product">Ліпокарніт</a> для схуднення найкращий засіб, серед того що я зустрічала. А що ще найпрекрасніше - не треба знущатися над собою в спортзалі, немає на це ні часу ні бажання. Таке рішення, для таких як я, просто ідеальне! Рекомендую! Ось мої результати:
+            img(src="./images/lipokamit/comments/415-6890370377ee59cc3ed27521d9a2c24a.jpeg" alt="")
+          .comment__publish-date
+            | Опубліковано 15 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-51-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Людмила Журавльова
+          .comment__author-message
+            | Для мене <a href="#form-order-product">Ліпокарніт</a> сстав справжнім порятунком. Кілька років тому я потрапила в аварію, після якої 8 місяців не могла рухатися. Поки лежала набрала 32 кг! Поступово почала ходити з паличкою, але ні про які фізичних навантаженнях не могло йти й мови, тому що була ще слабка, а вага обтяжував всю ситуацію. Перший раз мені  <a href="#form-order-product">Ліпокарніт</a> дала спробувати подруга, вона щойно повернулася з Індії, там його розсмакували і набрала побільше з собою. Вона подарувала мені 2 упаковки.  Перші зміни помітила через тиждень, і це не те, що я прям сильно схудла, було відчуття, що організм якось став швидше працювати, перетравлювати їжу та ін. Я фізично відчувала, як прискорюється обмін речовин. За перші 2 тижні я скинула 12 кілограм, і вага продовжує йти!
+            img(src="./images/lipokamit/lipokarnit1.jpg" alt="product")
+          .comment__publish-date
+            | Опубліковано 14 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/17copy-16copy-76-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Володимир Копилов
+          .comment__author-message
+            | Перед початком прийому <a href="#form-order-product">Ліпокарніт</a> я важив 90 кг. В юності завжди був струнким, а з віком якось поступово з'явився живіт, боки. У 35 років зрозумів, що потрібно терміново приводити себе в порядок. Майже рік присвятив себе тренуванням, але ніяк не міг досягти своєї нормальної форми. Потім додав в раціон  <a href="#form-order-product">Ліпокарніт</a> (Один показав <a href="#form-order-product">сайт</a> де його замовити можна було) і буквально за кілька тижнів перетворився в ту людину, яку пам'ятаю з юності. Тепер бережу свою фігуру, а декілька упаковок у мене завжди стоїть про запас!
+          .comment__publish-date
+            | Опубліковано 15 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/598-cd02421f3fdcd5888b40c8c57cfec442.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Анара Кожахметова
+          .comment__author-message
+            | Кому як, а мені <a href="#form-order-product">Ліпокарніт</a> підійшов ідеально, всі подруги тепер заздрять! Хвалюся;) 36 кг за півтора місяці. Продовжую в тому ж дусі;)
+            img(src="./images/lipokamit/comments/543-7b8c2b9ff98f02fa0dacafeacb79594f.jpeg" alt="")
+          .comment__publish-date
+            | Опубліковано 13 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-971-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Наталія Левіна
+          .comment__author-message
+            | А просто перестати їсти ви не пробували? Ну коли діти - це зрозуміло, дають і ти їси. Ну а зараз то вже дорослі тітки, невже не можна себе контролювати і просто не їсти?
+          .comment__publish-date
+            | Опубліковано 13 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-417-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Катерина Хохлова
+          .comment__author-message
+            | Якщо ви не знали, то є люди у яких генетично закладена схильність до повноти, і ні одна дієта та ніякі ліки від цього не врятують. Якщо ви не схильні до повноти - вам пощастило, але запевняю, не всі такі щасливці як ви!
+          .comment__publish-date
+            | Опубліковано 13 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-133-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Анна Потапенко
+          .comment__author-message
+            | Ось я практично нічого не їм, але це не допомагає. Вага завмерла і не зменшується! Тільки що оформила заявку на <a href="#form-order-product">Ліпокарніт</a> поки така акція, буду пробувати!
+          .comment__publish-date
+            | Опубліковано 12 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-489-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Олена Попова
+          .comment__author-message
+            | Мене здивувало, що ви пишете, ніби про цей засіб знають тільки дієтологи. Я вже 2 роки регулярно його приймаю, завжди на <a href="#form-order-product">сайті виробника</a> замовляю! Спочатку він мені допоміг скинути 14 кг, а зараз просто для профілактики приймаю, ну і вітамінів в ньому багато, адже натуральний склад <a href="#form-order-product">Ліпокарніт</a> прекрасний !. Мої подруги, до речі, теж про нього знають вже давно, так що це не тільки ваш секрет)) ФОТО ДО І ПІСЛЯ
+            img(src="./images/lipokamit/comments/466-89da8be0caa1d6ce241b03641a3616d0.jpeg" alt="")
+          .comment__publish-date
+            | Опубліковано 12 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-960-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Галина Дроздова
+          .comment__author-message
+            | Навіщо всіх заганяти під один стандарт? Чому всі повинні бути худими? Я, наприклад, важу 79 кг при зрості 167 і не соромлюся цього. Мені подобається, як я виглядаю і відчуваю себе відмінно!
+          .comment__publish-date
+            | Опубліковано 11 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-857-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Галина Голоднова
+          .comment__author-message
+            | Тренди і мода 21-го століття змушує йти дівчат на крайнощі і виглядати як моделі, найчастіше ці крайнощі позначаються на їхньому здоров'ї. Тому препарат, який зміг би зменшити вагу і в той же час не нашкодити здоров'ю, вкрай корисний! Спасибі величезне людям які створили <a href="#form-order-product">Ліпокарніт</a>!
+          .comment__publish-date
+            | Опубліковано 11 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-354-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Надія Глушкова
+          .comment__author-message
+            | ДЕВОЧКИ! ТЕРМІНОВО ТРЕБА ПОЗБАВИТИСЯ 9 КГ !!!!!!!!!! СИДІЛА ВДОМА ПІВРОКУ І НЕ ПОМІТИЛА ЯК НАБРАЛА ВАГУ. ЩО РОБИТИ?? SOS !! НА ДІЄТАХ СИДІТИ НЕ МОЖУ, НІ СИЛИ ВОЛІ, ПОТІМ ЗРИВАЄШСЯ І ЩЕ БІЛЬШЕ НАЇДАЄШ. ТРЕНАЖЕРКА ТЕЖ НЕ ДЛЯ МЕНЕ, ОХ ЯК ТАМ ТЯЖКО ТА ДУЖЕ СКУЧНО ..........................................
+          .comment__publish-date
+            | Опубліковано 10 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-412-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Тетяна Панькова
+          .comment__author-message
+            | Лінь, звичайно, це не найкраща якість людини, але на щастя вам пощастило, <a href="#form-order-product">Ліпокарніт</a> як раз те що вам треба!
+            img(src="./images/lipokamit/lipokarnit2.jpg" alt="product")
+          .comment__publish-date
+            | Опубліковано 8 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/17copy-16copy-961-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Сергій Гуменко
+          .comment__author-message
+            | У мене дружина теж схуднути ніяк не може. Одружилися - було 53 кг, зараз 68. Найгірше, що її все влаштовує. Правильно ви пишете, звикаєш до ваги і як ніби так завжди було
+          .comment__publish-date
+            | Опубліковано 8 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-649-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Катерина Локусова
+          .comment__author-message
+            | Ви можете без відома дружини додавати їй в їжу <a href="#form-order-product">Ліпокарніт</a>, так це не чесно, але потім ваша дружина сама здивується від того, що ні з того і ні з сього схудла. Адже <a href="#form-order-product">Ліпокарніт</a> відмінно працює як і харчова добавка. Вона вам ще спасибі скаже за струнку фігуру і заздрісні погляди повних подруг! Мій чоловік так і зробив, тепер обидва радіємо за мою красу!)
+          .comment__publish-date
+            | Опубліковано 8 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/522-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Ельміра Алієва
+          .comment__author-message
+            | Я вже давно <a href="#form-order-product">Ліпокарніт</a> п'ю. Теж були проблеми з вагою, але тепер навіть не думаю про це, їм усе підряд, а якщо поправилася, залишаю заявку на <a href="#form-order-product">офіційному сайті</a>, мені привозять <a href="#form-order-product">Ліпокарніт</a> через 3 дня, і за місяць я знову худа!
+            img(src="./images/lipokamit/comments/394-024fd6747835b184628ffd167d989ab3.jpeg" alt="")
+          .comment__publish-date
+            | Опубліковано 8 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-869-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Марина Чернова
+          .comment__author-message
+            | В МЕНІ 97 КГ. ЯК ЇХ Забрати НЕ ЗНАЮ. НЕ ХОЧУ, ЩОБ перевалила за 100. ЩО МЕНІ РОБИТИ ????? ДОПОМОЖІТЬ !!!!!!! Чи можна в аптеках знайти <a href="#form-order-product">Ліпокарніт</a> не хочу чекати поки привезуть, хочу почати худнути вже тут і зараз!
+          .comment__publish-date
+            | Опубліковано 7 годин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-147-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Лариса Миколаєва
+          .comment__author-message
+            | Головне не панікуйте, це все можна виправити. Почнемо по-порядку, перше - на жаль <a href="#form-order-product">Ліпокарніт</a> знайти в аптеці неможливо, я в усі аптеки зателефонувала, там про таке і не чули! Вони то продають тільки те, що вигідно, і ціни аптечні ОГОГО. А виробники такі акції влаштовують, що аптекарям не вигідно так дешево продавати! Тому, краще <a href="#form-order-product">замовити у виробника на сайті</a> і дочекатися поки привезуть, ніж рубати з гаряча!).
+          .comment__publish-date
+            | Опубліковано 3 години тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-989-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Олена Астахова
+          .comment__author-message
+            | Вітаю! Я - мама двох дітей і скільки себе пам'ятаю, завжди намагаюся схуднути. Сидіти на дієтах я не можу, мене вистачає буквально на пару днів, потім зриваюся і об'їдаюсь. На спорт часу немає зовсім. Прочитала цю статтю і загорілася, ось тільки не зовсім ясно, як його приймати (наприклад, чи можна додавати кудись або обов'язково в чистому вигляді). Написана чи інструкція на упаковці? Або може рецепт якийсь є? І чи не шкідливо потім припинити вживання? Якщо можете, дайте відповідь на мої питання або підкажіть, де про це почитати. Буду дуже вдячна.
+          .comment__publish-date
+            | Опубліковано 2 години тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-482-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Катерина Малишева
+          .comment__author-message
+            | Вітаю! Вирішила спробувати і замовити <a href="#form-order-product">Ліпокарніт</a> на <a href="#form-order-product">сайті виробника</a>. Вже через кілька тижнів я зробила наступне замовлення, тому що ефект мене вразив! Я скинула 6 кілограмів !!! Звичайно, при цьому я правильно харчувалася і намагалася забезпечити собі фізичне навантаження, але таких результатів все одно не очікувала. Дякую за статтю. Я теж всім рекомендую <a href="#form-order-product">Ліпокарніт</a>.
+            img(src="./images/lipokamit/comments/581-f05d7e35b75f847eaa9f28b9c24adfab.jpeg" alt="")
+          .comment__publish-date
+            | Опубліковано 1 годину тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-979-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Олена Чигрина
+          .comment__author-message
+            | Як я рада, що мені випадково попалася ця стаття. А то я думала, що не бути мені стрункою в цьому житті. Приймати <a href="#form-order-product">Ліпокарніт</a> яя почала тільки тиждень тому. Три кілограми пішли. Спосіб життя я не змінювала, харчуюся тим же, чим і раніше, тільки обсяг їжі зменшила. Мій скажений апетит кудись зник, вже не хочеться постійно щось жувати. Загалом, я не знаю, який чоловік придумав це засіб, але спасибі йому велике.
+            img(src="./images/lipokamit/lipokarnit3.jpg" alt="product")
+          .comment__publish-date
+            | Опубліковано 45 хвилин тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-452-4abe4d52013e5afb16585bc7917c2f65.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Анна Шевченко
+          .comment__author-message
+            | Це нереальне відчуття, коли ти чогось дуже хотіла, але думала, що це практично неможливо. А тут таке чудо. Я вже схудла на 10 кілограмів і продовжую тими ж темпами. Знайомі дивуються, думають, що сиджу на жорсткій дієті, хвилюються за мене. А я нічого їм не розповідаю, хай гадають)))))
+            img(src="./images/lipokamit/comments/817-f05d7e35b75f847eaa9f28b9c24adfab.jpeg" alt="")
+          .comment__publish-date
+            | Опубліковано 41 хвилину тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/03.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Андрій Чухрай
+          .comment__author-message
+            | Люди, скажіть де ви купували? В аптеках такий засіб не продається. Хотілося б не потрапити на підробку, а то як я розумію ніякого толку не буде.
+          .comment__publish-date
+            | Опубліковано 29 хвилину тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/17copy-16copy-576-63267c57ef7d54caadfde58e64e9b3bc.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Саша Іванов
+          .comment__author-message
+            | Так он же в статті написано, що <a href="#form-order-product">Ліпокарніт</a> можна замовити на <a href="#form-order-product">офіційному сайті</a> виробника  через форму замовлення за 9 гривень!!!*, щоб не помилитися, просто натисніть на кнопку трохи нижче!
+          .comment__publish-date
+            | Опубліковано 21 хвилину тому
+
+      .comment
+        .comment__column
+          .comment__author-image
+            img(src="./images/lipokamit/comments/15copy-14copy-886-4abe4d52013e5afb16585bc7917c2f65.jpeg" alt="")
+
+        .comment__column
+          .comment__author-name Єлизавета Талалова
+          .comment__author-message
+            | Відмінний засіб, позбавив мене від проблем із зайвою вагою всього за 2 тижні. І мало того що він ефективний, так ще й знижка є при покупці.
+            img(src="./images/lipokamit/comments/701-f05d7e35b75f847eaa9f28b9c24adfab.jpeg" alt="")
+          .comment__publish-date
+            | Опубліковано 15 хвилину тому
+
+      p.blinking-text
+        a(href="#form-order-product") ОТРИМАТИ Ліпокарніт ЗА 9 ГРН*
+
+block scripts
+  script(src="javascripts/vendor.bundle.js")
+  script(src="javascripts/lipokarnit.js")

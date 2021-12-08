@@ -1,0 +1,37 @@
+autocomplete-suggestions()
+  .autocomplete-suggestions
+    border 1px solid $light-grey-color
+    border-bottom-left-radius $border-radius
+    border-bottom-right-radius $border-radius
+    background $white
+    overflow-y scroll
+    overflow-x hidden
+    margin-top -1px
+    padding-top 2px
+    z-index 120 !important
+    animation-name fadeIn
+    animation-duration .25s
+    box-shadow 0 4px 8px 0 rgba($black, .15)
+    -ms-overflow-style none
+    scrollbar-width none
+
+    &::-webkit-scrollbar
+      display none
+
+  .autocomplete-suggestion
+    display block
+    font-size $font-size-base
+    line-height $line-height-small
+    transitions()
+    cursor pointer
+    font-weight $font-weight-normal
+    padding 8px 14px
+    color $gray-900
+    text-reduced-with-dots()
+
+    +above($media-screen-tablet)
+      font-size $font-size-bigger
+      line-height $line-height-base
+
+  .autocomplete-selected
+    background-color #f2f2f2

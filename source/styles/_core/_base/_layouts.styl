@@ -1,0 +1,71 @@
+.layout
+.layout-responsive
+  display flex
+  flex-direction column
+  min-width $media-screen-min
+  height 100%
+
+.layout__header
+.layout-responsive__header
+  position relative
+  z-index 150
+  flex none
+
+// temporary chat hack
+.sv-chat-wrapper
+  z-index 3000 !important
+
+  &.sv-chat-wrapper--open
+    z-index 1047
+// temporary chat hack
+
+.layout-responsive__header
+  padding-top 55px
+
+  +above($media-screen-desktop)
+    padding-top 0
+
+.layout__body
+.layout-responsive__body
+  position relative
+  flex-center-xy()
+  flex 1 0 auto
+  flex-direction column
+
+.layout-overlay
+  position fixed
+  position-zero()
+  z-index 155
+  visibility hidden
+  background-color rgba($black, 0.4)
+  opacity 0
+  transition 0.3s all ease-in-out
+
+  +above($media-screen-desktop)
+    display none
+
+.layout-responsive__mobile-menu
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  // todo z-index from variable. This value set to put menu above chat widget
+  z-index 11111
+  visibility hidden
+  overflow-y auto
+  opacity 0
+  -webkit-overflow-scrolling touch
+  width 256px
+  outline none
+  transitions()
+  transform translate3d(100%, 0, 0)
+
+  +above($media-screen-desktop)
+    display none
+
+[data-offcanvas-container][data-offcanvas-hidden="false"]
+  .layout-responsive__mobile-menu
+    transform translate3d(0, 0, 0)
+
+.layout__body
+  min-width $media-screen-desktop

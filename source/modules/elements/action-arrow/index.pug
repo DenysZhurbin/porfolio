@@ -1,0 +1,11 @@
+mixin action-arrow(attributes)
+  -
+    let actionTag = "span";
+    const isLink = attributes.href || null;
+    if (isLink) {
+      actionTag = "a";
+    }
+  #{actionTag}.action-arrow&attributes(attributes)
+    block
+
+    include images/action-arrow.svg

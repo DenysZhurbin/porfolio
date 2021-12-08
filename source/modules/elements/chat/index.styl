@@ -1,0 +1,885 @@
+// Hack to preload images
+body
+  &::after
+    position absolute
+    z-index -1
+    overflow hidden
+    width 0
+    height 0
+    content url("../images/_modules/elements/chat/mark1--active.svg")
+    url("../images/_modules/elements/chat/mark2--active.svg")
+    url("../images/_modules/elements/chat/mark3--active.svg")
+    url("../images/_modules/elements/chat/mark4--active.svg")
+    url("../images/_modules/elements/chat/mark5--active.svg")
+    url("../images/_modules/elements/chat/close-button-icon.svg")
+    url("../images/_modules/elements/chat/footer-attachment--active.svg")
+    url("../images/_modules/elements/chat/footer-emoji--active.svg")
+    url("../images/_modules/elements/chat/pdffiller-logo.svg")
+
+.chat-wrapper
+  position fixed
+  bottom 24px
+  right 30px
+  z-index 1000
+
+.chat
+  position relative
+  -webkit-font-smoothing antialiased
+
+.widget-button
+  display flex
+  justify-content flex-end
+  opacity 0
+  .widget-button__status
+    position relative
+    width 64px
+    height 64px
+    box-shadow 0 4px 12px 0 rgba($black, 0.2)
+    border-radius 100%
+    background-color #ffa42e
+    cursor pointer
+    transition background-color .2s linear
+
+    &::before
+      pseudo()
+      top 50%
+      left 50%
+      width 28px
+      height 24px
+      background url("../images/_modules/elements/chat/open-button-icon.svg") no-repeat
+      transform translate(-50%, -50%)
+      transition background-image .2s linear
+
+  .widget-button__status--close
+    background-color $orange-500
+    &::before
+      width 24px
+      height 24px
+      background-image url("../images/_modules/elements/chat/close-button-icon.svg")
+
+  .widget-button__status--unread
+    &::after
+      pseudo()
+      top -2px
+      right -2px
+      width 14px
+      height 14px
+      border solid 2px $white
+      background-color #e36463
+      border-radius 100%
+
+.chat__tooltipster
+  margin-bottom 18px
+  opacity 0
+  transition opacity .3s linear 0s
+  &.is-hidden
+    display none
+    opacity 0
+
+  .chat__tooltipster-container
+    display flex
+    justify-content space-between
+    position relative
+    padding 20px 86px 20px 24px
+    box-shadow 0 4px 12px 0 rgba($black, 0.15)
+    border-radius $border-radius-lg
+    background-color $white
+
+    &::after
+      pseudo()
+      top 100%
+      right 24px
+      width 0
+      height 0
+      pointer-event snone
+      border solid transparent
+      border-color rgba($white, 0)
+      border-top-color $white
+      border-width 8px
+
+  .chat__tooltipster-close
+    position absolute
+    top 50%
+    right 25px
+    width 16px
+    height 16px
+    background $white url("../images/_modules/elements/chat/close-tooltipster.svg") no-repeat
+    background-size contain
+    transform translateY(-50%)
+    cursor pointer
+
+.chat__widget
+  display none
+  flex-direction column
+  width 376px
+  margin-bottom 16px
+  height 666px
+  border-radius $border-radius
+  box-shadow 0 4px 12px 0 rgba($black, 0.2)
+  background-color $white
+  overflow hidden
+  &.is-active
+    display flex
+  .chat__header
+    padding 12px 22px
+    background-color $light-grey-200
+
+    .chat-operator
+      flex-center-y()
+
+    .chat-operator__image
+      margin-right 12px
+
+    .chat-operator__name
+      margin 0
+      font-size $font-size-base
+      font-weight $font-weight-bolder
+      line-height 1.43
+      color $dark-grey-color
+
+    .chat-operator__status
+      margin 0
+      font-size $font-size-small
+      line-height 1.67
+      color #8b8b8b
+
+  .chat__footer
+    padding 22px 24px
+    border-top 1px solid #dddddd
+    .chat__user-panel
+      display flex
+      justify-content space-between
+
+    .chat__user-textarea
+      height 20px
+      .chat__textarea
+        width 260px
+        font-size $font-size-base
+        line-height 1.43
+        color $gray-900
+        border 0 none
+        outline none
+        resize none
+        overflow hidden
+        padding 0
+        margin 0
+        +placeholder()
+          color $gray-450
+
+    .chat__user-actions-list
+      display flex
+      .chat__user-actions-list__item
+        margin-left 16px
+        .icon
+          width 16px
+          height 16px
+          display inline-block
+          vertical-align middle
+          transition background-image .3s
+          cursor pointer
+
+        .icon--emoji
+          background url("../images/_modules/elements/chat/footer-emoji.svg") no-repeat
+
+        .icon--attachment
+          background url("../images/_modules/elements/chat/footer-attachment.svg") no-repeat
+
+        &:hover
+          .icon--emoji
+            background-image url("../images/_modules/elements/chat/footer-emoji--active.svg")
+
+          .icon--attachment
+            background-image url("../images/_modules/elements/chat/footer-attachment--active.svg")
+
+  .chat__conversation-area
+    display flex
+    flex-direction column
+    justify-content space-between
+    flex 1
+    height 376px
+    padding 0 24px 20px
+    overflow hidden
+    overflow-y scroll
+    position relative
+    scrollbar-width none
+    -ms-overflow-style none
+
+  .chat__conversation-area::-webkit-scrollbar
+    width 0
+    height 0
+
+  .chat__categories-list
+    opacity 1
+    transition opacity .3s
+    &.is-hidden
+      opacity 0
+      display none
+
+    .chat__categories__item
+      margin-bottom 8px
+      padding 12px 16px
+      font-size $font-size-base
+      font-weight $font-weight-bolder
+      line-height 1.43
+      color #e88300
+      border-radius $border-radius
+      background-color #ffeed8
+      text-align center
+      transition background-color .3s, color .3s
+      &:last-child
+        margin-bottom 0
+
+      &:hover
+        cursor pointer
+        color $white
+        background-color $orange-500
+
+  .chat__sub-categories-list
+    display none
+    flex-wrap wrap
+    justify-content flex-end
+    opacity 0
+    transition opacity .3s
+
+    &.is-active
+      display flex
+      opacity 1
+
+    .chat__sub-categories__item
+      margin-bottom 8px
+      margin-left 8px
+      padding 12px 16px
+      font-size $font-size-base
+      font-weight $font-weight-bolder
+      line-height 1.43
+      color #e88300
+      border-radius $border-radius
+      background-color #ffeed8
+      text-align center
+      transition background-color .3s, color .3s
+      &:last-child
+        margin-bottom 0
+
+      &:hover
+        cursor pointer
+        color $white
+        background-color $orange-500
+
+  .chat__conversation
+    display flex
+    flex-direction column
+
+    .chat__post--operator
+      padding-left 60px
+      align-self flex-start
+      position relative
+
+      .chat__post__image
+        position absolute
+        top 0
+        left 0
+        width 48px
+        height 48px
+
+      .chat__conversation-message
+        width 260px
+        margin-bottom 4px
+        padding 12px 16px
+        font-size $font-size-base
+        line-height 1.43
+        color $gray-900
+        border-radius $border-radius-lg
+        background-color $light-slate-blue-100
+
+    .chat__post--client
+      align-self flex-end
+      text-align right
+
+      .chat__conversation-message
+        width 232px
+        margin-bottom 4px
+        padding 12px 16px
+        font-size $font-size-base
+        line-height 1.43
+        color $white
+        font-weight $font-weight-semiBold
+        border-radius $border-radius-lg
+        background-color $orange-500
+
+    .chat__post-date
+      margin-bottom 20px
+      font-size $font-size-small
+      line-height 1.33
+      color $gray-400
+
+  .chat__conversation-title
+    position relative
+    font-size $font-size-small
+    font-weight $font-weight-bolder
+    line-height 1.67
+    color $dark-grey-color
+    padding-top 20px
+    padding-bottom 16px
+    text-align center
+
+    .chat__conversation-title-inner
+      position relative
+      display inline-block
+      vertical-align middle
+      padding 0 14px
+      background $white
+
+    &::before
+      pseudo()
+      top 50%
+      left 0
+      right 0
+      border-top 1px solid #efefef
+
+  .chat__post-container
+    width 268px
+    margin-bottom 4px
+    padding 16px 16px 20px 16px
+    border-bottom-left-radius 4px
+    border-bottom-right-radius 4px
+    box-shadow 0 2px 6px 0 rgba($black, 0.15), inset 0 2px 0 0 $orange-500
+    background-color $white
+
+    .chat__post-title
+      margin-bottom 8px
+      font-size 20px
+      font-weight $font-weight-semiBold
+      line-height 1.4
+      text-align center
+      color #454545
+
+    .chat__post-message
+      font-size $font-size-small
+      line-height 1.67
+      text-align center
+      color $dark-grey-color
+      &--large
+        margin-bottom 20px
+        font-size $font-size-base
+        line-height 1.43
+        text-align left
+        &:last-child
+          margin-bottom 0
+
+    .chat__post-link
+      font-size $font-size-base
+      line-height 1.43
+      font-weight $font-weight-normal
+      color #4a90e2
+      text-decoration underline
+      word-break break-all
+      &--bold
+        display block
+        margin-bottom 4px
+        font-weight $font-weight-semiBold
+        word-break normal
+
+    .selectric
+      height 32px
+      font-size $font-size-base
+      line-height 1
+      border 1px solid $gray-300
+      box-shadow none
+      +above($media-screen-desktop)
+        line-height $line-height-base
+
+    .form__item
+      margin-bottom 12px
+      &:last-child
+        margin 0
+
+    .form__item--actions
+      .button
+        padding 9px 12px
+        font-size $font-size-base
+        font-weight $font-weight-semiBold
+        line-height 1.14
+        letter-spacing 0.3px
+        text-align center
+        color $white
+
+    .form-label
+      margin-bottom 4px
+      font-size $font-size-base
+      font-weight $font-weight-semiBold
+      line-height 1.43
+      color #575757
+
+    .form-input
+      height 32px
+      font-size $font-size-base
+      border solid 1px $gray-300
+      box-shadow none
+
+    .form-input--company
+      margin-bottom 4px
+
+  .chat__post-container--waiting
+    .waiting-icon
+      margin 8px auto 16px
+      position relative
+      left auto
+      top auto
+      z-index 100
+      width 48px
+      height 48px
+      font-size 0
+      animation rotation 900ms cubic-bezier(0.4, 0, 0.2, 1) infinite both
+      &.active
+        display block
+
+  .chat__post-container--gratitude
+    .gratitude-icon
+      margin-top 4px
+      margin-bottom 8px
+      text-align center
+
+  .chat__post-container--image-preview
+    figure
+      margin 0
+
+    .image-preview
+      display block
+      margin-bottom 16px
+
+  .chat__post-container--pc-operation
+    .chat__post-title
+      margin-bottom 16px
+      font-size $font-size-base
+      line-height 1.43
+      color $dark-grey-color
+      text-align left
+
+  .chat__post-container--article
+    .chat__post-title
+      margin-bottom 12px
+      font-size $font-size-bigger
+      line-height 1.5
+      text-align left
+      color $dark-grey-color
+
+  .chat__post-container--account-access
+    .chat__post-title
+      margin-bottom 4px
+      font-size $font-size-base
+      line-height 1.43
+      text-align left
+      color $dark-grey-color
+
+  .chat__post-container--screen-share
+    .chat__post-title
+      margin-bottom 16px
+      font-size $font-size-base
+      line-height 1.43
+      color $dark-grey-color
+
+    .button
+      width 100%
+      max-width 114px
+      padding 10px
+
+      &--not-allow-screen-share
+        margin-right 4px
+        color $gray-900
+        background-color $gray-50
+        border 2px solid $gray-50
+
+      &--allow-screen-share
+        margin-left 4px
+
+  .chat__post-container--service-rates
+    .chat__post-title
+      margin-bottom 16px
+      font-size $font-size-base
+      line-height 1.43
+      color $dark-grey-color
+      text-align left
+
+  .chat__post-rates
+    display flex
+    justify-content space-between
+    .rates-icon
+      position relative
+      width 40px
+      height 40px
+      border 8px solid $white
+      border-radius 100%
+      transition border-color .3s
+
+      &:before
+        pseudo()
+        top 0
+        left 0
+        width 24px
+        height 24px
+        background-repeat no-repeat
+        transition background-image .3s
+
+      &:hover
+        border 8px solid #f2f2f2
+
+    .rates-icon--1
+      &:before
+        background-image url("../images/_modules/elements/chat/mark1.svg")
+
+      &:hover
+        &:before
+          background-image url("../images/_modules/elements/chat/mark1--active.svg")
+
+    .rates-icon--2
+      &:before
+        background-image url("../images/_modules/elements/chat/mark2.svg")
+
+      &:hover
+        &:before
+          background-image url("../images/_modules/elements/chat/mark2--active.svg")
+
+    .rates-icon--3
+      &:before
+        background-image url("../images/_modules/elements/chat/mark3.svg")
+
+      &:hover
+        &:before
+          background-image url("../images/_modules/elements/chat/mark3--active.svg")
+
+    .rates-icon--4
+      &:before
+        background-image url("../images/_modules/elements/chat/mark4.svg")
+
+      &:hover
+        &:before
+          background-image url("../images/_modules/elements/chat/mark4--active.svg")
+
+    .rates-icon--5
+      &:before
+        background-image url("../images/_modules/elements/chat/mark5.svg")
+
+      &:hover
+        &:before
+          background-image url("../images/_modules/elements/chat/mark5--active.svg")
+
+.operator-typing-container
+  display flex
+
+  .typing-message
+    margin-left 8px
+    font-size $font-size-small
+    line-height 1.67
+    color $gray-400
+
+  .operator-typing
+    position relative
+    flex-center-y()
+    justify-content space-around
+    width 18px
+
+    .typing-line
+      width 2px
+      background $orange-500
+      border-radius 2px
+
+    .typing-line--first
+      opacity 1
+      height 12px
+      animation lineFirst 1s infinite
+
+    .typing-line--second
+      opacity .4
+      height 8px
+      animation lineSecond 1s infinite
+
+    .typing-line--third
+      opacity .6
+      height 16px
+      animation lineThird 1s infinite
+
+    .typing-line--fourth
+      opacity .8
+      height 12px
+      animation lineFourth 1s infinite
+
+    .typing-line--fifth
+      opacity .2
+      height 8px
+      animation lineFifth 1s infinite
+
+.animated.delay-1s
+  animation-delay 1s
+  -webkit-animation-delay 1s
+
+.animated.delay-2s
+  animation-delay 2s
+  -webkit-animation-delay 2s
+
+.animated.fadeInUp
+  animation-name fadeInUp
+
+@keyframes fadeInUp
+  from
+    opacity 0
+    transform translate3d(0, 20%, 0)
+
+  to
+    opacity 1
+    transform none
+
+@keyframes rotation
+  from
+    transform rotate(0deg)
+
+  to
+    transform rotate(360deg)
+
+@keyframes lineFirst
+  0%
+    opacity 1
+
+  25%
+    opacity .8
+
+  50%
+    opacity .6
+
+  75%
+    opacity .4
+
+  100%
+    opacity .2
+
+@keyframes lineSecond
+  0%
+    opacity .8
+
+  25%
+    opacity .6
+
+  50%
+    opacity .4
+
+  75%
+    opacity .2
+
+  100%
+    opacity 1
+
+@keyframes lineThird
+  0%
+    opacity .6
+
+  25%
+    opacity .8
+
+  50%
+    opacity 1
+
+  75%
+    opacity .2
+
+  100%
+    opacity .4
+
+@keyframes lineFourth
+  0%
+    opacity .4
+
+  25%
+    opacity .8
+
+  50%
+    opacity 1
+
+  75%
+    opacity .2
+
+  100%
+    opacity .4
+
+@keyframes lineFifth
+  0%
+    opacity .2
+
+  25%
+    opacity .4
+
+  50%
+    opacity .6
+
+  75%
+    opacity .8
+
+  100%
+    opacity 1
+
+[data-simplebar]
+  position relative
+  flex-direction column
+  flex-wrap wrap
+  justify-content flex-start
+  align-content flex-start
+  align-items flex-start
+
+.simplebar-wrapper
+  overflow hidden
+  width inherit
+  height inherit
+  max-width inherit
+  max-height inherit
+
+.simplebar-mask
+  direction inherit
+  position absolute
+  overflow hidden
+  padding 0
+  margin 0
+  left 0
+  top 0
+  bottom 0
+  right 0
+  width auto !important
+  height auto !important
+  z-index 0
+
+.simplebar-offset
+  direction inherit !important
+  box-sizing inherit !important
+  resize none !important
+  position absolute
+  top 0
+  left 0
+  bottom 0
+  right 0
+  padding 0
+  margin 0
+  -webkit-overflow-scrolling touch
+
+.simplebar-content-wrapper
+  direction inherit
+  box-sizing border-box !important
+  position relative
+  display block
+  height 100%
+  width auto
+  visibility visible
+  overflow auto
+  max-width 100%
+  max-height 100%
+
+.simplebar-content:before,
+.simplebar-content:after
+  content ' '
+  display table
+
+.simplebar-placeholder
+  max-height 100%
+  max-width 100%
+  width 100%
+  pointer-events none
+
+.simplebar-height-auto-observer-wrapper
+  box-sizing inherit !important
+  height 100%
+  width 100%
+  max-width 1px
+  position relative
+  float left
+  max-height 1px
+  overflow hidden
+  z-index -1
+  padding 0
+  margin 0
+  pointer-events none
+  flex-grow inherit
+  flex-shrink 0
+  flex-basis 0
+
+.simplebar-height-auto-observer
+  box-sizing inherit
+  display block
+  opacity 0
+  position absolute
+  top 0
+  left 0
+  height 1000%
+  width 1000%
+  min-height 1px
+  min-width 1px
+  overflow hidden
+  pointer-events none
+  z-index -1
+
+.simplebar-track
+  z-index 1
+  position absolute
+  right 8px
+  bottom 0
+  pointer-events none
+  overflow hidden
+  .simplebar-scrollbar
+    &.simplebar-visible
+      &:before
+        transition opacity 0s linear
+  &.simplebar-vertical
+    top 0
+    width 8px
+    .simplebar-scrollbar
+      &:before
+        top 2px
+        bottom 2px
+  &.simplebar-horizontal
+    left 0
+    height 11px
+    .simplebar-scrollbar
+      right auto
+      left 0
+      top 2px
+      height 7px
+      min-height 0
+      min-width 10px
+      width auto
+      &:before
+        height 100%
+        left 2px
+        right 2px
+
+[data-simplebar].simplebar-dragging
+  .simplebar-content
+    pointer-events none
+    user-select none
+    -webkit-user-select none
+  .simplebar-track
+    pointer-events all
+
+.simplebar-scrollbar
+  position absolute
+  right 0
+  width 8px
+  min-height 10px
+
+  &:before
+    pseudo()
+    background #dddddd
+    border-radius $border-radius
+    left 0
+    right 0
+    transition opacity 0.2s linear
+
+[data-simplebar-direction='rtl']
+  .simplebar-track
+    &.simplebar-vertical
+      right auto
+      left 0
+
+.hs-dummy-scrollbar-size
+  direction rtl
+  position fixed
+  opacity 0
+  visibility hidden
+  height 500px
+  width 500px
+  overflow-y hidden
+  overflow-x scroll

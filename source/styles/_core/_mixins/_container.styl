@@ -1,0 +1,23 @@
+container()
+  margin 0 auto
+  padding-right $media-screen-gap
+  padding-left $media-screen-gap
+  font-smoothing()
+
+  +above($media-screen-desktop)
+    max-width $media-screen-desktop
+
+container-wide()
+  .service-functions-menus,
+  .page-section .page-section__inner,
+  .page-header .page-header__inner,
+  .page-footer__section-inner,
+  .nav-top .nav-top__inner,
+  .page-footer.page-footer--pdfmp-342 .page-footer__container
+    +above($media-screen-desktop)
+      max-width 1246px !important
+
+  .g-header__container
+    +above($media-screen-desktop)
+      max-width 1246px !important
+

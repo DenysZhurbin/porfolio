@@ -1,0 +1,136 @@
+mixin picture-responsive(attributes)
+	-
+		const webpImgFormat = "webp";
+		
+		const mediaMobile = "(max-width: 639px)";
+		const mediaTablet = "(max-width: 959px)";
+		const mediaTabletLG = "(max-width: 1247px)";
+		
+		const altText = attributes.alt || null;
+		
+		const mobilePath = attributes.mobile || null;
+		const tabletPath = attributes.tablet || null;
+		const tabletLGPath = attributes.tabletLG || null;
+		const desktopPath = attributes.desktop || null;
+		
+		let mobileImgPath, tabletImgPath, tabletLGImgPath, desktopImgPath;
+		let mobileImgFormat, tabletImgFormat, tabletLGImgFormat, desktopImgFormat;
+		
+		const imageData = [];
+
+		if (mobilePath != null && mobilePath.length > 3) {
+			mobileImgPath = mobilePath.substr(0, mobilePath.indexOf('.'));
+			mobileImgFormat = mobilePath.split('.').pop();
+
+			imageData.push({
+				media: mediaMobile,
+				type: webpImgFormat,
+				source: mobileImgPath + "." + webpImgFormat + " 1x, " + mobileImgPath + "@2x." + webpImgFormat + " 2x"
+			})
+			imageData.push({
+				media: mediaMobile,
+				type: mobileImgFormat,
+				source: mobileImgPath + "." + mobileImgFormat + " 1x, " + mobileImgPath + "@2x." + mobileImgFormat + " 2x"
+			})
+			delete attributes.mobile;
+		}	
+			
+		if (tabletPath != null && tabletPath.length > 3) {
+			tabletImgPath = tabletPath.substr(0, tabletPath.indexOf('.'));
+			tabletImgFormat = tabletPath.split('.').pop();
+
+			imageData.push({
+				media: mediaTablet,
+				type: webpImgFormat,
+				source: tabletImgPath + "." + webpImgFormat + " 1x, " + tabletImgPath + "@2x." + webpImgFormat + " 2x"
+			})
+			imageData.push({
+				media: mediaTablet,
+				type: tabletImgFormat,
+				source: tabletImgPath + "." + tabletImgFormat + " 1x, " + tabletImgPath + "@2x." + tabletImgFormat + " 2x"
+			})
+			delete attributes.tablet;
+		}
+			
+		if (tabletLGPath != null && tabletLGPath.length > 3) {
+			tabletLGImgPath = tabletLGPath.substr(0, tabletLGPath.indexOf('.'));
+			tabletLGImgFormat = tabletLGPath.split('.').pop();
+
+			imageData.push({
+				media: mediaTabletLG,
+				type: webpImgFormat,
+				source: tabletLGImgPath + "." + webpImgFormat + " 1x, " + tabletLGImgPath + "@2x." + webpImgFormat + " 2x"
+			})
+			imageData.push({
+				media: mediaTabletLG,
+				type: tabletLGImgFormat,
+				source: tabletLGImgPath + "." + tabletLGImgFormat + " 1x, " + tabletLGImgPath + "@2x." + tabletLGImgFormat + " 2x"
+			})
+			delete attributes.tabletLG;
+		}
+
+		if (desktopPath != null && desktopPath.length > 3) {
+			desktopImgPath = desktopPath.substr(0, desktopPath.indexOf('.'));
+			desktopImgFormat = desktopPath.split('.').pop();
+
+			imageData.push({
+				type: webpImgFormat,
+				source: desktopImgPath + "." + webpImgFormat + " 1x, " + desktopImgPath + "@2x." + webpImgFormat + " 2x"
+			})
+			imageData.push({
+				type: desktopImgFormat,
+				source: desktopImgPath + "." + desktopImgFormat + " 1x, " + desktopImgPath + "@2x." + desktopImgFormat + " 2x"
+			})
+			delete attributes.desktop;
+		}
+		
+		delete attributes.alt;
+
+	picture
+		-for (var i = 0; i <= imageData.length - 1; i++)
+			if (imageData[i].media)
+				source(media= imageData[i].media srcset= imageData[i].source type="image/" + imageData[i].type)
+			
+			else
+				source(srcset= imageData[i].source type="image/" + imageData[i].type)
+		
+		if (desktopPath != null && desktopPath.length > 3)	
+			img(src= desktopImgPath + "." + desktopImgFormat, srcset= desktopImgPath + "@2x." + desktopImgFormat + " 2x", alt= altText)&attributes(attributes)
+		else if (tabletPath != null && tabletPath.length > 3)	
+			img(src= tabletImgPath + "." + tabletImgFormat, srcset= tabletImgPath + "@2x." + tabletImgFormat + " 2x", alt= altText)&attributes(attributes)
+		else if (mobilePath != null && mobilePath.length > 3)
+			img(src= mobileImgPath + "." + mobileImgFormat, srcset= mobileImgPath + "@2x." + mobileImgFormat + " 2x", alt= altText)&attributes(attributes)
+
+mixin picture(path, name, attributes)
+	-
+		const imgPath = path.substr(0, path.indexOf('.'));
+		const imgFormat = path.split('.').pop();
+		const imgFormatWebp = "webp";
+		const imageData = [];
+
+		if (imgFormat === "svg") {
+			imageData.push({
+				type: "svg+xml",
+				source: imgPath + "." + imgFormat
+			})
+		} else if (imgFormat === "png" || imgFormat === "jpg" || imgFormat === "jpeg") {
+			imageData.push({
+				type: imgFormat,
+				source: imgPath + "." + imgFormat + " 1x, " + imgPath + "@2x." + imgFormat + " 2x"
+			})
+			imageData.push({
+				type: imgFormatWebp,
+				source: imgPath + "." + imgFormatWebp + " 1x, " + imgPath + "@2x." + imgFormatWebp + " 2x"
+			})
+		}
+
+	picture
+		-for (var i = imageData.length - 1; i >= 0; i--)
+			source(srcset= imageData[i].source type="image/" + imageData[i].type)
+
+		-if (imgFormat === "svg")
+			img(src= imageData[0].source, alt= name)&attributes(attributes)
+
+		-if (imgFormat === "png" || imgFormat === "jpg" || imgFormat === "jpeg")
+			img(src= imgPath + "." + imgFormat, srcset= imgPath + "@2x." + imgFormat + " 2x", alt= name)&attributes(attributes)
+

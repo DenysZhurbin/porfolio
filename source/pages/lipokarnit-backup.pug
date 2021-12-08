@@ -1,0 +1,210 @@
+extends ../layouts/responsive-simple
+
+block head
+  title Пройдіть безкоштовний тест і отримайте рекомендації для схуднення
+  meta(charset="UTF-8")
+  link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+  link(rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap")
+  link(rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap")
+  noscript
+  link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap")
+
+block styles
+  link(rel="stylesheet" href=config.path.styles + "/lipokarnit.css")
+
+block main
+  +page-section("primary")
+    img(src="./images/lipokamit/intro-decoration.png" alt="Greeting image decoration").intro-decoration
+
+    +section-title Русова Наталія Петрівна - эндокринолог, лікар першої кваліфікаційної категорії. Засновник і провідний фахівець «Асоціації дієтологів України».
+
+    +section-subtitle Дайте відповідь на кілька питань і отримаєте рекомендації для схуднення
+
+    +button(tabindex="0").button--start-test.js-start-quiz Розпочати тест
+
+  +page-section("quiz")
+    .quiz.js-quiz-slider
+      .quiz__section
+        +section-title Виберіть Вашу стать
+
+        form.form-quiz-weight(action="")
+          label.label-radio
+            input(type="radio" name="scales" value="Чоловік")#quiz1__answer1
+            | Чоловік
+
+          label.label-radio
+            input(type="radio" name="scales" value="Жінка")#quiz1__answer2
+            | Жінка
+
+      .quiz__section
+        +section-title Вкажіть Ваш вік
+
+        form.form-quiz-age(action="")
+          input#quiz-age-input.form-input
+          label(for="quiz-age-input").form-label
+            | років
+
+      .quiz__section
+        +section-title Які параметри Вашого тіла в даний момент
+
+        form.form-quiz-parameters(action="")
+          .form-row
+            label.form-label(for="quiz-height-input")
+              | Зріст, см
+            input#quiz-height-input.form-input
+
+          .form-row
+            label.form-label(for="quiz-weight-input")
+              | Вага, кг
+            input#quiz-weight-input.form-input
+
+      .quiz__section
+        +section-title В яких зонах надлишкові кілограми проявляються найбільше всього
+
+        form.form-quiz-zones(action="")
+          label.label-checkbox
+            input(type="checkbox" name="problem-zones")
+            | Живіт
+          label.label-checkbox
+            input(type="checkbox" name="problem-zones")
+            | Боки
+          label.label-checkbox
+            input(type="checkbox" name="problem-zones")
+            | Руки
+          label.label-checkbox
+            input(type="checkbox" name="problem-zones")
+            | Руки
+          label.label-checkbox
+            input(type="checkbox" name="problem-zones")
+            | Обличчя
+
+      .quiz__section
+        +section-title Як давно Ви набрали зайву вагу
+
+        form.form-quiz-extra-weight(action="")
+          .form-row
+            label.label-radio
+              input(type="radio" name="extra-weight" value="Менше місяця тому")
+              | Менше місяця тому
+
+            label.label-radio
+              input(type="radio" name="extra-weight" value="Скоро буде пів року")
+              | Скоро буде пів року
+
+          .form-row
+            label.label-radio
+              input(type="radio" name="extra-weight" value="Не менше ніж два роки тому")
+              | Не менше ніж два роки тому
+
+            label.label-radio
+              input(type="radio" name="extra-weight" value="Більше ніж два роки тому")
+              | Більше ніж два роки тому
+
+      .quiz__section
+        +section-title Як Ви думаєте, що спонукало Вас до набору зайвої ваги
+
+        form.form-quiz-extra-weight-reasons(action="")
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Пологи
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Шкідливі звички
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Стресс
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Порушення сну
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Проблеми у родині
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Робота
+          label.label-checkbox
+            input(type="checkbox" name="extra-weight-reasons")
+            | Інше
+
+      .quiz__section
+        +section-title На скільки швидко Вам потрібно схуднути
+
+        form.form-quiz-slimming-value(action="")
+          .form-row
+            label.label-radio
+              input(type="radio" name="slimming-value" value="Ще вчора")
+              | Ще вчора
+
+            label.label-radio
+              input(type="radio" name="slimming-value" value="За тиждень")
+              | За тиждень
+
+          .form-row
+            label.label-radio
+              input(type="radio" name="slimming-value" value="За місяць максимум")
+              | За місяць максимум
+
+            label.label-radio
+              input(type="radio" name="slimming-value" value="Є кілька місяців в запасі")
+              | Є кілька місяців в запасі
+
+      .quiz__section
+        +section-title Бажана вага?
+
+        form.form-quiz-desired-weight(action="")
+          input#quiz-desired-weight-input.form-input
+          label(for="quiz-desired-weight-input").form-label
+            | кг
+
+    .quiz__actions
+      .quiz__arrow-next(tabindex="0")
+        | Вперед
+
+      +button(disabled="disabled").button--quiz-calculate-result.js-quiz-calculate-result Посчитать результат
+  +page-section("contact")
+    +section-title Готово!
+    +section-subtitle Ваш персональний курс схуднення готовий!
+
+    form.form-user-data
+      .form-row
+        label.form-label(for="user-data-input")
+          | ВВЕДИТЕ ИМЯ
+        input(type="text" placeholder="Введите Ваше имя" name="name" required)#user-data-input.form-input
+
+      .form-row
+        label.form-label(for="user-data-phone")
+          | ВВЕДИТЕ ТЕЛЕФОН
+        input(type="tel" placeholder="Введите Ваш телефон" name="phone" required)#user-data-phone.form-input
+
+      .form-row.form-row--submit
+        +button(type="submit")
+          img(src="./images/lipokamit/checkmark-icon.svg")
+          | Посмотреть результат
+
+block modals
+  +modal(id="modal-quiz-calculating-results")
+    .quiz-calculating-results
+      .quiz-calculating-results__title Обробка даних
+      .quiz-calculating-results__message Ваш рекомендований курс схуднення підраховується
+      .quiz-calculating-results__chart
+        input(type="text" data-thickness="0.05" data-fgcolor="#01888a" value="100" data-readonly="true").chart-element
+      .quiz-calculating-results__message-ready(style="opacity: 0")
+        | Ваш персональний курс схуднення готовий!
+
+block scripts
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js")
+  script(src="javascripts/vendor.bundle.js")
+  script(src="javascripts/lipokarnit.js")
+  script.
+    document.addEventListener('modal-calculating-result-open', function(e) {
+      $(".chart-element").knob();
+      $({ animatedVal: 0 }).animate({ animatedVal: 100 }, {
+        duration: 3000,
+        easing: "linear",
+        step: function() {
+          $(".chart-element").val(Math.ceil(this.animatedVal)).trigger("change");
+        }
+      });
+    }, false);
+

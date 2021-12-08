@@ -1,0 +1,66 @@
+.button-scroll-up
+  flex-center-xy()
+  width 44px
+  height 44px
+  position fixed
+  right 16px
+  bottom 0
+  margin-bottom 16px
+  opacity 0
+  z-index 140
+  visibility hidden
+  -webkit-tap-highlight-color rgba($black, 0)
+  transitions()
+  border-radius $border-radius-circle
+  pointer-events none
+
+  +above($media-screen-tablet)
+    right 28px
+
+  +above($media-screen-desktop)
+    margin-bottom 28px
+
+  &:after
+    pseudo()
+    position-zero()
+    background-color $white
+    z-index -1
+    border-radius $border-radius-circle
+    box-shadow 0 2px 8px 0 rgba(47, 55, 62, .2)
+    transition all .2s ease
+
+  &:focus
+    box-shadow 0 0 0 4px #d5dade
+    outline 0
+
+  +above($media-screen-tablet)
+    &:hover
+      &:after
+        transform scale3d(1.2, 1.2, 1.2)
+
+      svg
+        animation-name bounce-arrow
+        animation-duration .5s
+        animation-fill-mode both
+        animation-timing-function linear
+
+  &.is-visible
+    opacity 1
+    visibility visible
+    pointer-events auto
+
+  &.is-at-the-bottom
+    transform translateY(-88px)
+
+  svg
+    height 20px
+    width 14px
+    position relative
+    z-index 2
+
+@keyframes bounce-arrow
+  0%, 100%
+    transform translateY(0)
+
+  50%
+    transform translateY(5px)

@@ -1,0 +1,38 @@
+.action-arrow
+  display inline-block
+  font-size $font-size-base
+  line-height $line-height-base
+  font-weight $font-weight-bolder
+  position relative
+  padding-right 23px
+  max-width 213px
+  color $red-error
+  cursor pointer
+  transitions()
+
+  +above($media-screen-tablet)
+    max-width 345px
+
+  +above($media-screen-desktop)
+    font-size $font-size-bigger
+    max-width 390px
+
+  svg
+    position absolute
+    bottom calc(50% - 6px)
+    right 0
+    transitions()
+
+    path
+      transitions()
+
+  &:hover
+    color $red-hover
+
+    svg
+      transform translateX(5px)
+
+      path
+        fill $red-hover
+
+

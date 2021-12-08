@@ -1,0 +1,44 @@
+mixin button(attributes)
+	-
+		let buttonTag = "span";
+		let classes = [];
+		const baseClassName = "button";
+		const isLink = attributes.href || null;
+		const isFormButton = attributes.type || null;
+		const size = attributes.size;
+		const hasCustomSize = size || null;
+		const isDisabled = attributes.disabled;
+		const mode = attributes.mode || null;
+
+		classes.push(baseClassName);
+		
+		// Detect button tag by Attribute
+		if (isLink) {
+			buttonTag = "a";
+		} else if (isFormButton) {
+			if (isFormButton === "submit") {
+				classes.push("form-submit");
+			}
+			buttonTag = "button";
+		}
+		
+		if (isDisabled) {
+			// TODO get action status className from CONSTANT
+			classes.push("is-disabled");
+		}
+		
+		if (hasCustomSize) {
+			const modifier = baseClassName + "--" + size;
+			classes.push(modifier)
+		}
+		
+		if (mode) {
+			const modifier = baseClassName + "--" + mode;
+			classes.push(modifier)
+		}
+
+		// Delete unwanted (custom) attributes
+		delete attributes.size;
+
+	#{buttonTag}(class=classes)&attributes(attributes)
+		block

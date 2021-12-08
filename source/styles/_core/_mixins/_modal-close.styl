@@ -1,0 +1,30 @@
+modal-close()
+  position absolute
+  top 0
+  right 0
+  z-index 5
+  padding 14px
+  opacity .5
+  cursor pointer
+  will-change opacity
+  background-color transparent
+  border none
+  transitions()
+
+  +above($media-screen-desktop)
+    padding 16px
+
+  &:before
+    content ""
+    display block
+    width 14px
+    height 14px
+    background-size cover
+    background-repeat no-repeat
+    background-image url("../images/_global/modals/icon-close.svg")
+
+  &:hover
+    opacity 1
+
+  &:active
+    opacity .8

@@ -1,0 +1,230 @@
+extends ../layouts/responsive-simple
+
+include lagoon/includes/authorization-widget-en
+
+block head
+  title CPA network LAGOON
+  meta(charset="UTF-8")
+  link(rel="shortcut icon" href="./favicons/favicon.ico" type="image/x-icon")
+
+block styles
+  link(rel="stylesheet" href="./stylesheets/lagoon.css")
+
+block main
+  section.page-section.page-section--intro.page-section--en#intro
+    .page-section__inner
+      .page-header
+        .mobile-navbar
+          .mobile-navbar__button.dropdown-toggle(data-bs-toggle="dropdown" aria-expanded="false")
+          .mobile-navbar__menu-wrapper.dropdown-menu(aria-labelledby="dropdownMobileMenuEn")
+            .mobile-navbar__menu
+              .mobile-navbar__menu-item
+                a(href="#about-us")
+                  | About Us
+              .mobile-navbar__menu-item
+                a(href="#advertisers")
+                  | For advertisers
+              .mobile-navbar__menu-item
+                a(href="#webmaster")
+                  | For web-masters
+              .mobile-navbar__menu-item
+                a(href="#contacts")
+                  | Contacts
+              .mobile-navbar__menu-footer
+                a(href="#").is-active RU
+                a(href="lagoon-en.html") EN
+
+        .page-header__logo
+          .logo
+            img(src="./images/lagoon/logo.png" alt="Lagoon").logo__image
+
+        .page-header__menu
+          .header-menu
+            .header-menu__item
+              a(href="#about-us")
+                | About Us
+            .header-menu__item
+              a(href="#advertisers")
+                | For advertisers
+            .header-menu__item
+              a(href="#webmaster")
+                | For web-masters
+            .header-menu__item
+              a(href="#contacts")
+                | Contacts
+
+        .page-header__actions
+          .authorization-links
+            .authorization-links__item
+              a(href="#").button.js-show-modal-login
+                | Login
+            .authorization-links__item
+              a(href="#").button.js-show-modal-registration
+                | Registration
+
+          .lang-switcher
+            .lang-switcher__item
+              a(href="lagoon.html")
+                | RU
+            .lang-switcher__item.is-active
+              a(href="#")
+                | EN
+
+      .intro-titles
+        .intro-titles__decoration
+          .circle-decoration
+            .circle-decoration__1
+            .circle-decoration__2
+            .circle-decoration__3
+
+        .section-title
+          | CPA network LAGOON
+        .section-subtitle
+          | Effective marketing
+
+      ul.nav.nav--fixed-scroll#page-content
+        li.nav-item
+          a.nav-link.active(href="#intro")
+        li.nav-item
+          a.nav-link(href="#about-us")
+        li.nav-item
+          a.nav-link(href="#webmaster")
+        li.nav-item
+          a.nav-link(href="#sign-up")
+
+      video(autoplay="" muted="" loop="").intro-background-video
+        source(src="./videos/back.mp4" type="video/mp4")
+
+  section.page-section.page-section--to-advertisers#about-us
+    .page-section__inner
+      .section-title
+        | About Us
+
+      p
+        | The main task of our company is to provide our partners with the most suitable marketing solutions, designed specifically for their individual needs.
+      p
+        | We have developed our own platform, which is constantly updated and supplemented with new functionality focused on the successful result of advertising campaigns.
+
+      .advertisers#advertisers
+        .advertisers__column.advertisers__column--to-advertisers
+          .section-title
+            | FOR ADVERTISERS
+
+          p We specialize in attracting targeted customers and eliminating all sources of fraudulent traffic, so you get high quality, stable and scalable traffic.
+          p Our team of marketers has extensive experience in creating competitive offers based on market monitoring and testing the performance of promotion in various traffic sources, which helps to achieve high results and high-quality user experience.
+
+          .c2a-title
+            | Join us today for long-term cooperation!
+
+
+        .advertisers__column.advertisers__column--benefits
+          .benefits
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/public-relation.png")
+                | Prompt technical and customer support
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/global.png")
+                | Traffic quality control - anti-fraud system
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/add.png")
+                | API - integration
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/dollar.png")
+                | Pay for real results
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/value.png")
+                | We will select clients for any product and help to promote it
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/users.png")
+                | The most transparent statistics
+
+  section.page-section.page-section--webmaster#webmaster
+    .page-section__inner
+      .webmasters
+        .webmasters__column
+          .section-title
+            | FOR WEB-MASTERS
+
+          p Working with us you get access to the best deals on the market.
+          p Our platform contains the necessary tools for effective earnings.
+          p Using which, you get the maximum income.
+          p And the friendly support of a personal manager helps you with this.
+
+          .c2a-title
+            | Join us for maximum monetization of your traffic.
+
+        .webmasters__column
+          .benefits
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/master1.png")
+                | Copyright offers and loyalty conditions
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/master2.png")
+                | Timely payments
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/master3.png")
+                | High level of personal manager support
+            .benefits__item
+              .benefit
+                .benefit__icon
+                  img(src="./images/lagoon/benefits/master4.png")
+                | Detailed statistics
+
+  section.page-section.page-section--sign-up#sign-up
+    .page-section__inner
+      +authorizationWidgetEn
+
+  section.page-section.page-section--footer#contacts
+    .page-section__inner
+      .footer
+        .footer__logo
+          .logo
+            img(src="./images/lagoon/logo.png" alt="Lagoon").logo__image
+
+
+        .footer__menu
+          .footer-menu
+            .footer-menu__item
+              a(href="#about-us")
+                | ABOUT US
+            .footer-menu__item
+              a(href="#advertisers")
+                | FOR ADVERTISERS              
+          .footer-menu
+            .footer-menu__item
+              a(href="#webmaster")
+                | FOR WEB-MASTERS
+            .footer-menu__item              
+              a(href="#contacts")
+                | REGISTRATION
+
+        .footer__socials
+          include lagoon/includes/socials-list
+
+          .footer__company-name
+            | © LAGOON 2021
+
+  +modal(id="modal-authorization-widget")
+    +authorizationWidgetEn
+
+block scripts
+  script(type="text/javascript" src="javascripts/vendor.bundle.js")
+  script(type="text/javascript" src="javascripts/lagoon.js")

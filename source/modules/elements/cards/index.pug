@@ -1,0 +1,86 @@
+mixin cards-list(mods)
+  - var modifier = ""
+
+  if (mods)
+    if (mods.constructor === Array)
+      each mod in mods
+        - modifier += " cards-list--"+mod
+    else
+      - modifier = "cards-list--"+mods
+
+  .cards-list(class=modifier)
+    block
+
+mixin card(attributes)
+  -
+    let cardTag = "div";
+    let cardClasses = [];
+    let imgSrc, titleText, cardText, linkText, linkTextArrow;
+    const baseClassName = "card";
+    const image = attributes.image || null;
+    const title = attributes.title || null;
+    const text = attributes.text || null;
+    const link = attributes.link || null;
+    const linkArrow = attributes.linkArrow || null;
+    const isLink = attributes.href || null;
+
+    cardClasses.push(baseClassName);
+
+    // Если у карточки есть картинка
+    if (image) {
+      imgSrc = image;
+      delete attributes.image;
+    }
+
+    // Если у карточки есть заголовок
+    if (title) {
+      titleText = title;
+      delete attributes.title;
+    }
+
+    // Если у карточки есть текст открывается block для текста
+    if (text) {
+      cardText = true;
+      delete attributes.text;
+    }
+
+    // Если у карточки есть ссылка
+    if (link) {
+      cardTag = "a";
+      linkText = link;
+      delete attributes.link;
+    }
+
+    // Если у карточки есть ссылка со стрелкой
+    if (linkArrow) {
+      cardTag = "a";
+      linkTextArrow = linkArrow;
+      delete attributes.linkArrow;
+    }
+
+    // Еслти у карточки есть ссылка, но нет отдельного текста для ссылки
+    if (isLink) {
+      cardTag = "a";
+    }
+
+  #{cardTag}(class=cardClasses)&attributes(attributes)
+    if (imgSrc)
+      img(src=imgSrc
+        title= "Card icon"
+        alt= "Card icon" class=baseClassName + "__illustration")
+
+    if (titleText)
+      div(class=baseClassName + "__title")
+        = titleText
+
+    if (cardText)
+      div(class=baseClassName + "__text")
+        block
+
+    if (linkText)
+      div(class=baseClassName + "__link")
+        = linkText
+
+    if (linkTextArrow)
+      +action-arrow()
+        = linkTextArrow

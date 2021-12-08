@@ -1,0 +1,13 @@
+{
+	"config": {
+		"projectName": "frontend platorm",
+		"lang": "en",
+		"path": {
+			"favicons": "favicons",
+			"styles": "stylesheets",
+			"scripts": "javascripts",
+			"images": "images",
+			"fonts": "fonts"
+		}
+	}
+}

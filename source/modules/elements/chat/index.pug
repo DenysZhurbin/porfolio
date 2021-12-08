@@ -1,0 +1,255 @@
+include ../button/index
+
+mixin chat(mods)
+	- var mods = mods || ''
+
+	.chat-wrapper(class=mods)
+		.chat
+			.chat__widget
+				.chat__header
+					.chat-operator
+						.chat-operator__image
+							img(src="./images/_modules/elements/chat/operator-icon.png"
+							srcset="./images/_modules/elements/chat/operator-icon@2x.png 2x"
+							alt="Essie Andrews")
+
+						.chat-operator__details
+							p.chat-operator__name Essie Andrews
+							p.chat-operator__status Friendly Supporter
+
+				.chat__conversation-area
+					.chat__conversation-title
+						span.chat__conversation-title-inner
+							| Today
+
+					.chat__conversation
+						.chat__post.chat__post--operator
+							.chat__post__image  
+								img(src="./images/_modules/elements/chat/operator-icon.png"
+								srcset="./images/_modules/elements/chat/operator-icon@2x.png 2x"
+								alt="Essie Andrews")
+							.chat__conversation-message
+								| Hi there 👋 What question can I help you with?
+							.chat__post-date 03:01 PM  
+								
+						.chat__post.chat__post--operator
+							.chat__post__image
+								img(src="./images/_modules/elements/chat/operator-icon.png"
+								srcset="./images/_modules/elements/chat/operator-icon@2x.png 2x"
+								alt="Essie Andrews")
+							.chat__conversation-message
+								.operator-typing-container
+									.operator-typing
+										.typing-line.typing-line--first
+										.typing-line.typing-line--second
+										.typing-line.typing-line--third
+										.typing-line.typing-line--fourth
+										.typing-line.typing-line--fifth
+										
+									.typing-message Typing...	
+								
+							.chat__post-date 03:01 PM		
+
+						.chat__post.chat__post--client
+							.chat__conversation-message
+								| Make Myspace Best Designed Space
+							.chat__post-date 03:01 PM
+
+						.chat__post.chat__post--operator
+							.chat__post__image
+								img(src="./images/_modules/elements/chat/operator-icon.png"
+								srcset="./images/_modules/elements/chat/operator-icon@2x.png 2x"
+								alt="Essie Andrews")
+							.chat__post-container
+								form.form.form--chat-user-data
+									.form__item
+										p.form-label First name:  
+										input.form-input.form-input--first-name(type="text" required placeholder="Your first name")
+
+									.form__item
+										p.form-label Your email:
+										input.form-input.form-input--email(type="email" required placeholder="Enter your email")
+										
+									.form__item.form__item--actions
+										+button(type="submit")
+											| Send	
+
+						.chat__post.chat__post--operator
+							.chat__post__image
+								img(src="./images/_modules/elements/chat/operator-icon.png"
+								srcset="./images/_modules/elements/chat/operator-icon@2x.png 2x"
+								alt="Essie Andrews")
+							.chat__post-container.chat__post-container--waiting
+								.waiting-icon.active
+									svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="100%" height="100%")
+										g(fill="none" fill-rule="evenodd")
+											path(d="M48 24c0 13.255-10.745 24-24 24S0 37.255 0 24 10.745 0 24 0s24 10.745 24 24")
+											path(fill="#F68F1E" d="M17.573 45.171c-2.08-.622-4.09-1.504-5.938-2.672A24.675 24.675 0 0 1 6.7 38.193a24.41 24.41 0 0 1-3.491-5.583c-.88-2.03-1.427-4.192-1.727-6.393a24.985 24.985 0 0 1 .202-6.654c.43-2.191 1.124-4.339 2.139-6.346A25.274 25.274 0 0 1 7.73 7.736a25.444 25.444 0 0 1 5.363-4.129c1.989-1.1 4.144-1.887 6.366-2.408C21.698.734 23.995.596 26.285.74c2.282.224 4.549.711 6.703 1.551a25.525 25.525 0 0 1 5.994 3.448 26.054 26.054 0 0 1 4.758 5.066c1.319 1.925 2.348 4.044 3.1 6.265.714 2.239 1.063 4.578 1.155 6.93a2.001 2.001 0 0 1-3.998.157 7.124 7.124 0 0 1-.002-.157c-.01-1.965-.218-3.935-.744-5.842-.564-1.891-1.36-3.72-2.42-5.406a22.689 22.689 0 0 0-3.912-4.502 22.48 22.48 0 0 0-5.08-3.188c-1.848-.803-3.815-1.304-5.821-1.584a22.966 22.966 0 0 0-6.072.173c-1.997.392-3.956 1.017-5.79 1.94a23.274 23.274 0 0 0-5.01 3.56 23.401 23.401 0 0 0-3.78 4.892c-1.008 1.816-1.727 3.782-2.21 5.811-.427 2.043-.556 4.145-.43 6.242.205 2.087.643 4.16 1.407 6.131a23.568 23.568 0 0 0 3.147 5.49 24.022 24.022 0 0 0 4.633 4.366c1.762 1.21 3.7 2.154 5.732 2.848 2.049.656 4.19.977 6.35 1.069-2.16-.009-4.326-.247-6.422-.829z")
+								.chat__post-title Wait a Moment
+								.chat__post-message Waiting for an available pdfFiller support specialist. This should only take a moment
+
+						.chat__post.chat__post--operator
+							.chat__post-container.chat__post-container--gratitude
+								.gratitude-icon
+									svg(xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24")
+										path(fill="#3BB273" fill-rule="nonzero" d="M10.8 14.6l5.4-7.2a1 1 0 1 1 1.6 1.2l-6 8a1 1 0 0 1-1.4.2l-4-3a1 1 0 1 1 1.2-1.6l3.2 2.4zM12 24C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12zm0-2c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z")
+								.chat__post-title Thank You!
+								.chat__post-message Are You Ready To Buy A Home Theater Audio System
+
+						.chat__post.chat__post--operator
+							.chat__post-container.chat__post-container--image-preview
+								figure
+									img.image-preview(src="./images/_modules/elements/chat/link-preview.jpg"
+									srcset="./images/_modules/elements/chat/link-preview@2x.jpg 2x"
+									alt="UX Design")
+									figcaption
+										a.chat__post-link.chat__post-link--bold(href="#" target="_blank") Why Product Thinking is the next big thing in UX Design
+
+						.chat__post.chat__post--operator
+							.chat__post-container.chat__post-container--article
+								.chat__post-title
+									| Do Your Self Realizations Quickly Fade
+								.chat__post-message.chat__post-message--large
+									| Notes are very powerful. They express your thanks, encouragement, sympathy, apology, congratulations, feelings, and requests to others.
+								.chat__post-message.chat__post-message--large
+									| Many people create notes on a computer and print them or send them through the Internet.
+									|
+									a.chat__post-link(href="https://medium.com/@jaf_designer/why-product-thinking-is-the-next-big-thing-in-ux-design-ee7de959f3fe" target="_blank") https://medium.com/@jaf_designer/why-product-thinking-is-the-next-big-thing-in-ux-design-ee7de959f3fe
+									
+						.chat__post.chat__post--operator
+							.chat__post-container.chat__post-container--screen-share
+								.chat__post-title Share your screen to support?
+									
+								+button(href="#", size="sm").button--not-allow-screen-share
+									| Don't Allow
+								+button(href="#", size="sm").button--allow-screen-share
+									| Confirm
+								
+						.chat__post.chat__post--operator
+							.chat__post-container.chat__post-container--pc-operation
+								.chat__post-title 
+									| Linux Or Windows Which Is It:
+									
+								.chat__categories-list
+									.chat__categories__item(size="sm" data-attr="morning_dawns")
+										| When The Morning Dawns
+									.chat__categories__item(size="sm" data-attr="for_colic")
+										| Remedies For Colic
+									.chat__categories__item(size="sm" data-attr="photo_printing")
+										| V7 Digital Photo Printing
+									.chat__categories__item(size="sm" data-attr="WordPress")
+										| WordPress 2.0.3 Review
+										
+						.chat__post.chat__post--operator
+							.chat__post-container
+								form.form.form--chat-sales
+									.form__item
+										p.form-label First name:  
+										input.form-input.form-input--first-name(type="text" required placeholder="Your first name")
+
+									.form__item
+										p.form-label Last name:  
+										input.form-input.form-input--first-name(type="text" required placeholder="Your last name")
+
+									.form__item
+										p.form-label Your email:
+										input.form-input.form-input--email(type="email" required placeholder="Enter your email")
+
+									.form__item
+										p.form-label Your phone:  
+										input.form-input.form-input--phone(type="text" required placeholder="Enter your phone number" data-parsley-type="digits" data-parsley-type-message="Only numbers")
+
+									.form__item
+										p.form-label Company:  
+										input.form-input.form-input--company(type="text" required placeholder="Your company")
+
+									.form__item.form__item--actions
+										+button(type="submit")
+											| Send		
+										
+						.chat__post.chat__post--operator
+							.chat__post-container.chat__post-container--account-access
+								.chat__post-title
+									| Give access to your account for:
+								
+								form.form.form--chat-account-access
+									.form__item.form__item--access
+										select(required)
+											option(selected disabled) 7 days
+											option(value="1") 1 day
+											option(value="3") 3 days
+											option(value="14") 14 days
+											option(value="21") 21 days
+
+									.form__item.form__item--actions
+										+button(type="submit")
+											| Give Access
+										
+						.chat__post.chat__post--operator
+							.chat__post-container.chat__post-container--service-rates
+								.chat__post-title
+									| Please rate your customer service experience:
+
+								.chat__post-rates
+									a(href="#").rates-icon.rates-icon--1
+									a(href="#").rates-icon.rates-icon--2
+									a(href="#").rates-icon.rates-icon--3
+									a(href="#").rates-icon.rates-icon--4
+									a(href="#").rates-icon.rates-icon--5
+							
+							.chat__post-date 03:01 PM	
+
+					.chat__categories-list.js-chat-categories
+						.chat__categories__item.js-chat-category(data-attr="support_category")
+							| Need Customer Support Category
+						.chat__categories__item.js-chat-category(data-attr="browsing")
+							| Just Browsing
+						.chat__categories__item.js-chat-category(data-attr="contact_sales")
+							| Contact Sales
+					.chat__sub-categories-list.js-chat-subcategories
+						.chat__sub-categories__item
+							| Subscription & Billing
+						.chat__sub-categories__item
+							| Login & Account setup
+						.chat__sub-categories__item
+							| Document upload
+						.chat__sub-categories__item
+							| Document signing & Editing
+						.chat__sub-categories__item
+							| Document export
+						.chat__sub-categories__item
+							| API and Integrations
+						.chat__sub-categories__item
+							| Data privacy
+						.chat__sub-categories__item
+							| Other  
+							
+				.chat__footer
+					.chat__user-panel
+						.chat__user-textarea#user-textarea
+							textarea#message-to-send.chat__textarea(name="message-to-send" placeholder="Write message..." rows="1")
+	
+						.chat__user-actions-list
+							.chat__user-actions-list__item
+								span.icon.icon--emoji.js-attach-emoji
+							.chat__user-actions-list__item
+								span.icon.icon--attachment.js-attach-file
+
+			.chat__tooltipster.js-chat-tooltipster.delay-2s.fadeInUp
+				.chat__tooltipster-container
+					.chat__tooltipster-preview
+						| Hi 👋, how can we help?    
+					.chat__tooltipster-close.js-close-chat-tooltipster
+
+			.widget-button.delay-1s.fadeInUp
+				.widget-button__status.widget-button__status--unread.js-widget-button
+
+mixin chat-as-script()
+	script.
+		window.isLanding = true;
+		(function () {
+			var s = document.createElement('script');
+			s.type = 'text/javascript';
+			s.src = 'https://cdn.pdffiller.com/support-chat/465/product.js';
+			document.head.appendChild(s);
+		}());

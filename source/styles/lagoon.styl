@@ -1,0 +1,687 @@
+@import "./_core/_base/_main/_reset.styl"
+@import "./_core/_mixins.styl"
+@import "./_core/_variables.styl"
+@import "../modules/modal"
+
+$mobile = 480px
+$tablet = 768px
+$desktop = 960px
+
+@import "./lagoon/includes/authorization-widget.styl"
+
+@font-face {
+    font-family: 'Avenir Next Cyr Bold';
+    src: url('../fonts/AvenirNextCyr/AvenirNextCyr-Bold.ttf');
+    font-weight: 750;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Next Cyr Regular';
+    src: url('../fonts/AvenirNextCyr/Avenir.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Next Cyr Light';
+    src: url('../fonts/AvenirNextCyr/AvenirNextCyr-Thin.woff2') format('woff2'), url('../fonts/AvenirNextCyr/AvenirNextCyr-Thin.woff') format('woff'), url('../fonts/AvenirNextCyr/AvenirNextCyr-Thin.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+*
+  box-sizing border-box
+
+body
+  margin: 0;
+  font-family: 'Avenir Next Cyr Regular'
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  position relative
+  min-width 320px
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+
+.logo__image
+    width: 46px;
+    +above(860px)
+      width: 77px;
+
+.intro-background-video
+  position absolute
+  bottom 0
+  z-index -1
+  min-height 100vh
+  left: -693px
+  min-width 100%
+  +above(1000px)
+    left -500px
+
+  +above(1200px)
+    left -400px
+
+  +above(1400px)
+    left 0px
+
+.page-section--intro.page-section--en
+  .intro-titles
+    +above($tablet)
+      width 730px
+      padding-top: 29px;
+    +above(1050px)
+      width: 995px;
+      padding-top: 62px
+
+.page-header__menu
+  display: none
+  +above(924px)
+    display: block
+
+.layout-responsive
+  overflow hidden
+
+.page-header
+  display flex
+  justify-content space-between
+  align-items center
+  margin 0 -8px
+  min-height 70px
+  +above($mobile)
+    margin 0 -8px
+  +above($tablet)
+    margin 0
+    padding 10px 0
+    font-size: 18px;
+    min-height 80px
+
+.page-header__actions
+  user-select: none
+
+.authorization-links
+  display inline-flex
+  +above($tablet)
+    padding: 0
+
+.authorization-links__item
+  margin 0 4px
+  &:first-child
+    margin-left 0
+    +above($mobile)
+      margin-left 8px
+
+  &:last-child
+    margin-right 0
+    +above($mobile)
+      margin-right 8px
+
+  +above($mobile)
+    margin 0 8px
+
+.button
+  border 2px solid #1CE3BF
+  font-size 14px
+  line-height 18px
+  border-radius 22px
+  color #fff
+  outline none
+  letter-spacing .75px
+  padding 9px 13px
+  text-decoration none
+  display inline-block
+  +above($mobile)
+    padding 9px 13px
+    font-size 18px
+    line-height 22px
+
+.button:hover
+  background #1CE3BF
+
+.lang-switcher
+  display: none
+  +above(924px)
+    display inline-flex
+    margin 0 6px 0 0
+
+.lang-switcher__item
+  padding 0 4px
+
+.mobile-navbar
+  margin-left 6px
+  +above($tablet)
+    margin-left 0
+
+  +above(924px)
+    display none
+
+.mobile-navbar__button
+  width: 44px
+  height: 44px
+  display: flex
+  justify-content: center
+  align-items: center
+  background: #1AE5BE
+  border-radius: 50%
+  color: white
+  position relative
+  cursor pointer
+  &:before
+    content ""
+    width 18px
+    height 18px
+    background url("../images/lagoon/mobile-menu-trigger.svg") no-repeat center
+
+.mobile-navbar__menu
+  width 225px
+  user-select none
+  margin-bottom -10px!important
+  a
+    color: #000000
+    text-decoration none
+
+  a.is-active
+    text-decoration underline
+    color #1AE5BE
+
+.mobile-navbar__menu-wrapper
+  padding-top 10px
+  background transparent
+
+.mobile-navbar__menu-item
+  -webkit-font-smoothing: antialiased;
+  font-size 18px
+  background white
+  line-height 22px
+  padding 10px 24px
+  border-bottom: 1px solid #C4C4C4
+  a:hover
+    text-decoration underline
+
+.mobile-navbar__menu-footer
+  background white
+  display flex
+  justify-content space-around
+  padding 5px
+  a:hover
+    color #1AE5BE
+
+.header-menu
+  +above($tablet)
+    display flex
+
+.header-menu__item
+  font-weight 400
+  a
+    color white
+    text-decoration none
+    padding 8px 8px
+  a:hover
+    text-decoration underline
+
+.lang-switcher__item
+  a
+    text-decoration none
+    color white
+
+.lang-switcher__item.is-active
+  a
+    text-decoration underline
+    color #1CE3BF
+
+.lang-switcher__item:hover
+  a
+    color #1CE3BF
+
+.page-section--intro
+  position: relative
+  height 100vh
+  background linear-gradient(180deg, #024D83 0%, rgba(221, 241, 255, 0) 80.18%)
+  overflow-x hidden
+  .page-section__inner
+    height 100%
+
+.intro-titles
+  text-align: center
+  position absolute
+  left 0
+  right 0
+  top 50%
+  transform: translate(0,-50%);
+  padding-top: 140px;
+  +above($tablet)
+    position relative
+    text-align: left
+    width 640px
+    left 50%
+    transform: translate(-50%, -75%);
+    padding-left 151px
+    padding-top 14px
+    padding-bottom 80px
+    +above(920px)
+      padding-top 55px
+
+  +above(920px)
+    width 880px
+    padding-left 280px
+    padding-top 80px
+
+  .section-title
+    font-size: 32px
+    line-height 38px
+    color #FDFDFD
+    opacity 0.5
+    margin 0
+    padding-left 0
+    font-family 'Avenir Next Cyr Bold'
+    font-weight bold
+    +above($tablet)
+      line-height 62px
+      font-size 52px
+      display inline-block
+    +above(920px)
+      line-height 78px
+      font-size 64px
+
+  .section-subtitle
+    font-size 22px
+    line-height 26px
+    color #FDFDFD
+    +above($tablet)
+      line-height 32px
+      font-size 28px
+      display inline-block
+    +above(920px)
+      line-height 44px
+      font-size 36px
+
+.intro-titles__decoration
+  position absolute
+  width 125px
+  height 125px
+  top 0
+  left 50%
+  margin-left -62.5px
+  border 1px solid #FFFFFF
+  border-radius 50%
+  +above($tablet)
+    left 0
+    top 0
+    margin-left 0
+
+  +above(920px)
+    width 250px
+    height 250px
+
+.circle-decoration
+  div
+    position absolute
+    border-radius 50%
+
+.circle-decoration__1
+  width 100px
+  height 100px
+  top 12.5px
+  left 12.5px
+  border 1px solid #BEBEBE
+  +above(920px)
+    width 200px
+    height 200px
+    top 25px
+    left 25px
+
+.circle-decoration__2
+  width 75px
+  height 75px
+  top 24.5px
+  left 25px
+  background rgba(26, 229, 190, 0.7)
+  +above(920px)
+    width 150px
+    height 150px
+    top 49px
+    left 50px
+  
+.circle-decoration__3
+  width 25px
+  height 25px
+  top 50px
+  left 50px
+  background rgba(255, 255, 255, 0.9)
+  +above(920px)
+    top 100px
+    left 100px
+    width 50px
+    height 50px
+
+.section-title
+  font-style normal
+  font-size 26px
+  line-height 44px
+  color #777777
+  +above($tablet)
+    padding-left 20px
+// _____________________________________page-section--intro_____________________________________
+
+.page-section__inner
+  max-width 1140px
+  padding-left 15px
+  padding-right 15px
+  margin-left auto
+  margin-right auto
+  +above($tablet)
+    padding-left 24px
+    padding-right 24px
+
+.page-section--to-advertisers
+  margin-bottom: 32px
+  +above($tablet)
+    margin-bottom: 0
+
+  .page-section__inner
+    background url(../images/lagoon/bg-main-1.png) no-repeat
+    background-color: #ffffff;
+    background-blend-mode: hard-light;
+    background-position: 16px 92px;
+    background-size: 50%;
+    padding-top 17px
+    +above($mobile)
+      padding-top 24px
+    +above($tablet)
+      padding-top 36px
+
+  p
+    font-family: 'Avenir Next Cyr Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #282626;
+    +above($tablet)
+      font-size: 18px;
+      line-height: 25px;
+
+.advertisers
+  +above($tablet)
+    display flex
+    justify-content: space-evenly
+    padding-top: 7px
+    padding-bottom: 56px
+
+.advertisers__column--to-advertisers
+  background: linear-gradient(180deg, #FFFFFF 0%, #DDFCEE 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding 10px 17px 17px 17px
+  margin: 0 -17px 32px
+  position relative
+  &:before
+    content ""
+    position absolute
+    display block
+    +above($tablet)
+      height 85px
+      width 100%
+      left 0
+      top -85px
+
+  +above($tablet)
+    width: 60%
+    max-width 550px
+    margin: 0
+    padding 15px 15px 30px
+    border-radius: 10px;
+
+  p
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #282626
+    margin: 6px 0
+    +above($tablet)
+      margin: 16px 0
+      font-size: 16px;
+      line-height: 30px;
+
+p
+  line-height: 30px;
+  margin: 8px 0
+  +above($tablet)
+    line-height: 24px;
+    margin: 16px 0
+    font-size 16px
+    line-height 24px
+
+.c2a-title
+  text-align: center
+  font-size: 18px;
+  font-weight: bold
+  margin-top: 10px
+  +above($tablet)
+    font-size: 23px
+    font-weight: bold
+    text-align: left
+    margin-top: 0
+
+.advertisers__column--benefits
+  +above($tablet)
+    padding-left: 34px
+    width: 380px
+
+.benefit
+  display: flex
+  align-items: center
+  font-style: normal
+  font-weight: 600
+  font-size: 14px
+  line-height: 22px
+  img
+    width: 50px
+    height: 50px;
+    margin-right: 14px
+    +above($tablet)  
+      width: 60px
+      height: 60px
+      margin-right: 20px
+
+.benefits__item
+  margin-bottom 20px
+  &:last-child
+    margin-bottom 0
+
+// _____________________________________page-section--webmaster_____________________________________
+
+.page-section--webmaster
+  background url(../images/lagoon/bg-master.png) no-repeat
+  background-size: cover
+  background-position: top center;
+
+.webmasters
+  padding: 32px 0
+  +above($tablet)
+    display: flex
+    justify-content: center;
+
+.webmasters__column
+  p
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #282626;
+    +above($tablet)
+      font-size: 16px;
+      line-height 30px
+
+.webmasters__column:nth-child(2)
+  padding-top: 32px
+  +above($tablet)
+    padding: 46px 0 0 36px
+
+.webmasters__column:nth-child(1)
+  width: auto
+  +above($tablet)
+    width: 84%;
+    max-width: 628px
+
+// _____________________________________.page-section--sign-up_____________________________________
+
+.page-section--sign-up
+  background-position: 50% 50%;
+  background-size: cover;
+  +above($tablet)
+    background: linear-gradient(180deg, #FFFFFF 0%, #DDFCEE 100%);
+
+  .page-section__inner
+    padding-left 0
+    padding-right 0
+    +above($mobile)
+      padding 32px 16px
+
+  .authorization-widget
+    max-width 498px
+    margin 0 auto
+    +above($mobile)
+      border-radius 10px
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.20);
+    +above($tablet)
+      max-width 620px
+
+  .authorization-widget[data-authorization-method="login"]
+  .authorization-widget[data-authorization-method="remind-password"]
+    +above($tablet)
+      max-width 398px
+
+// _____________________________________.page-section--footer_____________________________________
+
+.page-section--footer
+  background: #777777
+  .page-section__inner
+    padding: 30px 30px;
+    max-width 756px
+
+.footer
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    +above($tablet)
+      justify-content: space-between;
+
+.footer-menu
+  +above($mobile)
+    float: left
+
+.footer-menu__item
+  padding: 4px
+  text-transform: uppercase;
+  font-weight 400
+  font-size 14px
+  +above($tablet)
+    font-size 16px
+  a
+    color white
+    text-decoration none
+    padding 8px 8px
+  a:hover
+    text-decoration underline
+
+.socials-list__item
+  margin-right: 12px
+
+.socials-list__item:last-child
+  margin-right: 0
+
+.footer-menu:first-child
+  +above($mobile)
+    margin-right: 22px
+  +above($tablet)
+    margin-right: 28px
+
+.socials-list
+  display: inline-flex
+  img
+    width: 20px;
+
+.footer__company-name
+  justify-content: center;
+  display: flex;
+  color: #1AE5BE;
+  padding-top: 10px;
+
+.footer__logo
+    margin-right: 12px;
+    margin-bottom: 16px;
+    +above($tablet)
+      margin: 0
+
+.modal__overlay
+  overflow auto
+
+.modal__container
+  .authorization-widget
+    min-width 320px
+
+  .form--login
+  .form--remind-password
+    border-radius 10px
+
+.footer__socials
+  margin-top 20px
+  width 100%
+  text-align center
+  +above($mobile)
+    margin-top 20px
+
+  +above($tablet)
+    width auto
+    margin-top 0
+
+.nav--fixed-scroll
+  display none
+  +above($tablet)
+    display block
+
+  @media screen and (max-height: 460px)
+    display none
+
+  position: fixed;
+  height 325px
+  top: 50%;
+  margin-top -164px
+  right: 13px;
+  width: 1px;
+  background: #DADADA;
+  opacity .7
+  list-style none
+  padding 0
+  +above(1140px)
+    right 50%
+    margin-right -545px
+
+  .nav-item
+    position absolute
+    width 12px
+    height 12px
+    left -5.5px
+    &:nth-child(1)
+      top 10%
+    &:nth-child(2)
+      top 35%
+    &:nth-child(3)
+      top 60%
+    &:nth-child(4)
+      top 85%
+
+  .nav-link
+    width 12px
+    height 12px
+    display inline-block
+    border-radius 50%
+    background transparent
+    transition background .1s linear
+    &.active
+      background: #1AE5BE;

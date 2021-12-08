@@ -1,0 +1,19 @@
+mixin checkbox(data, attrs)
+  - var data = data || {};
+  - var attributes = attrs || {};
+  - var required = data.required || false;
+  - var checked = data.checked || false;
+  - var id = data.id || 0;
+  - var errorMessage = data.errorMessage || "Please review and agree to our Privacy Policy and Terms of Services by checking the box";
+
+  label(for="input-"+id).checkbox
+    input(
+      type="checkbox"
+      checked=checked
+      required=required
+      data-parsley-error-message=(required ? errorMessage : false)
+      id="input-"+id)&attributes(attributes)
+    span.checkbox__icon
+    span.checkbox__label
+      if block
+        block

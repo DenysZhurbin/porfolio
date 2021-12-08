@@ -1,0 +1,61 @@
+// + Radio buttons
+/* Create a custom radio button */
+/* Customize the label (the container) */
+.radio-button
+  display block
+  position relative
+  padding-left 24px
+  cursor pointer
+  user-select none
+
+  input
+    position absolute
+    opacity 0
+    cursor pointer
+    height 0
+    width 0
+
+.radio-button__checkmark
+  position absolute
+  top 2px
+  left 0
+  height 16px
+  width 16px
+  background-color $white
+  border 1px solid $light-grey-color
+  border-radius 50px
+
+/* On mouse-over, add a grey background color */
+//.radio-button:hover input ~ .radio-button__checkmark
+//  background-color $light-grey-color
+
+/* When the radio button is checked, add a blue background */
+//.radio-button input:checked ~ .radio-button__checkmark
+//  background-color #2196F3
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-button:after
+  content ""
+  position absolute
+  display none
+
+/* Show the indicator (dot/circle) when checked */
+.radio-button input:checked ~ .radio-button__checkmark:after
+  pseudo()
+  top 3px
+  left 3px
+  width 8px
+  height 8px
+  border-radius 50px
+  background $black
+
+.radio-buttons-list--inline
+  .radio-buttons-list__item
+    display inline-block
+    margin-right 25px
+
+    &:last-child
+      margin-right 0
+
+.radio-buttons-list--inline
+  font-size $font-size-base

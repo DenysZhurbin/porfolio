@@ -1,0 +1,16 @@
+mixin page-section(mods, attrs)
+	- var attributes = attrs || {}
+	- var modifier = ''
+
+	if (mods)
+		if (mods.constructor === Array)
+			each mod in mods
+				- modifier += ' page-section--'+mod
+		else
+			- modifier = 'page-section--'+mods
+
+	section.page-section(class=modifier)&attributes(attributes)
+		.page-section__inner
+			block
+
+				

@@ -1,0 +1,55 @@
+//TODO add related links list
+.numbered-list
+.checked-list
+  &:not(:last-child)
+    margin-bottom 16px
+
+  .numbered-list
+  .checked-list
+    margin-bottom 0
+
+.numbered-list__item,
+.checked-list__item
+  &:not(:last-child)
+    margin-bottom 8px
+
+    +above($media-screen-tablet)
+      margin-bottom 12px
+
+    +above($media-screen-desktop)
+      margin-bottom 16px
+
+.checked-list__description,
+.numbered-list__description
+  font-weight $font-weight-normal
+
+.checked-list__description,
+.numbered-list__description,
+.numbered-list__marker
+  color $gray-900
+  font-size $font-size-small
+  line-height $line-height-small
+
+  +above($media-screen-tablet)
+    font-size $font-size-base
+    line-height $line-height-base
+
+  +above($media-screen-desktop)
+    font-size $font-size-bigger
+    line-height $line-height-bigger
+
+.numbered-list,
+.checked-list
+  .numbered-list,
+  .checked-list
+    padding-left 31px
+    margin-top 8px
+    margin-bottom 8px
+
+    +above($media-screen-tablet)
+      margin-top 12px
+      margin-bottom 12px
+
+    +above($media-screen-desktop)
+      margin-top 16px
+      margin-bottom 16px
