@@ -42,7 +42,7 @@ block main
           .page-header__actions
             .authorization-links
               .authorization-links__item
-                a(href="#").button
+                a(href="#").button.button--purple
                   | Зайти в кабинет
 
       .intro-titles
@@ -75,95 +75,197 @@ block main
             .unit-of-time
               | Секунд                    
 
-  section.page-section.page-section--short-statistics
+  section.page-section.page-section--statistics
     .page-section__inner
-      .page-section__inner-wraper
-        .page-section__actions
-          .to-order-links
-            .to-order-links__item
-              a(href="#").button
-                | Заказать курс   
-        .page-section__short-statistics
-          .short-statistics__column-one 
-            .short-statistics
-              .short-statistics__category
+      .page-section__column
+        a(href="#").button
+          | Заказать курс         
+      .page-section__column.page-section__column--statistics
+        .statistics
+          .statistics__column.statistics__column--summary
+            dl
+              dt
                 | Учеников всего:
-              .short-statistics__value
+              dd 
                 | 200
-            .short-statistics
-              .short-statistics__category
+              dt
                 | Успешно закончили курс:
-              .short-statistics__value
-                | 190
-          .short-statistics__column-two           
-            .short-statistics
-              .short-statistics__category
+              dd 
+                | 190              
+
+          .statistics__column.statistics__column--progress-bar
+            dl
+              dt
                 | Заработано учениками:
-              .short-statistics__value
-                | 400 000₽
-            .short-statistics.short-statistics
-              .short-statistics__diagram
-                .short-statistics__diagram-item
-              .short-statistics__values
-                .short-statistics__value
-                  | 0
-                .short-statistics__value
-                  | 1 000 000₽               
-     
+              dd 
+                | 400 000₽   
+            .progress-bar
+              .progress-bar__progress
+              .progress-bar__captions
+                  .progress-bar__caption.progress-bar__caption--from
+                    | 0
+                  .progress-bar__caption.progress-bar__caption--to
+                    | 1 000 000₽
 
-  section.page-section.page-section--to-advertisers#about-us
-    .page-section__inner
-      .section-title
-        | О нас
+  section.page-section
+    .page-section__inner.page-section__inner--company-direction
+      .page-section__column
+        .square-decoration
+          img(src="../images/figma-templates-1/square-decoration.png").square-decoration__img
+      .page-section__column
+        .section-title
+          | Чем мы занимаемся?
+        .section-subtitle
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget neque, dignissim et feugiat elit augue in suspendisse egestas. Dictum vestibulum mi et sed nunc, orci fermentum vestibulum, morbi. Et neque, adipiscing sapien sem senectus praesent aenean consequat. Aenean facilisi turpis aliquet fringilla. Nunc sem felis sed interdum feugiat mattis elit, sollicitudin. Quam pharetra rhoncus risus, cursus id elementum aliquet. Nullam turpis arcu malesuada arcu interdum placerat nisi, lobortis.
 
-      p
-      
-      p
+  section.page-section
+    .page-section__inner.page-section__inner--example-diagram
+      .section-title.section-title--left-decoration-circle
+        | Быстрый старт
+      .section-subtitle.section-subtitle--left-decoration
+        | Больше 90% учеников прошли полный курс и смогли собрать свой первый компьютер
+      .example-diagram
+        .example-diagram__row
+          .example-diagram__column
+            .example-diagram__item
+                .example-diagram__percentages
+                  | 100%
+                .example-diagram__visually.example-diagram__visually--100
+                p 
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus eget velit quisque accumsan amet tortor. Velit, volutpat egestas fringilla mi porttitor tempus. Placerat dui.
+          .example-diagram__column
+            .example-diagram__item
+                .example-diagram__percentages
+                  | 75%
+                .example-diagram__visually.example-diagram__visually--75
+                p 
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus eget velit quisque accumsan amet tortor. Velit, volutpat egestas fringilla mi porttitor tempus. Placerat dui.
+          .example-diagram__column
+            .example-diagram__item
+                .example-diagram__percentages
+                  | 50%
+                .example-diagram__visually.example-diagram__visually--50
+                p 
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus eget velit quisque accumsan amet tortor. Velit, volutpat egestas fringilla mi porttitor tempus. Placerat dui.
+          .example-diagram__column
+            .example-diagram__item
+                .example-diagram__percentages
+                  | Итог
+                .example-diagram__visually.example-diagram__visually--the-outcome
+                p 
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus eget velit quisque accumsan amet tortor. Velit, volutpat egestas fringilla mi porttitor tempus. Placerat dui.
 
-      .advertisers#advertisers
-        .advertisers__column.advertisers__column--to-advertisers
-          .section-title
-            | Рекламодателям
+  section.page-section
+    .page-section__inner.page-section__inner--benefits
+      .section-title.c2a-title
+        | Получите профессию прямо сейчас
 
-          p Мы специализируемся на привлечении целевых клиентов и устраняем все источники мошеннического трафика, благодаря чему вы получаете высококачественный, стабильный и масштабируемый трафик.
-          p Наша команда маркетологов имеет большой опыт создания конкурентоспособных предложений на основе мониторинга рынка и тестирования производительности продвижения в различных источниках трафика, что помогает достигать высоких результатов и качественный пользовательский опыт.
+      .advertisers__column.advertisers__column--benefits
+        .benefits
+          .benefits__item
+            .benefit
+              .benefit__icon
+                img(src="./images/figma-templates-1/benefit-icon-1.png")
+              .benefit__icon-title
+                | Только практические навыки в работе
+              .benefit__icon-subtitle
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus eget velit quisque accumsan amet tortor. Velit, volutpat egestas fringilla mi porttitor tempus. Placerat dui.
+          .benefits__item
+            .benefit
+              .benefit__icon
+                img(src="./images/figma-templates-1/benefit-icon-2.png")
+              .benefit__icon-title
+                | Работа на самом современном оборудовании
+              .benefit__icon-subtitle
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus eget velit quisque accumsan amet tortor. Velit, volutpat egestas fringilla mi porttitor tempus. Placerat dui.
+          .benefits__item
+            .benefit
+              .benefit__icon
+                img(src="./images/figma-templates-1/benefit-icon-3.png")
+              .benefit__icon-title
+                | Сертификация по окончании обучения
+              .benefit__icon-subtitle
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus eget velit quisque accumsan amet tortor. Velit, volutpat egestas fringilla mi porttitor tempus. Placerat dui.
 
-          .c2a-title
-            | Присоединяйтесь к нам уже сегодня для долгосрочного сотрудничества!
+  section.page-section
+    .page-section__inner.page-section__inner--partner-brands
+      .partner-brands
+        .section-title.section-title--left-decoration-circle.circle-rotate-partner-brands-section
+          | Партнеры - топовые бренды
+        .partner-brands__row 
+          .partner-brands__item 
+            .partner-brand__logo 
+              img(src="./images/figma-templates-1/partner-logo.png")
+          .partner-brands__item 
+            .partner-brand__logo 
+              img(src="./images/figma-templates-1/partner-logo.png")
+          .partner-brands__item 
+            .partner-brand__logo 
+              img(src="./images/figma-templates-1/partner-logo.png")
+          .partner-brands__item 
+            .partner-brand__logo 
+              img(src="./images/figma-templates-1/partner-logo.png")
+          .partner-brands__item 
+            .partner-brand__logo 
+              img(src="./images/figma-templates-1/partner-logo.png")
+          .partner-brands__item 
+            .partner-brand__logo 
+              img(src="./images/figma-templates-1/partner-logo.png")
+          .partner-brands__item 
+            .partner-brand__logo 
+              img(src="./images/figma-templates-1/partner-logo.png")
+          .partner-brands__item 
+            .partner-brand__logo 
+              img(src="./images/figma-templates-1/partner-logo.png")
+
+  section.page-section
+    .page-section__inner.page-section__inner--learn-program
+      .section-title.section-title--left-decoration-circle.circle-rotate-learn-program-section
+        | Программа обучения
+      .section-subtitle.section-subtitle--top-decoration
+        | Больше 90% учеников прошли полный курс и смогли собрать свой первый компьютер  
+      .training-schedule 
+        .training-schedule__column
+          .training-schedule__row
+            .training-schedule__column-week-number
+              | Неделя №1
+            .training-schedule__column-training-description
+              | Красивая часть курса, которая помогает в успехе
+          .training-schedule__row
+            .training-schedule__column-week-number
+              | Неделя №3
+            .training-schedule__column-training-description
+              | Красивая часть курса, которая помогает в успехе
+          .training-schedule__row
+            .training-schedule__column-week-number
+              | Неделя №5
+            .training-schedule__column-training-description
+              | Красивая часть курса, которая помогает в успехе
+          .training-schedule__row
+            .training-schedule__column-week-number
+              | Неделя №7
+            .training-schedule__column-training-description
+              | Красивая часть курса, которая помогает в успехе              
+        .training-schedule__column
+          .training-schedule__row
+            .training-schedule__column-week-number
+              | Неделя №2
+            .training-schedule__column-training-description
+              | Красивая часть курса, которая помогает в успехе
+          .training-schedule__row
+            .training-schedule__column-week-number
+              | Неделя №4
+            .training-schedule__column-training-description
+              | Красивая часть курса, которая помогает в успехе    
+          .training-schedule__row
+            .training-schedule__column-week-number
+              | Неделя №6
+            .training-schedule__column-training-description
+              | Красивая часть курса, которая помогает в успехе
 
 
-        .advertisers__column.advertisers__column--benefits
-          .benefits
-            .benefits__item
-              .benefit
-                .benefit__icon
-                  img(src="./images/lagoon/benefits/public-relation.png")
-                | Оперативная техническая и клиентская поддержка
-            .benefits__item
-              .benefit
-                .benefit__icon
-                  img(src="./images/lagoon/benefits/global.png")
-                | Контроль качества трафика - анти-фрод система
-            .benefits__item
-              .benefit
-                .benefit__icon
-                  img(src="./images/lagoon/benefits/add.png")
-                | API - интеграция
-            .benefits__item
-              .benefit
-                .benefit__icon
-                  img(src="./images/lagoon/benefits/dollar.png")
-                | Оплата за реальный результат
-            .benefits__item
-              .benefit
-                .benefit__icon
-                  img(src="./images/lagoon/benefits/value.png")
-                | Мы подберем клиентов под любой продукт и поможем его продвинуть
-            .benefits__item
-              .benefit
-                .benefit__icon
-                  img(src="./images/lagoon/benefits/users.png")
-                | Максимально прозрачная статистика
+
+
 
   section.page-section.page-section--webmaster#webmaster
     .page-section__inner

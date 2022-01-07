@@ -29,12 +29,70 @@ a
   color: white
   font-size: 16px
   line-height: 24px
+  white-space: pre
+
+dl
+  margin: 0
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0
+
+dt
+  width: 70%
+  float: left
+  color: #717171
+  padding: 0;
+  margin: 0
+
+dd
+  float: left
+  width: 30%
+  padding: 0;
+  margin: 0
+
+.button
+  padding: 10px 30px;
+  background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
+  border-radius: 50px;
+  user-select: none;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  text-decoration: none;
+  white-space: pre;
+  &:hover
+    background linear-gradient(94.78deg, #c54037 11.19%, #651766 93.72%);
+  &:active
+    box-shadow: 2px 3px 10px #464646;
+
+.button--purple
+    background linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+    &:hover
+      background linear-gradient(94.26deg, #9765cf 9.51%, #634dff 90.23%);
+    &:active
+      box-shadow: 2px 3px 10px rgb(0 0 0 / 50%);
 
 body
   margin 0
   background-color: rgb(0, 0, 0)
   font-family: "Roboto Regular";
   color: white
+
+.page-section
+  background: url(../images/figma-templates-1/bgc-main-min.png) no-repeat;
+
+.page-section__inner
+  max-width: 1376px;
+  margin: 0 auto;
+  padding: 42px 40px;
+
+.section-title
+  font-size: 48px;
+  line-height: 67px;
+  font-family: "Roboto Medium";
+  letter-spacing: 0em;
+  font-style: normal;
 
 .logo
   img
@@ -45,10 +103,27 @@ body
       background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat
       min-height: 830px
       padding-bottom: 100px;
+      max-width: 1920px;
+      padding: 0
 
-.page-section__inner
+.page-section
   max-width 1920px
   margin: 0 auto
+
+.section-title--left-decoration-circle
+  padding-left: 128px
+  position: relative
+  &:before
+    position: absolute;
+    content: "";
+    background: url("../images/figma-templates-1/Ellipse-1-Stroke.png") 0 0 no-repeat;
+    background-size: 78px;
+    width: 80px;
+    height: 80px;
+    top: 0;
+    left: 0;
+
+//global end
 
 .page-header
   display: flex
@@ -67,7 +142,7 @@ body
 .header-menu__item
   margin-right: 40px;
   &:last-child
-      margin-right: 0
+    margin-right: 0
   a
     padding: 8px
 
@@ -75,30 +150,17 @@ body
   display: flex
   align-items: center
 
-.authorization-links__item
-  a
-    padding: 10px 30px;
-    background linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
-    border-radius: 50px;
-    user-select: none;
-    &:hover
-      background linear-gradient(94.26deg, #9765cf 9.51%, #634dff 90.23%);
-    &:active
-      box-shadow: 2px 3px 10px rgb(0 0 0 / 50%);
-
 .page-header__actions
   padding: 0 80px 0 270px;
 
 .intro-titles
-  width: 1226px;
-  padding: 0 0 0 312px;
-  font-size: 64px;
-  line-height: 90px;
-  font-family: "Roboto Medium";
-  text-align: left;
-  font-style: normal;
-  letter-spacing: 0em;
-  margin-bottom: 50px
+  .section-title
+    font-size: 64px;
+    line-height: 90px;
+    width: 1226px;
+    padding: 0 0 0 312px;
+    text-align: left;
+    margin-bottom: 50px
 
 .time-counters
   display: flex
@@ -129,70 +191,289 @@ body
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-.page-section.page-section--short-statistics
+.page-section--statistics
+  background-color: #0B0B0B
+  background-blend-mode: color
   .page-section__inner
-    background-color: #0B0B0B
-    padding: 21px 20px
+    display: flex
+    align-items: center
 
-.page-section__inner-wraper
-  max-width 1376px
-  margin: 0 auto
-  padding: 10px 40px
-  display: flex
-  align-items: center
-
-.page-section__actions
-    a
-      padding: 10px 30px;
-      background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
-      border-radius: 50px;
-      user-select: none;
-      &:hover
-        background linear-gradient(94.78deg, #c54037 11.19%, #651766 93.72%);
-      &:active
-        box-shadow: 2px 3px 10px #464646;
-
-.page-section__short-statistics
+.page-section__column--statistics
+  min-width: 1046px
   padding-left: 81px
-  display: flex
 
-.short-statistics__column-one 
-  min-width: 251px
-
-.short-statistics
-  padding: 5px 0
-  display: flex
-  justify-content: space-between
-
-.short-statistics__category
-  color: #717171
-
-.short-statistics__column-two
-  padding-left: 81px
-  .short-statistics
-    justify-content: flex-start
-
-.short-statistics__diagram
-  width: 714px
+.progress-bar
   height: 6px
   background-color: white
   margin-bottom: 5px
 
-.short-statistics__diagram-item
-  width: 440px
+.progress-bar__progress
+  width: 60%
   height: 6px
   background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
 
-.short-statistics__values
+.progress-bar__captions
   color: #717171
   display: flex
   justify-content: space-between
+  padding-top: 8px
 
-.short-statistics--digram-wraper
-  display: block
+.statistics
+  display: flex
+  justify-content: space-between
 
-.short-statistics__value
-  padding-left: 30px
+.statistics__column--summary
+  width 100%
+  dl
+    margin-bottom: -10px
+  dt
+  dd
+    margin-bottom: 10px
 
+.statistics__column--progress-bar
+  min-width 734px
+  padding-left: 20px
+  dt
+    width:  208px
+  dd
+    margin-bottom: 8px
 
+// ----------------------------------------------------------------------------------------------------------------------
 
+.page-section__inner--company-direction
+  display: flex
+  justify-content: space-between
+  padding-top: 200px
+  .page-section__column
+    &:first-child
+      max-width: 526px
+    &:last-child
+      padding-top: 69px
+      max-width: 636px
+  .section-subtitle
+    padding-top: 45px
+    font-size: 16px
+    line-height: 27px
+
+.square-decoration
+  position: relative
+  border: 30px solid;
+  border-image: linear-gradient(to right, rgba(200, 154, 252, 1), rgba(124, 106, 250, 1));
+  border-image-slice: 1;
+
+.square-decoration__img
+  position: relative
+  top 73px
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--example-diagram
+  padding-top: 200px
+
+.section-subtitle--left-decoration
+  padding: 50px 0 60px 0
+  font-size: 16px
+  line-height: 1.6
+  color: #717171
+  max-width: 428px;
+
+.example-diagram__row
+  display: flex
+
+.example-diagram__column
+  flex: 0 1 25%
+  display: flex
+
+.example-diagram__item
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+.example-diagram__percentages
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 20px 0
+
+.example-diagram__visually
+  min-width 324px
+  min-height: 80px
+  background: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+p 
+  margin: 0
+  padding: 35px 18px 0 0 
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #717171
+
+.example-diagram__visually--100
+  min-height 80px
+
+.example-diagram__visually--75
+  min-height 60px
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+
+.example-diagram__visually--50
+  min-height 30px
+
+.example-diagram__visually--the-outcome
+  min-height 10px
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--benefits
+  padding-top: 158px
+
+.c2a-title
+  text-align: center
+  padding-bottom: 120px
+
+.benefits
+  display: flex
+  margin: 0 -12px
+
+.benefits__item
+  padding: 0 12px
+  // flex: 0 1 33.3%
+
+.benefit
+  display: flex
+  flex-direction: column
+
+.benefit__icon
+  text-align: center
+  img
+    width: 100px
+    height: 100px
+
+.benefit__icon-title
+  padding: 60px 46px 30px
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: center;
+
+.benefit__icon-subtitle
+  padding: 0 29px
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #CCCCCC
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--partner-brands
+  padding-top: 190px
+
+.circle-rotate-partner-brands-section
+  margin-bottom: 89px
+  &:before
+    transform: rotate(175deg);
+    
+.partner-brands__row 
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+.partner-brands__item
+  border: 1px solid #4C4C4C
+  padding: 29px 58px
+
+.partner-brand__logo 
+  img
+    width: 198px
+    height: 93px
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--learn-program
+  padding-top: 162px
+
+.circle-rotate-learn-program-section
+  padding: 150 0 0 0
+  text-align: center
+  &:before
+    left: 50%
+    margin-left: -40px
+    transform: rotate(135deg);
+
+.section-subtitle--top-decoration
+  max-width: 412px
+  margin: 0 auto
+  padding: 30px 0 80px 0
+  font-size: 16px
+  line-height: 1.6
+  color: #717171
+  text-align: center
+
+.training-schedule 
+  display: flex
+  justify-content: center
+
+.training-schedule__column
+  max-width: 400px
+  padding: 0 72px 76px
+
+.training-schedule__row
+  padding-top: 95px
+
+.training-schedule__column:first-child
+  text-align: right
+  position: relative
+  &:before
+    content: "";
+    position: absolute;
+    border-left: 6px solid;
+    height: 677px;
+    right: 4px;
+    top: -31px;
+    border-image: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+    border-image-slice: 1;
+  .training-schedule__row:first-child
+    padding: 0
+  .training-schedule__column-training-description
+    &:after
+      content: ""
+      position: absolute;
+      border-top: 2px solid #4C4C4C;
+      transform: rotate(180deg);
+      width: 40px
+      top: 10px
+      right: -62px
+
+.training-schedule__column:last-child
+  text-align: left
+  .training-schedule__column-training-description
+    &:before
+      content: ""
+      position: absolute;
+      border-top: 2px solid #4C4C4C;
+      transform: rotate(180deg);
+      width: 40px
+      top: 10px
+      left: -76px
+
+.training-schedule__column-week-number
+  font-size: 14px
+  line-height: 22px
+  color: #717171
+
+.training-schedule__column-training-description
+  position: relative
+  font-size: 18px
+  line-height: 28px
+
+    
