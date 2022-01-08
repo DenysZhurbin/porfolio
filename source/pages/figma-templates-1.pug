@@ -263,75 +263,74 @@ block main
             .training-schedule__column-training-description
               | Красивая часть курса, которая помогает в успехе
 
+  section.page-section
+    .page-section__inner.page-section__inner--teachers
+      .section-title.section-title--left-decoration-circle.circle-rotate-teachers
+        | Ваши преподаватели  
+      .teachers-information
+        .teachers-information__row 
+          .teachers-information__column 
+            .teachers-information__photo
+              a(href="#")  
+                img(src="./images/figma-templates-1/teachers/teacher-1.png", alt="photo")
+            .teachers-information__name 
+              | Дмитрий Иванов
+            .teachers-information__profession
+              | Специалист по видеокартам
+            a(href="#").button.button--teachers-information-biography
+              | Биография
+          .teachers-information__column 
+            .teachers-information__photo
+              a(href="#")  
+                img(src="./images/figma-templates-1/teachers/teacher-2.png", alt="photo")
+            .teachers-information__name 
+              | Дмитрий Иванов
+            .teachers-information__profession
+              | Специалист по видеокартам           
+            a(href="#").button.button--teachers-information-biography
+              | Биография
+          .teachers-information__column 
+            .teachers-information__photo
+              a(href="#")  
+                img(src="./images/figma-templates-1/teachers/teacher-3.png", alt="photo")
+            .teachers-information__name 
+              | Дмитрий Иванов
+            .teachers-information__profession
+              | Специалист по видеокартам
+            a(href="#").button.button--teachers-information-biography
+              | Биография
 
+  section.page-section
+    .page-section__inner.page-section__inner--subscribe-newsletter
+      .section-title.section-title--subscribe-newsletter
+        | Статьи каждую неделю
+      .section-subtitle.section-subtitle--subscribe-newsletter
+        | Больше 90% учеников прошли полный курс и смогли собрать свой первый компьютер
+      form.form-subscribe-newsletter  
+        input(type="email" placeholder="E-mail").form-subscribe-newsletter__input
+        button.button
+          | Подписаться
 
-
-
-  section.page-section.page-section--webmaster#webmaster
-    .page-section__inner
-      .webmasters
-        .webmasters__column
-          .section-title
-            | Веб-мастерам
-
-          p Работая с нами вы получаете доступ к лучшим предложениям на рынке.
-          p Наша платформа содержит необходимые инструменты для эффективного заработка.
-          p Используя которые, вы получаете максимальный доход.
-          p И помогает вам в этом, дружелюбная поддержка персонального менеджера.
-
-          .c2a-title
-            | Присоединяйтесь к нам, для максимальной монетизации вашего трафика.
-
-        .webmasters__column
-          .benefits
-            .benefits__item
-              .benefit
-                .benefit__icon
-                  img(src="./images/lagoon/benefits/master1.png")
-                | Авторские оффера и лояльные условия
-            .benefits__item
-              .benefit
-                .benefit__icon
-                  img(src="./images/lagoon/benefits/master2.png")
-                | Своевременные платежи
-            .benefits__item
-              .benefit
-                .benefit__icon
-                  img(src="./images/lagoon/benefits/master3.png")
-                | Высокий уровень поддержки персонального менеджера
-            .benefits__item
-              .benefit
-                .benefit__icon
-                  img(src="./images/lagoon/benefits/master4.png")
-                | Детальная статистика
-
-  section.page-section.page-section--footer#contacts
-    .page-section__inner
+  section.page-section.page-section--footer
+    .page-section__inner.page-section__inner--footer
       .footer
-        .footer__logo
-          .logo
-            img(src="" alt="Logo").logo__image
-
-        .footer__menu
-          .footer-menu
-            .footer-menu__item
-              a(href="#about-us")
-                | О нас
-            .footer-menu__item
-              a(href="#advertisers")
-                | Рекламодателям                
-          .footer-menu
-            .footer-menu__item
-              a(href="#webmaster")
-                | Веб-мастерам
-            .footer-menu__item              
-              a(href="#contacts")
-                | Регистрация
-
         .footer__socials
-          .footer__company-name
-            | Templates #18. More on Figma.info
+          .footer-socials
+            .footer-socials__item
+              a(href="#")
+                img(src="./images/figma-templates-1/socials/vk.png", alt="VK")
+            .footer-socials__item
+              a(href="#")
+                img(src="./images/figma-templates-1/socials/youtube.png", alt="youtube")             
+            .footer-socials__item
+              a(href="#")
+                img(src="./images/figma-templates-1/socials/facebook.png", alt="facebook")  
+            .footer-socials__item              
+              a(href="#")
+                img(src="./images/figma-templates-1/socials/instagram.png", alt="instagram")  
+
+        .footer__company-name
+          | Templates #18. More on Figma.info
 
 block scripts
   script(type="text/javascript" src="javascripts/vendor.bundle.js")
-  script(type="text/javascript" src="javascripts/lagoon.js")

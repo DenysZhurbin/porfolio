@@ -53,7 +53,9 @@ dd
 
 .button
   padding: 10px 30px;
+  text-align: center
   background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
+  border: none
   border-radius: 50px;
   user-select: none;
   font-size: 16px;
@@ -85,7 +87,7 @@ body
 .page-section__inner
   max-width: 1376px;
   margin: 0 auto;
-  padding: 42px 40px;
+  padding: 42px 42px;
 
 .section-title
   font-size: 48px;
@@ -403,7 +405,7 @@ p
   padding-top: 162px
 
 .circle-rotate-learn-program-section
-  padding: 150 0 0 0
+  padding-top: 150
   text-align: center
   &:before
     left: 50%
@@ -437,7 +439,7 @@ p
     content: "";
     position: absolute;
     border-left: 6px solid;
-    height: 677px;
+    height: 95%;
     right: 4px;
     top: -31px;
     border-image: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
@@ -476,4 +478,122 @@ p
   font-size: 18px
   line-height: 28px
 
-    
+// ----------------------------------------------------------------------------------------------------------------------
+
+.circle-rotate-teachers
+  &:before
+    top: -20px
+    transform: rotate(315deg);
+
+.teachers-information__row 
+  padding-top: 83px
+  display: flex
+  justify-content: space-around
+
+.teachers-information__column 
+  text-align: center
+
+.teachers-information__photo
+  padding: 30px 0
+  img
+    width: 190px
+    height: 190px
+
+.teachers-information__name 
+  font-size: 24px
+  line-height: 34px
+  padding: 10px 0
+
+.teachers-information__profession
+  font-size: 16px
+  line-height: 25px
+  padding: 5px 0 5px
+  margin-bottom: 30px
+  color: #CCCCCC
+
+.button--teachers-information-biography
+  background: none
+  border: 1px solid white
+  font-size: 16px
+  line-height: 24px
+  &:hover
+    background: none
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--subscribe-newsletter
+  padding-top: 168px
+  padding-bottom: 0
+  text-align: center
+
+// .section-title--subscribe-newsletter
+
+.section-subtitle--subscribe-newsletter
+  margin: auto
+  padding: 30px 0
+  max-width: 418px
+  font-size: 16px;
+  line-height: 25px;
+  color: #717171;
+
+.form-subscribe-newsletter__input
+  min-width: 353px
+  position relative
+  z-index 1
+  color: white
+  padding: 10px 30px;
+  background: white;
+  line-height: 24px;
+  background-color: rgba(255, 255, 255, 0.25)
+  border-radius: 50px 0 0 50px;
+  margin-right: -25px;
+  border: none;
+  outline: none#D9D9D9
+
+.form-subscribe-newsletter 
+  margin: 0
+  padding: 30px 0
+  button
+    position relative
+    z-index 2
+
+::-webkit-input-placeholder { /* WebKit browsers */
+   color:    #D9D9D9;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #D9D9D9;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #D9D9D9;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #D9D9D9;
+}
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--footer
+  padding: 0
+
+.footer__socials
+  padding: 10px 0 20px
+
+.footer-socials
+  display: flex
+  justify-content: center
+
+.footer-socials__item
+  &:not(:last-child)
+    padding-right: 30px
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 50px
+    width: 50px
+    border-radius: 50%
+    background: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+
+.footer__company-name
+  padding: 30px 0
+  text-align: center
