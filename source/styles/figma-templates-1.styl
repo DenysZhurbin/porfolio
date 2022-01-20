@@ -46,10 +46,13 @@ dt
   margin: 0
 
 dd
-  float: left
-  width: 30%
+  float: right
+  // width: 30%
   padding: 0;
   margin: 0
+  +above($desktop)
+    float: left
+    width: 30%
 
 .button
   padding: 10px 30px;
@@ -144,7 +147,9 @@ body
   margin-right: 26px
 
 .header-menu
-  display: flex
+  display: none
+  +above($desktop)
+    display: flex
 
 .page-header__menu
   display: flex
@@ -178,13 +183,18 @@ body
     
 .intro-titles
   .section-title
-    font-size: 64px;
-    line-height: 90px;
-    // width: 1226px;
-    padding: 0 0 0 160px;
+    font-size: 44px;
+    line-height: 60px;
+    padding: 0 0 0 100px;
     text-align: left;
     margin-bottom: 50px
+    +above($desktop)
+      padding: 0 0 0 160px;
+      font-size: 54px;
+      line-height: 75px;
     +above(1380px)
+      padding: 0 0 0 160px;
+      font-size: 64px;
       padding: 0 0 0 312px;
 
 .time-counters
@@ -227,7 +237,6 @@ body
     justify-content: center
 
 .page-section__column--statistics
-  // min-width: 1046px
   padding-left: 26px
   +above(1380px)
     padding-left: 81px
@@ -250,10 +259,18 @@ body
 
 .statistics
   display: flex
+  flex-wrap: wrap
   justify-content: space-between
+  +above($desktop)
+    flex-wrap: nowrap
+
+// .statistics__column
+  
 
 .statistics__column--summary
-  width 100%
+  width 90%
+  +above($desktop)
+    width 100%
   dl
     margin-bottom: -10px
   dt
@@ -261,12 +278,16 @@ body
     margin-bottom: 10px
 
 .statistics__column--progress-bar
-  min-width 460px
+  min-width 90%
   padding-left: 0px
+  +above($desktop)
+    min-width 75%
   dt
     width:  208px
   dd
     margin-bottom: 8px
+  +above($desktop)
+    min-width 460px
   +above(1380px)
     padding-left: 20px
     min-width 734px
@@ -332,7 +353,6 @@ body
   padding: 20px 0
 
 .example-diagram__visually
-  // min-width 324px
   min-height: 80px
   background: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
 p 
