@@ -165,6 +165,8 @@ body
 .page-header__menu
   display: flex
   align-items: center
+  justify-content: flex-end;
+  flex: 0 0 90%;
 
 .header-menu__item
   margin-right: 0px;
@@ -221,9 +223,11 @@ body
 
 .time-counter
   background: rgba(18, 18, 18, 1);
-  padding: 20px 30px
-  height: 112px
+  padding: 10px 15px
+  // height: 112px
   text-align: center;   
+  +above(1116px)
+    padding: 20px 30px
 
 .unit-of-time-number
   font-size: 36px
