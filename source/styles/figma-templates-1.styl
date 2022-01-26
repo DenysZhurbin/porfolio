@@ -136,9 +136,20 @@ body
 
 //global end
 
+.page-header__mobile-menu
+  display: block
+  background: linear-gradient(94.78deg, #df5950 11.19%, #451046 93.72%);
+  border-radius: 50%;
+  padding: 8px;  
+  +above($desktop)
+    display: none
+  .mobile-menu__image
+    width: 22px
+
 .page-header
   display: flex
   justify-content: space-between
+  align-items: center
   line-height: 24px
   padding: 40px 80px 0 80px
   margin-bottom: 190px;
@@ -260,9 +271,10 @@ body
 .statistics
   display: flex
   flex-wrap: wrap
-  justify-content: space-between
+  justify-content: flex-end
   +above($desktop)
     flex-wrap: nowrap
+    justify-content: space-between
 
 // .statistics__column
   
@@ -271,8 +283,8 @@ body
   width 90%
   +above($desktop)
     width 100%
-  dl
-    margin-bottom: -10px
+  // dl
+  //   margin-bottom: -10px
   dt
   dd
     margin-bottom: 10px
@@ -297,13 +309,18 @@ body
 .page-section__inner--company-direction
   display: flex
   justify-content: space-between
-  padding-top: 200px
+  padding-top: 100px
+  +above($desktop)
+    padding-top: 200px
   .page-section__column
     &:first-child
       max-width: 526px
     &:last-child
-      padding: 69px 0 0 56px
-      max-width: 636px
+      padding-left: 56px
+      width: 60%
+      +above(1116px)
+        padding: 69px 0 0 56px
+        max-width: 636px
   .section-subtitle
     padding-top: 45px
     font-size: 16px
@@ -316,13 +333,16 @@ body
   border-image-slice: 1;
 
 .square-decoration__img
+  width: 100%
   position: relative
   top 73px
 
 // ----------------------------------------------------------------------------------------------------------------------
 
 .page-section__inner--example-diagram
-  padding-top: 200px
+  padding-top: 100px
+  +above($desktop)
+    padding-top: 200px
 
 .section-subtitle--left-decoration
   padding: 50px 0 60px 0
@@ -383,7 +403,9 @@ p
 // ----------------------------------------------------------------------------------------------------------------------
 
 .page-section__inner--benefits
-  padding-top: 158px
+  padding-top: 58px
+  +above($desktop)
+    padding-top: 158px
 
 .c2a-title
   text-align: center
@@ -408,14 +430,16 @@ p
     height: 100px
 
 .benefit__icon-title
-  padding: 60px 46px 30px
+  padding: 30px 0px
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
   line-height: 34px;
   letter-spacing: 0em;
   text-align: center;
-
+  +above(1116px)
+    padding: 60px 46px 30px
+    
 .benefit__icon-subtitle
   padding: 0 29px
   font-size: 16px;
@@ -429,7 +453,9 @@ p
 // ----------------------------------------------------------------------------------------------------------------------
 
 .page-section__inner--partner-brands
-  padding-top: 190px
+  padding-top: 90px
+  +above($desktop)
+    padding-top: 190px
 
 .circle-rotate-partner-brands-section
   margin-bottom: 89px
@@ -453,7 +479,9 @@ p
 // ----------------------------------------------------------------------------------------------------------------------
 
 .page-section__inner--learn-program
-  padding-top: 162px
+  padding-top: 62px
+  +above($desktop)
+    padding-top: 162px
 
 .circle-rotate-learn-program-section
   padding-top: 150
@@ -573,9 +601,11 @@ p
 // ----------------------------------------------------------------------------------------------------------------------
 
 .page-section__inner--subscribe-newsletter
-  padding-top: 168px
+  padding-top: 68px
   padding-bottom: 0
   text-align: center
+  +above($desktop)
+    padding-top: 168px
 
 // .section-title--subscribe-newsletter
 
