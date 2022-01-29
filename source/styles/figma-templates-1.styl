@@ -55,14 +55,14 @@ dd
     width: 30%
 
 .button
-  padding: 10px 30px;
+  padding: 8px 20px;
   text-align: center
   background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
   border: none
   border-radius: 50px;
   user-select: none;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 20px;
   color: #fff;
   text-decoration: none;
   white-space: pre;
@@ -70,6 +70,10 @@ dd
     background linear-gradient(94.78deg, #c54037 11.19%, #651766 93.72%);
   &:active
     box-shadow: 2px 3px 10px #464646;
+  +above($desktop)
+    font-size: 16px
+    line-height: 24px
+    padding: 10px 30px;
 
 .button--purple
     background linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
@@ -93,11 +97,17 @@ body
   padding: 42px 42px;
 
 .section-title
-  font-size: 48px;
-  line-height: 67px;
+  font-size: 31px;
+  line-height: 48px;
   font-family: "Roboto Medium";
   letter-spacing: 0em;
   font-style: normal;
+  +above($tablet)
+    font-size: 40px;
+    line-height: 53px;    
+  +above($desktop)
+    font-size: 48px;
+    line-height: 67px;    
 
 .logo
   img
@@ -134,17 +144,41 @@ body
     top: 0;
     left: 0;
 
+.section-subtitle
+  font-size: 14px
+  line-height: 21px
+  +above($tablet)
+    font-size: 16px
+    line-height: 27px
+
 //global end
 
-.page-header__mobile-menu
+.mobile-menu
+  position: relative
+  +above($desktop)
+    display: none
+
+.mobile-menu__button
   display: block
   background: linear-gradient(94.78deg, #df5950 11.19%, #451046 93.72%);
   border-radius: 50%;
   padding: 8px;  
-  +above($desktop)
-    display: none
   .mobile-menu__image
     width: 22px
+
+.mobile-menu__items
+  position: absolute
+  display: none
+  background-color: white
+  a
+    color: black
+
+.mobile-menu__item
+  border-bottom: 1px solid black
+  padding: 2px 10px
+
+.mobile-menu__items--visible
+  display: block
 
 .page-header
   display: flex
@@ -197,7 +231,7 @@ body
 .intro-titles
   .section-title
     font-size: 44px;
-    line-height: 60px;
+    line-height: 56px;
     padding: 0 0 0 100px;
     text-align: left;
     margin-bottom: 50px
@@ -212,7 +246,9 @@ body
 
 .time-counters
   display: flex
-  padding-left: 160px
+  padding-left: 100px
+  +above($desktop)
+    padding-left: 160px
   +above(1380px)
     padding: 0 0 0 312px;
 
@@ -276,6 +312,9 @@ body
   display: flex
   flex-wrap: wrap
   justify-content: flex-end
+  font-size: 12px
+  +above($tablet)
+    font-size: 16px
   +above($desktop)
     flex-wrap: nowrap
     justify-content: space-between
@@ -291,7 +330,9 @@ body
   //   margin-bottom: -10px
   dt
   dd
-    margin-bottom: 10px
+    margin-bottom: 5px
+    +above($desktop)
+      margin-bottom: 10px
 
 .statistics__column--progress-bar
   min-width 90%
@@ -326,9 +367,9 @@ body
         padding: 69px 0 0 56px
         max-width: 636px
   .section-subtitle
-    padding-top: 45px
-    font-size: 16px
-    line-height: 27px
+    padding-top: 15px
+    +above($tablet)
+      padding-top: 45px
 
 .square-decoration
   position: relative
@@ -350,7 +391,6 @@ body
 
 .section-subtitle--left-decoration
   padding: 50px 0 60px 0
-  font-size: 16px
   line-height: 1.6
   color: #717171
   max-width: 428px;
@@ -368,14 +408,16 @@ body
     justify-content: space-between;
 
 .example-diagram__percentages
-  font-size: 36px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 700;
   line-height: 50px;
   letter-spacing: 0em;
   text-align: left;
-  padding: 20px 0
-
+  padding: 5px 0
+  +above($tablet)
+    font-size: 36px;
+    padding: 20px 0
 .example-diagram__visually
   min-height: 80px
   background: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
@@ -430,29 +472,48 @@ p
 .benefit__icon
   text-align: center
   img
-    width: 100px
-    height: 100px
+    width: 65px
+    height: 65px      
+    +above($tablet)
+      width: 85px
+      height: 85px  
+    +above($desktop)
+      width: 100px
+      height: 100px
 
 .benefit__icon-title
-  padding: 30px 0px
-  font-size: 24px;
+  padding: 20px 0px
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 34px;
+  line-height: 26px;
   letter-spacing: 0em;
   text-align: center;
+  +above($tablet)
+    padding: 30px 0px
+    font-size: 22px;
+    line-height: 30px;
+  +above($desktop)
+    font-size: 24px;  
+    line-height: 34px; 
   +above(1116px)
     padding: 60px 46px 30px
     
 .benefit__icon-subtitle
   padding: 0 29px
-  font-size: 16px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 26px;
+  line-height: 20px;
   letter-spacing: 0em;
   text-align: center;
   color: #CCCCCC
+  +above($tablet)
+    font-size: 14px;
+    line-height: 24px;
+  +above($desktop)
+    font-size: 16px;  
+    line-height: 26px; 
 
 // ----------------------------------------------------------------------------------------------------------------------
 
@@ -473,7 +534,9 @@ p
 
 .partner-brands__item
   border: 1px solid #4C4C4C
-  padding: 29px 58px
+  padding: 20px 30px
+  +above($desktop)
+    padding: 29px 58px
 
 .partner-brand__logo 
   img
@@ -489,6 +552,7 @@ p
 
 .circle-rotate-learn-program-section
   padding-top: 150
+  padding-left: 0
   text-align: center
   &:before
     left: 50%
@@ -499,7 +563,6 @@ p
   max-width: 412px
   margin: 0 auto
   padding: 30px 0 80px 0
-  font-size: 16px
   line-height: 1.6
   color: #717171
   text-align: center
@@ -575,30 +638,42 @@ p
 
 .teachers-information__column 
   text-align: center
+  padding: 0 12px
 
 .teachers-information__photo
-  padding: 30px 0
+  padding: 20px 0
+  +above($desktop)
+    padding: 30px 0
   img
-    width: 190px
-    height: 190px
+    width: 75%
+    +above($desktop)
+      width: 190px
+      height: 190px
 
 .teachers-information__name 
-  font-size: 24px
-  line-height: 34px
-  padding: 10px 0
+  font-size: 20px
+  line-height: 30px
+  padding: 6px 0
+  +above($desktop)
+    padding: 10px 0
+    font-size: 24px
+    line-height: 34px
 
 .teachers-information__profession
-  font-size: 16px
-  line-height: 25px
-  padding: 5px 0 5px
-  margin-bottom: 30px
+  font-size: 12px
+  line-height: 20px
+  padding: 3px 0 3px
+  margin-bottom: 25px
   color: #CCCCCC
+  +above($desktop)
+    font-size: 16px
+    line-height: 25px
+    padding: 5px 0 5px
+    margin-bottom: 30px
 
 .button--teachers-information-biography
   background: none
   border: 1px solid white
-  font-size: 16px
-  line-height: 24px
   &:hover
     background: none
 
@@ -617,7 +692,6 @@ p
   margin: auto
   padding: 30px 0
   max-width: 418px
-  font-size: 16px;
   line-height: 25px;
   color: #717171;
 

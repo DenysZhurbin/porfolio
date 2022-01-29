@@ -17,9 +17,29 @@ block main
         .page-header__logo
           .logo
             img(src="./images/figma-templates-1/logo-main.svg" alt="Logo").logo__image
-        .page-header__mobile-menu
-          a(href="#").mobile-menu
+
+        .mobile-menu
+          a(href="#").mobile-menu__button#mobile-menu
             img(src="./images/figma-templates-1/mobile-menu-trigger.svg" alt="mobile-menu").mobile-menu__image
+          .mobile-menu__items#mobile-menu__items
+            .mobile-menu__item
+              a(href="#")
+                | Главная 
+            .mobile-menu__item
+              a(href="#")
+                | Курсы
+            .mobile-menu__item
+              a(href="#")
+                | Расписание
+            .mobile-menu__item
+              a(href="#")
+                | Преподаватели
+            .mobile-menu__item
+              a(href="#")
+                | Рассылка
+            .mobile-menu__item
+              a(href="#")
+                | Контакты
 
         .page-header__menu
           .header-menu
@@ -336,4 +356,4 @@ block main
           | Templates #18. More on Figma.info
 
 block scripts
-  script(type="text/javascript" src="javascripts/vendor.bundle.js")
+  script(type="text/javascript" src="javascripts/figma-templates-1.js")
