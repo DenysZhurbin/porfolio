@@ -19,9 +19,9 @@ block main
             img(src="./images/figma-templates-1/logo-main.svg" alt="Logo").logo__image
 
         .mobile-menu
-          a(href="#").mobile-menu__button#mobile-menu
+          a(href="#").mobile-menu__button#mobile-menu-trigger
             img(src="./images/figma-templates-1/mobile-menu-trigger.svg" alt="mobile-menu").mobile-menu__image
-          .mobile-menu__items#mobile-menu__items
+          .mobile-menu__items#mobile-menu
             .mobile-menu__item
               a(href="#")
                 | Главная 
@@ -329,8 +329,8 @@ block main
         | Статьи каждую неделю
       .section-subtitle.section-subtitle--subscribe-newsletter
         | Больше 90% учеников прошли полный курс и смогли собрать свой первый компьютер
-      form.form-subscribe-newsletter  
-        input(type="email" placeholder="E-mail").form-subscribe-newsletter__input
+      form.form-subscribe-newsletter#email-form
+        input(type="text" placeholder="E-mail").form-subscribe-newsletter__input.input-email
         button.button
           | Подписаться
 
@@ -354,6 +354,16 @@ block main
 
         .footer__company-name
           | Templates #18. More on Figma.info
+
+  .modal#modal-validation 
+    .modal__overlay 
+    .modal__container
+      .modal__c-btn
+         img(src="./images/figma-templates-1/close.png", alt="close").modal__c-btn-img
+      .modal__title 
+        | title 
+      .modal__message 
+        | message
 
 block scripts
   script(type="text/javascript" src="javascripts/figma-templates-1.js")

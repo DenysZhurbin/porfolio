@@ -1,7 +1,7 @@
 @import "./_core/_base/_main/_reset.styl"
 @import "./_core/_mixins.styl"
 @import "./_core/_variables.styl"
-@import "../modules/modal"
+// @import "../modules/modal"
 
 $mobile = 480px
 $tablet = 768px
@@ -121,11 +121,16 @@ body
       max-width: 1920px;
       padding: 0
       +above(1116px)
-        background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat -534px 0
+        background-size: cover
+        background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat -392px 0
       +above(1380px)
-        background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat -327px 0
+        background-size: 135%
+        background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat -460px 0
       +above(1600px)
+        background-size: 100%
         background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat
+
+// todo background-size: cover
 
 .page-section
   max-width 1920px
@@ -172,12 +177,23 @@ body
   background-color: white
   a
     color: black
+  // animation-name: mobile-menu-header
+  // animation-duration: 1s
+
+// @keyframes mobile-menu-header {
+//   0% {
+//     left: 0
+//   }
+//   100%{
+//     left: 300px
+//   }
+// }
 
 .mobile-menu__item
   border-bottom: 1px solid black
   padding: 2px 10px
 
-.mobile-menu__items--visible
+.is-visible.mobile-menu__items //если классы в комбинации, то сработает display: block
   display: block
 
 .page-header
@@ -216,7 +232,6 @@ body
     padding: 8px
 
 .page-header__actions
-  // display: flex
   align-items: center
 
 .page-header__actions
@@ -230,11 +245,15 @@ body
     
 .intro-titles
   .section-title
-    font-size: 44px;
-    line-height: 56px;
-    padding: 0 0 0 100px;
-    text-align: left;
+    font-size: 40px;
+    line-height: 52px;
+    text-align: center;
     margin-bottom: 50px
+    +above($tablet)
+      text-align: left;
+      padding: 0 0 0 100px;
+      font-size: 44px;
+      line-height: 56px;
     +above($desktop)
       padding: 0 0 0 160px;
       font-size: 54px;
@@ -246,7 +265,9 @@ body
 
 .time-counters
   display: flex
-  padding-left: 100px
+  justify-content: center
+  +above($tablet)
+    padding-left: 100px
   +above($desktop)
     padding-left: 160px
   +above(1380px)
@@ -259,9 +280,10 @@ body
 
 .time-counter
   background: rgba(18, 18, 18, 1);
-  padding: 10px 15px
-  // height: 112px
-  text-align: center;   
+  padding: 5px 10px
+  text-align: center; 
+  +above($tablet)
+    padding: 10px 15px 
   +above(1116px)
     padding: 20px 30px
 
@@ -319,15 +341,10 @@ body
     flex-wrap: nowrap
     justify-content: space-between
 
-// .statistics__column
-  
-
 .statistics__column--summary
-  width 90%
+  width 100%
   +above($desktop)
     width 100%
-  // dl
-  //   margin-bottom: -10px
   dt
   dd
     margin-bottom: 5px
@@ -335,7 +352,7 @@ body
       margin-bottom: 10px
 
 .statistics__column--progress-bar
-  min-width 90%
+  min-width 100%
   padding-left: 0px
   +above($desktop)
     min-width 75%
@@ -353,16 +370,25 @@ body
 
 .page-section__inner--company-direction
   display: flex
-  justify-content: space-between
+  justify-content: center
   padding-top: 100px
+  flex-wrap: wrap
+  +above($tablet)
+    justify-content: space-between  
+    flex-wrap: nowrap
   +above($desktop)
     padding-top: 200px
   .page-section__column
     &:first-child
-      max-width: 526px
+      max-width: 75%
+      margin-bottom: 100px;
+      +above($tablet)
+        margin-bottom: 0
+        max-width: 526px
     &:last-child
-      padding-left: 56px
-      width: 60%
+      +above($tablet)
+        padding-left: 56px
+        width: 60%        
       +above(1116px)
         padding: 69px 0 0 56px
         max-width: 636px
@@ -463,7 +489,6 @@ p
 
 .benefits__item
   padding: 0 12px
-  // flex: 0 1 33.3%
 
 .benefit
   display: flex
@@ -500,7 +525,7 @@ p
     padding: 60px 46px 30px
     
 .benefit__icon-subtitle
-  padding: 0 29px
+  padding: 0 10px
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -509,9 +534,11 @@ p
   text-align: center;
   color: #CCCCCC
   +above($tablet)
+    padding: 0 24px
     font-size: 14px;
     line-height: 24px;
   +above($desktop)
+    padding: 0 29px
     font-size: 16px;  
     line-height: 26px; 
 
@@ -534,14 +561,17 @@ p
 
 .partner-brands__item
   border: 1px solid #4C4C4C
-  padding: 20px 30px
+  padding: 12px 16px
+  +above($tablet)
+    padding: 20px 30px
   +above($desktop)
     padding: 29px 58px
 
 .partner-brand__logo 
   img
-    width: 198px
-    height: 93px
+    width: 176px
+    +above($tablet)
+      width: 198px
 
 // ----------------------------------------------------------------------------------------------------------------------
 
@@ -573,7 +603,6 @@ p
 
 .training-schedule__column
   max-width: 400px
-  padding: 0 72px 76px
 
 .training-schedule__row
   padding-top: 95px
@@ -581,6 +610,9 @@ p
 .training-schedule__column:first-child
   text-align: right
   position: relative
+  padding: 0 72px 0 0px
+  +above($desktop)
+    padding: 0 72px 0 76px
   &:before
     content: "";
     position: absolute;
@@ -604,6 +636,9 @@ p
 
 .training-schedule__column:last-child
   text-align: left
+  padding: 0 0px 0 76px
+  +above($desktop)
+    padding: 0 72px 0 76px
   .training-schedule__column-training-description
     &:before
       content: ""
@@ -621,8 +656,11 @@ p
 
 .training-schedule__column-training-description
   position: relative
-  font-size: 18px
-  line-height: 28px
+  font-size: 14px
+  line-height: 24px
+  +above($tablet)
+    font-size: 18px
+    line-height: 28px  
 
 // ----------------------------------------------------------------------------------------------------------------------
 
@@ -696,11 +734,12 @@ p
   color: #717171;
 
 .form-subscribe-newsletter__input
-  min-width: 353px
+  height: 36px
   position relative
   z-index 1
   color: white
-  padding: 10px 30px;
+  padding: 8px 26px;
+  vertical-align: top
   background: white;
   line-height: 24px;
   background-color: rgba(255, 255, 255, 0.25)
@@ -708,6 +747,11 @@ p
   margin-right: -25px;
   border: none;
   outline: none#D9D9D9
+  +above($tablet)
+    min-width: 353px
+    padding: 10px 30px;
+  +above($desktop)
+    height: 44px
 
 .form-subscribe-newsletter 
   margin: 0
@@ -756,3 +800,47 @@ p
 .footer__company-name
   padding: 30px 0
   text-align: center
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.modal
+  display: none
+
+.modal__overlay 
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  opacity 0.5
+  background: black
+  z-index 998
+
+.modal__container 
+  font-family: "Roboto Medium";
+  position: fixed
+  width: 350px
+  min-height: 150px
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%);
+  background: rgb(241, 237, 197)
+  z-index 999
+  color: black
+  text-align: center
+  user-select: none; 
+
+.modal__c-btn
+  position: fixed
+  top: 0
+  right: 0
+  img
+    width: 30px
+
+.modal__title 
+  padding: 10px 15px
+  font-size: 24px
+
+.modal__message 
+  padding: 5px 10px
+  font-size: 20px
