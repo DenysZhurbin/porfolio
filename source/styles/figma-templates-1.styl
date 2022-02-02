@@ -137,17 +137,29 @@ body
   margin: 0 auto
 
 .section-title--left-decoration-circle
-  padding-left: 128px
+  padding-left: 80px
   position: relative
+  +above($tablet)
+    padding-left: 100px
+  +above($desktop)
+    padding-left: 128px
   &:before
     position: absolute;
     content: "";
     background: url("../images/figma-templates-1/Ellipse-1-Stroke.png") 0 0 no-repeat;
-    background-size: 78px;
-    width: 80px;
-    height: 80px;
+    background-size: 56px;
+    width: 58px;
+    height: 58px;
     top: 0;
     left: 0;
+    +above($tablet)
+      background-size: 68px;   
+      width: 70px;
+      height: 70px; 
+    +above($desktop)
+      background-size: 78px;
+      width: 80px;
+      height: 80px;
 
 .section-subtitle
   font-size: 14px
@@ -806,6 +818,9 @@ p
 .modal
   display: none
 
+.is-visible.modal
+  display: block
+
 .modal__overlay 
   position: fixed
   top: 0
@@ -820,6 +835,7 @@ p
   font-family: "Roboto Medium";
   position: fixed
   width: 350px
+  padding: 26px
   min-height: 150px
   left: 50%
   top: 50%
@@ -829,6 +845,9 @@ p
   color: black
   text-align: center
   user-select: none; 
+
+  animation-name: modal
+  animation-duration: 500ms
 
 .modal__c-btn
   position: fixed
@@ -844,3 +863,12 @@ p
 .modal__message 
   padding: 5px 10px
   font-size: 20px
+
+@keyframes modal {
+  0% {
+    top: 0
+  }
+  100%{
+    top: 50%
+  }
+}
