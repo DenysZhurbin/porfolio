@@ -392,7 +392,7 @@ body
     padding-top: 200px
   .page-section__column
     &:first-child
-      max-width: 75%
+      max-width: 58%
       margin-bottom: 100px;
       +above($tablet)
         margin-bottom: 0
@@ -491,16 +491,31 @@ p
   +above($desktop)
     padding-top: 158px
 
+.advertisers__column--benefits
+  display: flex
+  justify-content: center
+
 .c2a-title
   text-align: center
-  padding-bottom: 120px
+  padding-bottom: 35px
+  +above($tablet)
+    padding-bottom: 80px
+  +above($desktop)
+    padding-bottom: 120px
 
 .benefits
   display: flex
   margin: 0 -12px
+  width: 60%;
+  flex-wrap: wrap;
+  +above($tablet)
+    width: 100%
+    flex-wrap: nowrap
 
 .benefits__item
-  padding: 0 12px
+  padding: 20px 12px
+  +above($tablet)
+    padding: 0 12px
 
 .benefit
   display: flex
