@@ -177,17 +177,26 @@ body
   background-color: white
   a
     color: black
-  // animation-name: mobile-menu-header
-  // animation-duration: 1s
 
-// @keyframes mobile-menu-header {
-//   0% {
-//     left: 0
-//   }
-//   100%{
-//     left: 300px
-//   }
-// }
+  animation-name: mobile-menu-header
+  animation-duration: 300ms
+  animation-timing-function: linear
+  // animation-direction: alternate-reverse
+
+@keyframes mobile-menu-header {
+  0% {
+    left: -300px
+  }
+  80% {
+    left: 50px
+    }
+  90% {
+    left: 20px
+    }
+  100%{
+    left: 0px
+  }
+}
 
 .mobile-menu__item
   border-bottom: 1px solid black
