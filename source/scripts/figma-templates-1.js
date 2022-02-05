@@ -45,11 +45,11 @@ function validateEmail(string) {
 }
 
 function showModal(e) {
-    e.style.display = 'block'
+    e.classList.add(VISIBLE)
 }
 
 function closeModal(e) {
-    e.style.display = 'none'
+    e.classList.remove(VISIBLE)
 }
 
 //+ 1 найти форму
@@ -59,6 +59,6 @@ function closeModal(e) {
 //+ 5 в модалке крестик закрыть
 //+ 6 модалка должна закрыться по клику на overlay и esc
 //+ 7 функция для показа модалки
-// 8 модалку переключать классом is-visible
-// 9 сделать анимацию в css
+//+ 8 модалку переключать классом is-visible
+//+ 9 сделать анимацию в css
 
