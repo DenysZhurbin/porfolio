@@ -1,7 +1,7 @@
 @import "./_core/_base/_main/_reset.styl"
 @import "./_core/_mixins.styl"
 @import "./_core/_variables.styl"
-@import "../modules/modal"
+// @import "../modules/modal"
 
 $mobile = 480px
 $tablet = 768px
@@ -29,6 +29,58 @@ a
   color: white
   font-size: 16px
   line-height: 24px
+  white-space: pre
+
+dl
+  margin: 0
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0
+
+dt
+  width: 70%
+  float: left
+  color: #717171
+  padding: 0;
+  margin: 0
+
+dd
+  float: right
+  // width: 30%
+  padding: 0;
+  margin: 0
+  +above($desktop)
+    float: left
+    width: 30%
+
+.button
+  padding: 8px 20px;
+  text-align: center
+  background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
+  border: none
+  border-radius: 50px;
+  user-select: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: #fff;
+  text-decoration: none;
+  white-space: pre;
+  &:hover
+    background linear-gradient(94.78deg, #c54037 11.19%, #651766 93.72%);
+  &:active
+    box-shadow: 2px 3px 10px #464646;
+  +above($desktop)
+    font-size: 16px
+    line-height: 24px
+    padding: 10px 30px;
+
+.button--purple
+    background linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+    &:hover
+      background linear-gradient(94.26deg, #9765cf 9.51%, #634dff 90.23%);
+    &:active
+      box-shadow: 2px 3px 10px rgb(0 0 0 / 50%);
 
 body
   margin 0
@@ -36,73 +88,211 @@ body
   font-family: "Roboto Regular";
   color: white
 
+.page-section
+  background: url(../images/figma-templates-1/bgc-main-min.png) no-repeat;
+
+.page-section__inner
+  max-width: 1376px;
+  margin: 0 auto;
+  padding: 42px 42px;
+
+.section-title
+  font-size: 31px;
+  line-height: 48px;
+  font-family: "Roboto Medium";
+  letter-spacing: 0em;
+  font-style: normal;
+  +above($tablet)
+    font-size: 40px;
+    line-height: 53px;    
+  +above($desktop)
+    font-size: 48px;
+    line-height: 67px;    
+
 .logo
   img
     Width 40px
 
 .page-section--intro
     .page-section__inner
-      background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat
+      background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat -793px 0
       min-height: 830px
       padding-bottom: 100px;
+      max-width: 1920px;
+      padding: 0
+      +above(1116px)
+        background-size: cover
+        background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat -392px 0
+      +above(1380px)
+        background-size: 135%
+        background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat -460px 0
+      +above(1600px)
+        background-size: 100%
+        background url(../images/figma-templates-1/main-screen__bgc-min.jpg) no-repeat
 
-.page-section__inner
+// todo background-size: cover
+
+.page-section
   max-width 1920px
   margin: 0 auto
+
+.section-title--left-decoration-circle
+  padding-left: 80px
+  position: relative
+  +above($tablet)
+    padding-left: 100px
+  +above($desktop)
+    padding-left: 128px
+  &:before
+    position: absolute;
+    content: "";
+    background: url("../images/figma-templates-1/Ellipse-1-Stroke.png") 0 0 no-repeat;
+    background-size: 56px;
+    width: 58px;
+    height: 58px;
+    top: 0;
+    left: 0;
+    +above($tablet)
+      background-size: 68px;   
+      width: 70px;
+      height: 70px; 
+    +above($desktop)
+      background-size: 78px;
+      width: 80px;
+      height: 80px;
+
+.section-subtitle
+  font-size: 14px
+  line-height: 21px
+  +above($tablet)
+    font-size: 16px
+    line-height: 27px
+
+//global end
+
+.mobile-menu
+  position: relative
+  +above($desktop)
+    display: none
+
+.mobile-menu__button
+  display: block
+  background: linear-gradient(94.78deg, #df5950 11.19%, #451046 93.72%);
+  border-radius: 50%;
+  padding: 8px;  
+  .mobile-menu__image
+    width: 22px
+
+.mobile-menu__items
+  position: absolute
+  display: none
+  background-color: white
+  a
+    color: black
+
+  animation-name: mobile-menu-header
+  animation-duration: 300ms
+  animation-timing-function: linear
+  // animation-direction: alternate-reverse
+
+@keyframes mobile-menu-header {
+  0% {
+    left: -300px
+  }
+  80% {
+    left: 50px
+    }
+  90% {
+    left: 20px
+    }
+  100%{
+    left: 0px
+  }
+}
+
+.mobile-menu__item
+  border-bottom: 1px solid black
+  padding: 2px 10px
+
+.is-visible.mobile-menu__items //если классы в комбинации, то сработает display: block
+  display: block
 
 .page-header
   display: flex
   justify-content: space-between
+  align-items: center
   line-height: 24px
-  padding: 40px 0 0 80px
+  padding: 40px 80px 0 80px
   margin-bottom: 190px;
 
+.page-header__logo
+  margin-right: 26px
+
 .header-menu
-  display: flex
+  display: none
+  +above($desktop)
+    display: flex
 
 .page-header__menu
   display: flex
   align-items: center
+  justify-content: flex-end;
+  flex: 0 0 90%;
 
 .header-menu__item
-  margin-right: 40px;
+  margin-right: 0px;
+  +above(960px)
+    margin-right: 6px;
+  +above(1116px)
+    margin-right: 20px;
+  +above(1380px)
+    margin-right: 40px;
   &:last-child
-      margin-right: 0
+    margin-right: 0
   a
     padding: 8px
 
 .page-header__actions
-  display: flex
   align-items: center
 
-.authorization-links__item
-  a
-    padding: 10px 30px;
-    background linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
-    border-radius: 50px;
-    user-select: none;
-    &:hover
-      background linear-gradient(94.26deg, #9765cf 9.51%, #634dff 90.23%);
-    &:active
-      box-shadow: 2px 3px 10px rgb(0 0 0 / 50%);
-
 .page-header__actions
-  padding: 0 80px 0 270px;
-
+  padding-left: 34px;
+  +above(1116px)
+    padding-left: 60px;
+  +above(1380px)
+    padding-left: 200px;
+  +above(1600px)
+    padding-left: 270px;
+    
 .intro-titles
-  width: 1226px;
-  padding: 0 0 0 312px;
-  font-size: 64px;
-  line-height: 90px;
-  font-family: "Roboto Medium";
-  text-align: left;
-  font-style: normal;
-  letter-spacing: 0em;
-  margin-bottom: 50px
+  .section-title
+    font-size: 40px;
+    line-height: 52px;
+    text-align: center;
+    margin-bottom: 50px
+    +above($tablet)
+      text-align: left;
+      padding: 0 0 0 100px;
+      font-size: 44px;
+      line-height: 56px;
+    +above($desktop)
+      padding: 0 0 0 160px;
+      font-size: 54px;
+      line-height: 75px;
+    +above(1380px)
+      padding: 0 0 0 160px;
+      font-size: 64px;
+      padding: 0 0 0 312px;
 
 .time-counters
   display: flex
-  padding-left: 312px
+  justify-content: center
+  +above($tablet)
+    padding-left: 100px
+  +above($desktop)
+    padding-left: 160px
+  +above(1380px)
+    padding: 0 0 0 312px;
 
 .time-counters__item
   margin-right: 30px
@@ -111,9 +301,12 @@ body
 
 .time-counter
   background: rgba(18, 18, 18, 1);
-  padding: 20px 30px
-  height: 112px
-  text-align: center;   
+  padding: 5px 10px
+  text-align: center; 
+  +above($tablet)
+    padding: 10px 15px 
+  +above(1116px)
+    padding: 20px 30px
 
 .unit-of-time-number
   font-size: 36px
@@ -129,70 +322,577 @@ body
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-.page-section.page-section--short-statistics
+.page-section--statistics
+  background-color: #0B0B0B
+  background-blend-mode: color
   .page-section__inner
-    background-color: #0B0B0B
-    padding: 21px 20px
+    display: flex
+    align-items: center
+    justify-content: center
 
-.page-section__inner-wraper
-  max-width 1376px
-  margin: 0 auto
-  padding: 10px 40px
-  display: flex
-  align-items: center
+.page-section__column--statistics
+  padding-left: 26px
+  +above(1380px)
+    padding-left: 81px
 
-.page-section__actions
-    a
-      padding: 10px 30px;
-      background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
-      border-radius: 50px;
-      user-select: none;
-      &:hover
-        background linear-gradient(94.78deg, #c54037 11.19%, #651766 93.72%);
-      &:active
-        box-shadow: 2px 3px 10px #464646;
-
-.page-section__short-statistics
-  padding-left: 81px
-  display: flex
-
-.short-statistics__column-one 
-  min-width: 251px
-
-.short-statistics
-  padding: 5px 0
-  display: flex
-  justify-content: space-between
-
-.short-statistics__category
-  color: #717171
-
-.short-statistics__column-two
-  padding-left: 81px
-  .short-statistics
-    justify-content: flex-start
-
-.short-statistics__diagram
-  width: 714px
+.progress-bar
   height: 6px
   background-color: white
   margin-bottom: 5px
 
-.short-statistics__diagram-item
-  width: 440px
+.progress-bar__progress
+  width: 60%
   height: 6px
   background: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
 
-.short-statistics__values
+.progress-bar__captions
   color: #717171
   display: flex
   justify-content: space-between
+  padding-top: 8px
 
-.short-statistics--digram-wraper
+.statistics
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-end
+  font-size: 12px
+  +above($tablet)
+    font-size: 16px
+  +above($desktop)
+    flex-wrap: nowrap
+    justify-content: space-between
+
+.statistics__column--summary
+  width 100%
+  +above($desktop)
+    width 100%
+  dt
+  dd
+    margin-bottom: 5px
+    +above($desktop)
+      margin-bottom: 10px
+
+.statistics__column--progress-bar
+  min-width 100%
+  padding-left: 0px
+  +above($desktop)
+    min-width 75%
+  dt
+    width:  208px
+  dd
+    margin-bottom: 8px
+  +above($desktop)
+    min-width 460px
+  +above(1380px)
+    padding-left: 20px
+    min-width 734px
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--company-direction
+  display: flex
+  justify-content: center
+  padding-top: 100px
+  flex-wrap: wrap
+  +above($tablet)
+    justify-content: space-between  
+    flex-wrap: nowrap
+  +above($desktop)
+    padding-top: 200px
+  .page-section__column
+    &:first-child
+      max-width: 58%
+      margin-bottom: 100px;
+      +above($tablet)
+        margin-bottom: 0
+        max-width: 526px
+    &:last-child
+      +above($tablet)
+        padding-left: 56px
+        width: 60%        
+      +above(1116px)
+        padding: 69px 0 0 56px
+        max-width: 636px
+  .section-subtitle
+    padding-top: 15px
+    +above($tablet)
+      padding-top: 45px
+
+.square-decoration
+  position: relative
+  border: 30px solid;
+  border-image: linear-gradient(to right, rgba(200, 154, 252, 1), rgba(124, 106, 250, 1));
+  border-image-slice: 1;
+
+.square-decoration__img
+  width: 100%
+  position: relative
+  top 73px
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--example-diagram
+  padding-top: 100px
+  +above($desktop)
+    padding-top: 200px
+
+.section-subtitle--left-decoration
+  padding: 50px 0 60px 0
+  line-height: 1.6
+  color: #717171
+  max-width: 428px;
+
+.example-diagram__row
+  display: flex
+
+.example-diagram__column
+  flex: 0 1 25%
+  display: flex
+
+.example-diagram__item
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+.example-diagram__percentages
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 5px 0
+  +above($tablet)
+    font-size: 36px;
+    padding: 20px 0
+.example-diagram__visually
+  min-height: 80px
+  background: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+p 
+  margin: 0
+  padding: 35px 18px 0 0 
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #717171
+
+.example-diagram__visually--100
+  min-height 80px
+
+.example-diagram__visually--75
+  min-height 60px
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+
+.example-diagram__visually--50
+  min-height 30px
+
+.example-diagram__visually--the-outcome
+  min-height 10px
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--benefits
+  padding-top: 58px
+  +above($desktop)
+    padding-top: 158px
+
+.advertisers__column--benefits
+  display: flex
+  justify-content: center
+
+.c2a-title
+  text-align: center
+  padding-bottom: 35px
+  +above($tablet)
+    padding-bottom: 80px
+  +above($desktop)
+    padding-bottom: 120px
+
+.benefits
+  display: flex
+  margin: 0 -12px
+  width: 60%;
+  flex-wrap: wrap;
+  +above($tablet)
+    width: 100%
+    flex-wrap: nowrap
+
+.benefits__item
+  padding: 20px 12px
+  +above($tablet)
+    padding: 0 12px
+
+.benefit
+  display: flex
+  flex-direction: column
+
+.benefit__icon
+  text-align: center
+  img
+    width: 65px
+    height: 65px      
+    +above($tablet)
+      width: 85px
+      height: 85px  
+    +above($desktop)
+      width: 100px
+      height: 100px
+
+.benefit__icon-title
+  padding: 20px 0px
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: center;
+  +above($tablet)
+    padding: 30px 0px
+    font-size: 22px;
+    line-height: 30px;
+  +above($desktop)
+    font-size: 24px;  
+    line-height: 34px; 
+  +above(1116px)
+    padding: 60px 46px 30px
+    
+.benefit__icon-subtitle
+  padding: 0 10px
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #CCCCCC
+  +above($tablet)
+    padding: 0 24px
+    font-size: 14px;
+    line-height: 24px;
+  +above($desktop)
+    padding: 0 29px
+    font-size: 16px;  
+    line-height: 26px; 
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--partner-brands
+  padding-top: 90px
+  +above($desktop)
+    padding-top: 190px
+
+.circle-rotate-partner-brands-section
+  margin-bottom: 89px
+  &:before
+    transform: rotate(175deg);
+    
+.partner-brands__row 
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+.partner-brands__item
+  border: 1px solid #4C4C4C
+  padding: 12px 16px
+  +above($tablet)
+    padding: 20px 30px
+  +above($desktop)
+    padding: 29px 58px
+
+.partner-brand__logo 
+  img
+    width: 176px
+    +above($tablet)
+      width: 198px
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--learn-program
+  padding-top: 62px
+  +above($desktop)
+    padding-top: 162px
+
+.circle-rotate-learn-program-section
+  padding-top: 150
+  padding-left: 0
+  text-align: center
+  &:before
+    left: 50%
+    margin-left: -40px
+    transform: rotate(135deg);
+
+.section-subtitle--top-decoration
+  max-width: 412px
+  margin: 0 auto
+  padding: 30px 0 80px 0
+  line-height: 1.6
+  color: #717171
+  text-align: center
+
+.training-schedule 
+  display: flex
+  justify-content: center
+
+.training-schedule__column
+  max-width: 400px
+
+.training-schedule__row
+  padding-top: 95px
+
+.training-schedule__column:first-child
+  text-align: right
+  position: relative
+  padding: 0 72px 0 0px
+  +above($desktop)
+    padding: 0 72px 0 76px
+  &:before
+    content: "";
+    position: absolute;
+    border-left: 6px solid;
+    height: 95%;
+    right: 4px;
+    top: -31px;
+    border-image: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+    border-image-slice: 1;
+  .training-schedule__row:first-child
+    padding: 0
+  .training-schedule__column-training-description
+    &:after
+      content: ""
+      position: absolute;
+      border-top: 2px solid #4C4C4C;
+      transform: rotate(180deg);
+      width: 40px
+      top: 10px
+      right: -62px
+
+.training-schedule__column:last-child
+  text-align: left
+  padding: 0 0px 0 76px
+  +above($desktop)
+    padding: 0 72px 0 76px
+  .training-schedule__column-training-description
+    &:before
+      content: ""
+      position: absolute;
+      border-top: 2px solid #4C4C4C;
+      transform: rotate(180deg);
+      width: 40px
+      top: 10px
+      left: -76px
+
+.training-schedule__column-week-number
+  font-size: 14px
+  line-height: 22px
+  color: #717171
+
+.training-schedule__column-training-description
+  position: relative
+  font-size: 14px
+  line-height: 24px
+  +above($tablet)
+    font-size: 18px
+    line-height: 28px  
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.circle-rotate-teachers
+  &:before
+    top: -20px
+    transform: rotate(315deg);
+
+.teachers-information__row 
+  padding-top: 83px
+  display: flex
+  justify-content: space-around
+
+.teachers-information__column 
+  text-align: center
+  padding: 0 12px
+
+.teachers-information__photo
+  padding: 20px 0
+  +above($desktop)
+    padding: 30px 0
+  img
+    width: 75%
+    +above($desktop)
+      width: 190px
+      height: 190px
+
+.teachers-information__name 
+  font-size: 20px
+  line-height: 30px
+  padding: 6px 0
+  +above($desktop)
+    padding: 10px 0
+    font-size: 24px
+    line-height: 34px
+
+.teachers-information__profession
+  font-size: 12px
+  line-height: 20px
+  padding: 3px 0 3px
+  margin-bottom: 25px
+  color: #CCCCCC
+  +above($desktop)
+    font-size: 16px
+    line-height: 25px
+    padding: 5px 0 5px
+    margin-bottom: 30px
+
+.button--teachers-information-biography
+  background: none
+  border: 1px solid white
+  &:hover
+    background: none
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--subscribe-newsletter
+  padding-top: 68px
+  padding-bottom: 0
+  text-align: center
+  +above($desktop)
+    padding-top: 168px
+
+// .section-title--subscribe-newsletter
+
+.section-subtitle--subscribe-newsletter
+  margin: auto
+  padding: 30px 0
+  max-width: 418px
+  line-height: 25px;
+  color: #717171;
+
+.form-subscribe-newsletter__input
+  height: 36px
+  position relative
+  z-index 1
+  color: white
+  padding: 8px 26px;
+  vertical-align: top
+  background: white;
+  line-height: 24px;
+  background-color: rgba(255, 255, 255, 0.25)
+  border-radius: 50px 0 0 50px;
+  margin-right: -25px;
+  border: none;
+  outline: none#D9D9D9
+  +above($tablet)
+    min-width: 353px
+    padding: 10px 30px;
+  +above($desktop)
+    height: 44px
+
+.form-subscribe-newsletter 
+  margin: 0
+  padding: 30px 0
+  button
+    position relative
+    z-index 2
+
+::-webkit-input-placeholder { /* WebKit browsers */
+   color:    #D9D9D9;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #D9D9D9;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #D9D9D9;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #D9D9D9;
+}
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.page-section__inner--footer
+  padding: 0
+
+.footer__socials
+  padding: 10px 0 20px
+
+.footer-socials
+  display: flex
+  justify-content: center
+
+.footer-socials__item
+  &:not(:last-child)
+    padding-right: 30px
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 50px
+    width: 50px
+    border-radius: 50%
+    background: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+
+.footer__company-name
+  padding: 30px 0
+  text-align: center
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+.modal
+  display: none
+
+.is-visible.modal
   display: block
 
-.short-statistics__value
-  padding-left: 30px
+.modal__overlay 
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  opacity 0.5
+  background: black
+  z-index 998
 
+.modal__container 
+  font-family: "Roboto Medium";
+  position: fixed
+  width: 350px
+  padding: 26px
+  min-height: 150px
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%);
+  background: rgb(241, 237, 197)
+  z-index 999
+  color: black
+  text-align: center
+  user-select: none; 
 
+  animation-name: modal
+  animation-duration: 500ms
 
+.modal__c-btn
+  position: fixed
+  top: 0
+  right: 0
+  img
+    width: 30px
+
+.modal__title 
+  padding: 10px 15px
+  font-size: 24px
+
+.modal__message 
+  padding: 5px 10px
+  font-size: 20px
+
+@keyframes modal {
+  0% {
+    top: 0
+  }
+  100%{
+    top: 50%
+  }
+}
