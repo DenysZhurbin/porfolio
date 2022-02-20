@@ -1,0 +1,379 @@
+@import "./_core/_base/_main/_reset.styl"
+@import "./_core/_mixins.styl"
+@import "./_core/_variables.styl"
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/static/Montserrat-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/static/Montserrat-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('../fonts/Playfair Display/static/PlayfairDisplay-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('../fonts/Playfair Display/static/PlayfairDisplay-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+$mobile = 480px
+$tablet = 768px
+$desktop = 960px
+
+// Global
+
+body
+    margin 0
+    font-family: 'Montserrat'
+    font-weight 400
+    font-size 14px
+    line-height 20px
+    color #ffffff
+    +above($mobile)
+        font-size 16px
+        line-height 24px
+
+a
+    color: #ffffff
+    text-decoration: none
+    user-select: none;
+
+img
+    margin: 0
+
+.button
+    padding: 12px 26px;
+    text-align: center
+    background: #99862A
+    border: none
+    user-select: none;
+    font-size: 11px;
+    line-height: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase
+    white-space: pre;
+    &:hover
+        background #8b7a33;
+    &:active
+        box-shadow: 2px 3px 10px #464646;
+    +above($mobile)
+        font-size: 12px;
+        line-height: 16px;    
+    +above($tablet)
+        padding: 15px 30px;
+        font-size: 16px;   
+        line-height: 20px;    
+
+.page-section__inner
+    margin auto
+    max-width 1110px
+    padding 0 14px
+    +above($mobile)
+        padding 0 40px
+
+.title
+    font-family: 'PlayfairDisplay'
+    font-size 24px
+    line-height 30px
+    font-weight: 500;
+    +above($mobile)
+        font-size 28px
+        line-height 36px
+    +above($desktop)
+        font-size 36px
+        line-height 54px
+
+.subtitle 
+    font-family: 'Montserrat'
+    font-weight 400
+    font-size 12px
+    line-height 16px
+    +above($mobile)
+        font-size 13px
+        line-height 18px
+    +above($desktop)
+        font-size 14px
+        line-height 21px
+
+// Global end
+// Header
+
+.mobile-menu
+    position: relative
+    top 30px
+    +above($mobile)
+        top 0
+    +above($tablet)
+        display: none
+
+.mobile-menu__button
+    display: inline-block
+    background: linear-gradient(115deg, #99862a 11.19%, #34342d 93.72%);
+    border-radius: 50%;
+    padding: 8px;  
+    .mobile-menu__image
+        width: 22px
+
+.mobile-menu__items
+    position: absolute
+    top 50px
+    display: none
+    background linear-gradient(115deg, #99862a 11.19%, #ffd9b894 93.72%);
+    a
+        color: black
+
+    animation-name: mobile-menu-header
+    animation-duration: 300ms
+    animation-timing-function: linear
+    // animation-direction: alternate-reverse
+
+@keyframes mobile-menu-header {
+  0% {
+    left: -300px
+  }
+  80% {
+    left: 50px
+    }
+  90% {
+    left: 20px
+    }
+  100%{
+    left: 0px
+  }
+}
+
+.mobile-menu__item
+    border-bottom: 1px solid black
+    padding: 2px 10px
+
+.is-visible.mobile-menu__items //если классы в комбинации, то сработает display: block
+    display: block
+
+// Mobile end
+
+.page-section--intro
+    background url(../images/wine-market/header-background.png) 100%/cover no-repeat
+    background-position center
+    width 100%
+    min-height 700px
+    +above($desktop)
+        min-height 900px
+
+// .page-section__inner--intro
+
+.page-header
+    display flex
+    justify-content space-between
+    position: relative
+    +above($mobile)
+        display block
+
+
+.page-header__information
+    display block
+    order 2
+    justify-content space-between
+    padding 30px 0 20px
+    font-weight 500
+    font-size 12px
+    line-height 19px
+    text-align right
+    +above($mobile)
+        display flex
+        font-size 13px
+
+.header-menu
+    display none
+    order 1
+    text-align center
+    align-items: center
+    +above($tablet)
+       display flex 
+    
+
+.header-menu__item
+    flex: 0 1 25%;
+    font-weight 400
+    font-size 14px
+    line-height 21px
+    border-top 1px solid #FFFFFF
+    border-bottom 1px solid #FFFFFF
+    border-right 1px solid #FFFFFF
+    &:last-child
+        border-right none
+    a
+       padding 13px 0
+       display: block
+    &:hover
+            background-color: #ffffff20
+
+.page-header__actions 
+    position: absolute
+    top:400%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .button:first-child
+        margin-right 0px
+        margin-bottom 10px
+        +above($mobile)
+            margin-bottom 0
+            margin-right 30px
+    +above($mobile)
+        display block
+        width auto
+    +above($desktop)
+        top:610%; 
+
+// .page-section--description
+
+.page-section--description
+    background: #282828;
+    padding: 100px 40px
+
+.page-section__inner--description
+    text-align: center
+    border: 3px solid #C4C4C4;
+    box-sizing: border-box;
+
+.description__wrapper 
+    padding: 40px 10px
+    +above($tablet)
+        padding: 50px 90px
+    +above($desktop)
+        padding: 60px 147px
+
+.description__title
+    position relative
+    padding-bottom: 40px
+    &:after
+        content:"";
+        position:absolute;
+        bottom -40px;
+        width 160px;
+        border-bottom: 1px solid #ffffff;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+
+.description__text 
+    padding: 20px 0 30px
+    +above($mobile)
+        padding: 40px 0 50px
+
+//.page-section.page-section--goods
+
+.page-section--goods
+    background: #E6E3C4;
+    padding: 80px 0
+    color: #282828;
+
+.goods__wrapper 
+    padding: 60px 0
+    border-top: 1px solid #998431;
+    border-bottom: 1px solid #998431;
+    display flex
+    justify-content: space-between
+
+.goods__column
+    &:first-child
+        padding-right: 30px
+        max-width 445px
+        flex: 0 1 50%
+    &:last-child
+        max-width 540px
+        flex: 0 1 50%
+
+.gallery
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+.gallery__img
+    margin-bottom: 30px  
+    flex: 0 1 100%;
+    min-height: 500px
+    img
+        height 100%
+        width: 100%
+        object-fit: cover
+
+.gallery__sub-img 
+    display: flex
+    flex: 0 1 100%;
+    min-height: 228px
+    img
+        height 100%
+        width: 100%
+        object-fit: cover 
+
+.gallery__sub-img-item
+    &:not(:last-child) 
+        padding-right: 30px
+
+.goods__title
+    position: relative
+    max-width 298px
+    padding: 30px 0
+    &:after
+        content:"";
+        position:absolute;
+        bottom 0;
+        width 160px;
+        border-bottom: 1px solid #282828;
+        left:80px
+        transform:translate(-50%, -50%);
+
+.goods__subtitle
+    padding: 30px 0
+
+.goods__item-title
+    font-size 18px
+    line-height 27px
+
+.goods__item-year 
+    font-family: 'Montserrat'
+    font-weight 400
+    font-size 12px
+    line-height 16px
+    +above($mobile)
+        font-size 13px
+        line-height 18px
+    +above($desktop)
+        font-size 14px
+        line-height 21px
+
+.goods__item
+    display: flex
+    &:not(:last-child) 
+        border-bottom: 1px solid #282828;
+    
+.goods__item-year
+    border-right: 1px solid #282828;
+    text-align: center
+    padding: 31px 24px 26px 19px
+
+.goods__item-name
+    padding: 10px 37px 15px 30px
+
+
+
+

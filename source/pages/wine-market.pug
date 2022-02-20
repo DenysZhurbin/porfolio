@@ -1,0 +1,128 @@
+doctype html
+html(lang=config.lang data-offcanvas-container)
+    head
+        title figma-templates-1
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="./stylesheets/wine-market.css")
+
+    body
+        section(aria-label="Header and navigation").page-section.page-section--intro
+            .page-section__inner.page-section__inner--intro
+                header.page-header
+                    .page-header__information
+                        .page-header__information-location 
+                            | Новокузнечный переулок 4/1
+                        .page-header__information-contacts
+                            | 8 (812) 123-45-67
+                            
+                    nav.page-header__menu
+                        .header-menu
+                            .header-menu__item
+                                a(href="#")
+                                    | Каталог
+                            .header-menu__item
+                                a(href="#")
+                                    | Доставка
+                            .header-menu__item
+                                a(href="#")
+                                    | Коллекции
+                            .header-menu__item
+                                a(href="#")
+                                    | Контакты
+                                    
+                        .mobile-menu
+                            a(href="#").mobile-menu__button#mobile-menu-trigger
+                                img(src="./images/figma-templates-1/mobile-menu-trigger.svg" alt="mobile-menu").mobile-menu__image
+                            .mobile-menu__items#mobile-menu
+                                .mobile-menu__item
+                                    a(href="#")
+                                        | Каталог
+                                .mobile-menu__item
+                                    a(href="#")
+                                        | Доставка
+                                .mobile-menu__item
+                                    a(href="#")
+                                        | Коллекции
+                                .mobile-menu__item
+                                    a(href="#")
+                                        | Контакты
+                
+                    .page-header__actions 
+                        a(href="#").button.button-goods-map
+                            | винная карта
+                        a(href="#").button.button-goods-tasting
+                            | дегустация
+
+        section(aria-label="Description").page-section.page-section--description
+            .page-section__inner.page-section__inner--description
+                .description
+                    .description__wrapper 
+                        .description__title.title
+                            | Лучший вкус, это вкус долголетнего вина
+                        .description__text 
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim tortor in hac id imperdiet adipiscing. Pellentesque nisi, mi sit non sit sed fermentum. Felis adipiscing morbi sodales ac. Mauris dictumst risus pulvinar blandit elit. Vestibulum quam ultrices nascetur et viverra suscipit. Proin vitae aliquet leo aliquam amet rutrum. Lectus auctor purus ultrices enim ultrices. Augue fringilla tellus tortor orci ultrices sed. Viverra cras sapien, pellentesque viverra malesuada. Tellus dolor, eget vitae dignissim molestie eget sit duis. Vitae dui vel pretium euismod diam. Pellentesque amet, lacus, amet, quis risus. Pellentesque scelerisque nunc, orci aliquam quis.
+                        .description__img
+                            img(src="../images/wine-market/description-image.svg", alt="img")
+
+        section(aria-label="Description").page-section.page-section--goods
+            .page-section__inner.page-section__inner--goods
+                .goods 
+                    .goods__wrapper 
+                        .goods__column
+                            .goods__about
+                                | Новинки коллекций
+                            .goods__title.title 
+                                | Март 1980 Урожай Марселя
+                            .goods__subtitle.subtitle  
+                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim tortor in hac id imperdiet adipiscing. Pellentesque nisi, mi sit non sit sed fermentum. Felis adipiscing morbi sodales ac. 
+                          
+                            .goods__items
+                                .goods__item
+                                    .goods__item-year 
+                                        | 1980
+                                    .goods__item-name
+                                        .goods__item-title.title 
+                                            | Colli Euganei Bianco Ca' Lustra 1980
+                                        .goods__item-subtitle.subtitle 
+                                            | Красочная бутылка вина из Марселя
+                                .goods__item
+                                    .goods__item-year 
+                                        | 1980
+                                    .goods__item-name
+                                        .goods__item-title.title 
+                                            | Colli Euganei Bianco Ca' Lustra 1980
+                                        .goods__item-subtitle.subtitle 
+                                            | Красочная бутылка вина из Марселя
+                                .goods__item
+                                    .goods__item-year 
+                                        | 1980
+                                    .goods__item-name
+                                        .goods__item-title.title 
+                                            | Colli Euganei Bianco Ca' Lustra 1980
+                                        .goods__item-subtitle.subtitle 
+                                            | Красочная бутылка вина из Марселя
+
+
+                            .goods__subtitle.subtitle  
+                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim tortor in hac id imperdiet adipiscing. Pellentesque nisi, mi sit non sit sed fermentum. Felis adipiscing morbi sodales ac. 
+                                              
+                            .goods__learn-more-button
+                                a(href="#").button.button-learn-more
+                                    | узнать подробнее
+
+
+                        .goods__column
+                            .gallery
+                                .gallery__img 
+                                    img(src="../images/wine-market/volk_luna_noch_150508_1024x768.jpg", alt="img") 
+                                .gallery__sub-img     
+                                    .gallery__sub-img-item
+                                            img(src="../images/wine-market/volk_luna_noch_150508_1024x768.jpg", alt="img")    
+                                    .gallery__sub-img-item 
+                                            img(src="../images/wine-market/volk_luna_noch_150508_1024x768.jpg", alt="img")                                 
+
+                            
+
+
+    script(type="text/javascript" src="javascripts/wine-market.js")
