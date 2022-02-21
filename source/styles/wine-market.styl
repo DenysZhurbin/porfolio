@@ -88,8 +88,8 @@ img
 
 .title
     font-family: 'PlayfairDisplay'
-    font-size 24px
-    line-height 30px
+    font-size 20px
+    line-height 26px
     font-weight: 500;
     +above($mobile)
         font-size 28px
@@ -291,16 +291,25 @@ img
     border-top: 1px solid #998431;
     border-bottom: 1px solid #998431;
     display flex
-    justify-content: space-between
+    flex-wrap: wrap
+    justify-content: center
+    +above(990px)
+        flex-wrap: nowrap
+        justify-content: space-between
 
 .goods__column
     &:first-child
-        padding-right: 30px
-        max-width 445px
-        flex: 0 1 50%
+        padding-right: 0
+        max-width 540px
+        flex: 1 1 55%
+        margin-bottom: 50px
+        +above(990px)
+           padding-right: 30px 
+           flex: 0 1 50%
+           margin: 0
     &:last-child
         max-width 540px
-        flex: 0 1 50%
+        flex: 1 1 50%
 
 .gallery
     display: flex
