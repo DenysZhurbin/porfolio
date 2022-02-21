@@ -146,10 +146,10 @@ img
   0% {
     left: -300px
   }
-  80% {
+  50% {
     left: 50px
     }
-  90% {
+  80% {
     left: 20px
     }
   100%{
@@ -159,7 +159,7 @@ img
 
 .mobile-menu__item
     border-bottom: 1px solid black
-    padding: 2px 10px
+    padding: 8px 18px
 
 .is-visible.mobile-menu__items //если классы в комбинации, то сработает display: block
     display: block
@@ -287,12 +287,14 @@ img
     color: #282828;
 
 .goods__wrapper 
-    padding: 60px 0
+    padding: 30px 0
     border-top: 1px solid #998431;
     border-bottom: 1px solid #998431;
     display flex
     flex-wrap: wrap
     justify-content: center
+    +above($mobile)
+        padding: 60px 0        
     +above(990px)
         flex-wrap: nowrap
         justify-content: space-between
@@ -319,25 +321,32 @@ img
 .gallery__img
     margin-bottom: 30px  
     flex: 0 1 100%;
-    min-height: 500px
+    min-height: 228px
     img
         height 100%
         width: 100%
         object-fit: cover
+    +above($tablet)
+        min-height: 500px
 
 .gallery__sub-img 
-    display: flex
+    display: block
     flex: 0 1 100%;
     min-height: 228px
     img
         height 100%
         width: 100%
-        object-fit: cover 
+        object-fit: cover
+    +above($tablet) 
+        display: flex
 
 .gallery__sub-img-item
     &:not(:last-child) 
-        padding-right: 30px
-
+        padding-right: 0px
+        padding-bottom: 30px
+        +above($tablet) 
+            padding-right: 30px
+            padding-bottom: 0px        
 .goods__title
     position: relative
     max-width 298px
@@ -355,8 +364,11 @@ img
     padding: 30px 0
 
 .goods__item-title
-    font-size 18px
-    line-height 27px
+    font-size: 16px;
+    line-height: 21px;
+    +above($mobile)
+        font-size 18px
+        line-height 27px
 
 .goods__item-year 
     font-family: 'Montserrat'
