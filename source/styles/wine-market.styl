@@ -428,19 +428,73 @@ img
 .form__row--subtitle
     font-size 16px
     line-height 24px
+    margin-bottom: 80px
 
 .form__row--columns
+    display: flex
+    justify-content: space-between
     font-size 13px
     line-height 20px
+    margin-bottom: 40px
+
+.form__row-column
+    flex: 0 1 50%
+    &:not(:last-child) 
+        margin-right 30px
+    input
+        width: 100%
+        color: #ffffff
+        padding: 10px 0;
+        background: #282828;
+        outline: none
+        outline-offset: 0;
+        border: none;
+        border-bottom: 1px solid #ffffff
+
+
+::-webkit-input-placeholder { /* WebKit browsers */
+   color:    #D9D9D9;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #D9D9D9;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #D9D9D9;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #D9D9D9;
+}
 
 .form__row--location
     text-align: start
     font-size 13px
     line-height 20px
 
+.dropdown-menu
+    margin: 0 0 50px 0
+    padding-left: 0
+    border-bottom: 1px solid #ffffff
+    width: 100%
+    color: #ffffff
+    padding: 10px 0;
+    background: #282828;
+    outline: none
+    outline-offset: 0;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    // &:selection 
+    //     background: #282828;
+
+
+.dropdown-item
+    padding: 10px 0
+    list-style-type: none
+
 .form-submit
     width: 100%
-    background: #282828;
+    background: #282828
     border: 1px solid #ffffff
     &:hover
             background-color: #ffffff20

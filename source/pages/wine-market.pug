@@ -136,12 +136,12 @@ html(lang=config.lang data-offcanvas-container)
                             .form__row-column
                                 input(type="text" placeholder="Телефон") 
                         .form__row.form__row--location.has-dropdown-toggler
-                            ul.dropdown-menu
-                                li.dropdown-item
+                            select(size="1").dropdown-menu
+                                option(selected value="Бутик на Невском 103").dropdown-item
                                     | Бутик на Невском 103
-                                li.dropdown-item
+                                option(value="Бутик на Невском 103").dropdown-item
                                     | Бутик на Невском 103
-                                li.dropdown-item
+                                option(value="Бутик на Невском 103").dropdown-item
                                     | Бутик на Невском 103
                         .form__row.form__row--submit
                             button(type="submit").form-submit.is-disabled.button
