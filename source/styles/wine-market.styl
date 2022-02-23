@@ -395,7 +395,8 @@ img
 .goods__item-name
     padding: 10px 37px 15px 30px
 
-//.page-section--visit-subscription
+.page-section--visit-subscription
+    overflow: hidden
 
 .page-section--visit-subscription
     background: #282828;
@@ -403,13 +404,47 @@ img
 
 .page-section__inner--visit-subscription
     position: relative
-    border: 3px solid #C4C4C4;
+    border-right: 3px solid #C4C4C4;
+    border-left: 3px solid #C4C4C4;
+    border-bottom: 3px solid #C4C4C4;
     padding: 105px 0 80px
+    &:before
+        content: "";
+        display: block;
+        position: absolute;
+        left: 190px
+        top: 0;
+        width: 0px
+        height: 0px;
+        border-top: 3px solid #C4C4C4;
+        +above($desktop)
+            width: 40px;
+        +above(1060px)
+            left: 230px
+        +above(1130px)
+            width: 80px;
+    &:after
+        content: "";
+        display: block;
+        position: absolute;
+        right: 190px
+        top: 0;
+        width: 0
+        height: 0px;
+        border-top: 3px solid #C4C4C4;
+        +above($desktop)
+            width: 40px;
+        +above(1060px)
+            right: 207px
+            width: 60px;
+        +above(1130px)
+            width: 103px;
 
 .form--sing-up
     text-align: center
     max-width 541px
     margin: 0 auto
+    padding: 0 20px
 
 .form__row--title
     position: absolute
@@ -429,18 +464,64 @@ img
     font-size 16px
     line-height 24px
     margin-bottom: 80px
+    display inline-block
+    max-width 504px
+    +above(1080px)
+        max-width 100%
+
+.form__row--decoration-img
+    img
+        width: 30%
+        +above($mobile)
+            width: 50%
+        +above($tablet)
+            width: 70%
+        +above(1080px)
+            width: 100%
+
+
+.form__row--decoration-img-left 
+    position: absolute
+    left: -118px
+    top: -39px
+    +above($mobile)
+        left: -84px
+        top: -69px
+    +above($tablet)
+        left: -54px
+        top: -82px
+    +above(1080px)
+        left: -30px
+        top: -69px
+
+.form__row--decoration-img-right
+    position: absolute
+    right: -114px
+    top: -27px
+    +above($mobile)
+        right: -84px
+        top: -48px
+    +above($tablet)
+        right: -53px
+        top: -64px
 
 .form__row--columns
-    display: flex
+    display: block
     justify-content: space-between
     font-size 13px
     line-height 20px
     margin-bottom: 40px
+    +above($mobile)
+        display: flex
 
 .form__row-column
     flex: 0 1 50%
     &:not(:last-child) 
-        margin-right 30px
+        margin-right 0px
+        margin-bottom: 20px
+        +above($mobile)
+            margin-right 30px
+            margin-bottom: 0
     input
         width: 100%
         color: #ffffff
@@ -484,8 +565,7 @@ img
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    // &:selection 
-    //     background: #282828;
+
 
 
 .dropdown-item
@@ -498,6 +578,66 @@ img
     border: 1px solid #ffffff
     &:hover
             background-color: #ffffff20
+
+// footer
+
+.page-section--footer
+    background: #998431
+    color: #ffffff
+    padding: 50px 0
+    font-size 14px
+    line-height 21px
+
+.footer-menu
+    display: flex
+    border-top: 1px solid #ffffff
+    padding: 10px 58px
+    justify-content: space-between
+    flex-wrap: wrap
+
+.footer-menu__item
+    padding: 10px 10px
+
+.footer-items
+    display flex
+    text-align center
+    align-items: center
+    text-transform: uppercase
+    font-weight 600
+    flex-wrap: wrap
+
+    
+.footer__item
+    padding 19px 10px
+    flex: 1 0 auto
+    border 1px solid #FFFFFF
+    margin 5px
+    +above($tablet)
+        border-left none
+        border-top 1px solid #FFFFFF
+        border-bottom 1px solid #FFFFFF
+        border-right 1px solid #FFFFFF
+    &:last-child
+        border-right 1px solid #FFFFFF
+        +above($tablet)
+            border-right none
+    &:hover
+        background-color: #ffffff20
+    +above($tablet)
+        margin 0
+
+
+.footer__item--social
+    display: flex
+    justify-content: center
+    a
+        &:not(:last-child) 
+            margin-right: 36px 
+
+
+.footer__item--company-name
+    padding: 19px 0
+    
 
 
 

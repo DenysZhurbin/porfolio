@@ -128,6 +128,11 @@ html(lang=config.lang data-offcanvas-container)
                     .form__inner          
                         .form__row.form__row--title.title  
                             | Запись на дегустацию
+                        .form__row.form__row--decoration-img 
+                            .form__row--decoration-img-left 
+                                img(src="../images/wine-market/form-decoration-img-left.png", alt="img")   
+                            .form__row--decoration-img-right
+                                img(src="../images/wine-market/form-decoration-img-right.png", alt="img")   
                         .form__row.form__row--subtitle.subtitle   
                             | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim tortor in hac id imperdiet adipiscing. Pellentesque nisi, mi sit non sit sed fermentum. 
                         .form__row.form__row--columns
@@ -146,6 +151,48 @@ html(lang=config.lang data-offcanvas-container)
                         .form__row.form__row--submit
                             button(type="submit").form-submit.is-disabled.button
                                 | записаться
+        section(aria-label="Footer").page-section.page-section--footer
+            .page-section__inner.page-section__inner--footer
+                footer 
+                    nav.page-footer__menu
+                        .footer-menu
+                            .footer-menu__item
+                                a(href="#")
+                                    | Главная
+                            .footer-menu__item
+                                a(href="#")
+                                    | Каталог
+                            .footer-menu__item
+                                a(href="#")
+                                    | Поставщики
+                            .footer-menu__item
+                                a(href="#")
+                                    | Коллекции
+                            .footer-menu__item
+                                a(href="#")
+                                    | Дегустация
+                            .footer-menu__item
+                                a(href="#")
+                                    | Коллекция 2020
+                            .footer-menu__item
+                                a(href="#")
+                                    | Контакты
+                    .footer-items
+                        .footer__item
+                            a(href="#")
+                                | винный бутик LE CORTE
+                        .footer__item.footer__item--contact-phone
+                                | 8 (812) 123-45-67
+                        .footer__item.footer__item--social
+                            a(href="#")
+                                img(src="./images/wine-market/socials/youtube.png", alt="youtube")
+                            a(href="#")
+                                img(src="./images/wine-market/socials/vk.png", alt="VK")
+                            a(href="#")
+                                img(src="./images/wine-market/socials/facebook.png", alt="facebook")
+                        .footer__item.footer__item--company-name
+                                | © le-corte.ru
+    
                             
 
     script(type="text/javascript" src="javascripts/wine-market.js")
