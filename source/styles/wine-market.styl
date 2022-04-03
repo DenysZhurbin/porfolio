@@ -637,6 +637,73 @@ img
 
 .footer__item--company-name
     padding: 19px 0
+
+// modal
+
+.modal
+  display: none
+
+.is-visible.modal
+  display: block
+
+.modal__overlay 
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  opacity 0.5
+  background: black
+  z-index 998
+
+.modal__container 
+  font-family: "Roboto Medium";
+  position: fixed
+  width: 350px
+  padding: 26px
+  min-height: 150px
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%);
+  background: rgb(241, 237, 197)
+  z-index 999
+  color: black
+  text-align: center
+  user-select: none; 
+
+  animation-name: modal
+  animation-duration: 500ms
+
+.modal__c-btn
+  position: fixed
+  top: 0
+  right: 0
+  img
+    width: 30px
+
+.modal__title 
+  padding: 10px 15px
+  font-size: 24px
+
+.modal__message 
+  padding: 5px 10px
+  font-size: 20px
+
+@keyframes modal {
+  0% {
+    top: 0
+  }
+  100%{
+    top: 50%
+  }
+}
+
+// validation
+
+// .error
+//     position: absolute
+//     color: red
+//     bottom: : 10px
     
 
 

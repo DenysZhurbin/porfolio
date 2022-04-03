@@ -124,7 +124,7 @@ html(lang=config.lang data-offcanvas-container)
 
         section(aria-label="Visit subscription").page-section.page-section--visit-subscription
             .page-section__inner.page-section__inner--visit-subscription
-                form.form.form--sing-up  
+                form.form.form--sing-up.formWithValidation  
                     .form__inner          
                         .form__row.form__row--title.title  
                             | Запись на дегустацию
@@ -137,11 +137,11 @@ html(lang=config.lang data-offcanvas-container)
                             | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat enim tortor in hac id imperdiet adipiscing. Pellentesque nisi, mi sit non sit sed fermentum. 
                         .form__row.form__row--columns
                             .form__row-column
-                                input(type="text" placeholder="Имя")
+                                input(type="text" placeholder="Имя").input-user-name.field
                             .form__row-column
-                                input(type="text" placeholder="Телефон") 
+                                input(type="text" placeholder="Телефон").input-user-phone.field
                         .form__row.form__row--location.has-dropdown-toggler
-                            select(size="1").dropdown-menu
+                            select(size="1").dropdown-menu.where
                                 option(selected value="Бутик на Невском 103").dropdown-item
                                     | Бутик на Невском 103
                                 option(value="Бутик на Невском 103").dropdown-item
@@ -149,8 +149,9 @@ html(lang=config.lang data-offcanvas-container)
                                 option(value="Бутик на Невском 103").dropdown-item
                                     | Бутик на Невском 103
                         .form__row.form__row--submit
-                            button(type="submit").form-submit.is-disabled.button
+                            button(type="submit").form-submit.is-disabled.button.validateBtn
                                 | записаться
+
         section(aria-label="Footer").page-section.page-section--footer
             .page-section__inner.page-section__inner--footer
                 footer 
@@ -192,7 +193,16 @@ html(lang=config.lang data-offcanvas-container)
                                 img(src="./images/wine-market/socials/facebook.png", alt="facebook")
                         .footer__item.footer__item--company-name
                                 | © le-corte.ru
-    
-                            
+
+        .modal#modal-validation 
+            .modal__overlay 
+            .modal__container
+                .modal__c-btn
+                    img(src="./images/figma-templates-1/close.png", alt="close").modal__c-btn-img
+                .modal__title 
+                    | Внимание!
+                .modal__message 
+                    | Проверьте пожалуйста правильность ввода.
 
     script(type="text/javascript" src="javascripts/wine-market.js")
+    script(type="text/javascript" src="javascripts/form-validation.js")
