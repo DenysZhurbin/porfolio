@@ -1,0 +1,27 @@
+[data-offcanvas-container]
+  transition all 0.3s ease-in-out
+
+  &[data-offcanvas-hidden="false"]
+    body
+      overflow hidden
+      height 100%
+
+      +above($media-screen-desktop)
+        overflow auto
+        height auto
+
+[data-offcanvas-overlay]
+  &[data-offcanvas-hidden="false"]
+    visibility visible
+    opacity 1
+
+[data-offcanvas-menu]
+  &[aria-hidden="true"]
+    visibility hidden
+    opacity 0
+
+  &[aria-hidden="false"]
+    visibility visible
+    opacity 1
+    transform none
+

@@ -1,10 +1,12 @@
 ---
   config:
-    projectName: frontend platorm
+    projectName: common
     lang: en
     path:
       favicons: favicons
       styles: stylesheets
+      stylesPagespeed: stylesheets-pagespeed
       scripts: javascripts
+      scriptsPagespeed: javascripts-pagespeed
       images: images
       fonts: fonts

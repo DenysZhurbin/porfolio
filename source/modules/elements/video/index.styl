@@ -1,17 +1,24 @@
 .video-player
+  max-width 448px
+
+  &:not(:last-child)
+    margin-bottom 12px
+
+    +above($meida-screen-tablet)
+      margin-bottom 16px
+
   .video-player__lazyframe
     position relative
-    margin-bottom 17px
     border-radius $border-radius
     background-size contain
     background-repeat no-repeat
     box-shadow 0 10px 20px 2px rgba($black, 0.1)
 
-    +above($media-screen-tablet)
-      margin-bottom 22px
+    &:not(:last-child)
+      margin-bottom 12px
 
-    +above($media-screen-desktop)
-      margin-bottom 30px
+      +above($meida-screen-tablet)
+        margin-bottom 16px
 
     &:hover
       cursor pointer
@@ -62,8 +69,8 @@
     padding-left 24px
     color $title-color
     font-weight $font-weight-bolder
-    font-size $font-size-small
-    line-height 1.67
+    font-size 12px
+    line-height 16px
 
     &:hover
       color $red-hover
@@ -88,38 +95,38 @@
       background-color #4259b4
       background-image url("../images/_modules/elements/video/preview-video-blue.svg")
 
-.video-player__link
-  position relative
-  display inline-block
-  margin-bottom 12px
-  padding-left 24px
-  color $title-color
-  font-weight $font-weight-normal
-  font-size $font-size-small
-  line-height $line-height-small
-
-  +above($media-screen-tablet)
-    font-size $font-size-base
-    line-height $line-height-base
-
-  +above($media-screen-desktop)
-    margin-bottom 16px
-
-  &:last-child
-    margin-bottom 0
-
-  &:hover
-    color $red-hover
-
-  &::after
-    pseudo()
-    top 2px
-    left 0
-    width 20px
-    height 14px
-    background-image url("../images/_modules/elements/video/play-icon-red.svg")
-    background-size contain
-    background-repeat no-repeat
+  .video-player__link
+    position relative
+    display inline-block
+    margin-bottom 12px
+    padding-left 24px
+    color $title-color
+    font-weight $font-weight-normal
+    font-size 12px
+    line-height 16px
 
     +above($media-screen-tablet)
-      top 5px
+      font-size 14px
+      line-height 20px
+
+    &:not(:last-child)
+      margin-bottom 12px
+
+      +above($meida-screen-tablet)
+        margin-bottom 16px
+
+    &:hover
+      color $red-hover
+
+    &::after
+      pseudo()
+      top 2px
+      left 0
+      width 20px
+      height 14px
+      background-image url("../images/_modules/elements/video/play-icon-red.svg")
+      background-size contain
+      background-repeat no-repeat
+
+      +above($media-screen-tablet)
+        top 3px

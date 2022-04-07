@@ -1,0 +1,22 @@
+mixin radio-buttons()
+	.radio-buttons-list
+		block
+
+mixin radio-button(attributes)
+	-
+		let name, value, checked;
+		const radioButtonName = attributes.name || null;
+		const radioButtonValue = attributes.value || null;
+		const radioButtonChecked = attributes.checked || null;
+
+	.radio-buttons-list__item
+		label.radio-button
+			= radioButtonValue
+
+			if radioButtonChecked
+				input(type="radio" name= radioButtonName value= radioButtonValue checked="checked")
+
+			else
+				input(type="radio" name= radioButtonName value= radioButtonValue)
+
+			.radio-button__checkmark

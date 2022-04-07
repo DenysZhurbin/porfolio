@@ -1,0 +1,126 @@
+.accordion
+  text-align left
+
+.accordion__item,
+.accordion__title,
+.accordion__title[aria-selected="true"]
+  +below($media-screen-tablet-lg - 1)
+    &:focus
+    &:hover
+      border none
+      outline none
+
+.accordion__title
+  position relative
+  padding-right 60px
+  color $gray-900
+  font-weight $font-weight-bolder
+  font-size $font-size-small
+  line-height 20px
+  cursor pointer
+  user-select none
+  transitions()
+
+  h3
+    font-size inherit
+    line-height inherit
+
+  +above($media-screen-tablet)
+    padding-top 16px
+    padding-bottom 16px
+    padding-left 16px
+    min-height auto
+    font-size $font-size-bigger
+    line-height 28px
+
+  +above($media-screen-desktop)
+    padding-left 20px
+
+  .icon-expand-status
+    display block
+    width 16px
+    height 18px
+    border-radius $border-radius-circle
+    position absolute
+    top 50%
+    right 20px
+    transform translateY(-50%)
+    transition all 0.3s ease-in-out
+
+    &::before,
+    &::after
+      content ""
+      display block
+      position relative
+      border-radius 2px
+      background $tooltipster-color
+      transition all 0.17s ease-in-out
+      will-change transform
+
+    &::before
+      top 8px
+      left 0
+      width 16px
+      height 2px
+
+    &::after
+      top -1px
+      left 7px
+      width 2px
+      height 16px
+
+  &[aria-selected*="true"]
+    &:focus
+      box-shadow none
+
+    .icon-expand-status
+      &::before,
+      &::after
+        background-color $tooltipster-color
+
+      &::before
+        transform rotate(180deg)
+
+      &::after
+        transform rotate(90deg)
+
+.accordion__item
+  padding 14px 0 14px 16px
+  border-radius $border-radius
+  background-color $white
+
+  +above($media-screen-tablet)
+    padding 0
+    min-height auto
+
+  &:not(:last-child)
+    margin-bottom 12px
+
+    +above($media-screen-tablet)
+      margin-bottom 16px
+
+.accordion__body
+  display none
+  padding 12px 60px 16px 0
+  color $text-color-darken
+  font-size 12px
+  line-height 16px
+
+  +above($media-screen-tablet)
+    padding 12px 60px 16px 16px
+    font-size 14px
+    line-height 20px
+
+  +above($media-screen-desktop)
+    padding 0 60px 16px 20px
+    font-size 16px
+    line-height 24px
+
+  p:last-child
+    margin-bottom 0
+
+  .video-player
+    margin-bottom 24px
+
+    &::before
+      display none

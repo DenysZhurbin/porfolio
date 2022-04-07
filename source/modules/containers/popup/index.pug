@@ -1,0 +1,27 @@
+mixin popup(payload)
+	-
+		const data = payload || {};
+		const title = data.title || null;
+		const message = data.message || null;
+		const modifier = data.modifier || null;
+		const rootClassName = "popup";
+		const bemModifier = rootClassName + "--" + modifier;
+		let classes = [];
+		
+		classes.push(rootClassName);
+		
+		if (modifier) classes.push(bemModifier); 
+
+	div(class=classes)
+		button(data-micromodal-close).popup__close
+
+		if title
+			.popup__title
+				| #{title}
+
+		if message
+			.popup__message
+				| !{message}
+
+		block
+			

@@ -1,0 +1,280 @@
+.nav-dropdown,
+.nav-submenu
+  position absolute
+  opacity 0
+  z-index -1
+  visibility hidden
+  transition .25s all
+  padding 24px 12px
+  border solid 1px #efefef
+  box-shadow 0 2px 8px rgba(44, 44, 44, 0.16)
+  background-color $white
+
+.nav-dropdown
+  top calc(100% - 4px)
+  left 50%
+  transform translateX(-50%)
+  border-bottom-left-radius $border-radius
+  border-bottom-right-radius $border-radius
+  display flex
+  min-width 224px
+
+  +only-ie11()
+    min-width 278px
+
+.nav-submenu
+  left calc(100% + 24px)
+  top -16px
+  border-radius $border-radius
+  min-width 154px
+
+.nav-dropdown__column
+  min-width 154px
+  grid-column-padding(24)
+
+  +only-ie11()
+    min-width 266px
+
+.nav-dropdown__list
+  &:not(:last-child)
+    position relative
+    padding-bottom 16px
+    margin-bottom 16px
+
+    &:after
+      pseudo()
+      background-color #E7E7E7
+      height 1px
+      bottom 0
+      left 0
+      right 0
+
+.nav-dropdown__link
+  font-weight 400
+  min-width 152px
+
+  &:hover
+    color #E74C3C
+
+.nav-dropdown__link--heading
+  font-weight $font-weight-bolder
+
+.nav-dropdown__link--see-all
+  font-weight 600
+  text-decoration underline
+
+  &:hover
+    text-decoration none
+
+.nav__link--toggler
+.nav-dropdown__link--toggler
+  &:before
+    pseudo()
+    background-size contain
+    background-repeat no-repeat
+    width 16px
+    height 16px
+    top 50%
+
+    transitions()
+    background-image url("../images/_modules/navigations/main-menu/redesigned-v2/icon-dropdown-arrow.svg")
+
+  &:hover
+  &.is-active
+    &:before
+      background-image url("../images/_modules/navigations/main-menu/redesigned-v2/icon-dropdown-arrow-red.svg")
+
+.nav__link--toggler
+  padding-right 28px
+
+  &:before
+    right 11px
+    transform translateY(-50%)
+
+  &:hover
+    &:before
+      transform translateY(-50%) rotate(180deg)
+
+.nav-dropdown__link--toggler
+  &:before
+    right -16px
+    transform translateY(-50%) rotate(-90deg)
+
+$nav-dropdown-link-icon
+  padding-left 40px
+  min-width 276px
+
+  &:before
+    pseudo()
+    background-size contain
+    width 24px
+    height 24px
+    top 0
+    left 0
+
+.nav-dropdown__list--user
+  .nav-dropdown__item
+    &:not(:last-child)
+      margin-bottom 0
+
+  .nav-dropdown__link
+    font-weight $font-weight-bolder
+    font-size 12px
+    line-height 20px
+    min-width 1px
+    padding 8px 38px
+    border-radius $border-radius
+
+    &:hover
+      color $gray-900
+      background-color #F2F2F2
+
+.nav-dropdown__link--medical
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-medical.svg")
+
+.nav-dropdown__link--insurance
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-insurance.svg")
+
+.nav-dropdown__link--real-estate
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-real-estate.svg")
+
+.nav-dropdown__link--tax-and-finance
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-tax-and-finance.svg")
+
+.nav-dropdown__link--legal
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-legal.svg")
+
+.nav-dropdown__link--human-resources
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-human-resources.svg")
+
+.nav-dropdown__link--document-generation
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-document-generation.svg")
+
+.nav-dropdown__link--contract-management
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-contract-management.svg")
+
+.nav-dropdown__link--robotic-process-automation
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-robotic-process-automation.svg")
+
+.nav-dropdown__link--web-forms
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-web-forms.svg")
+
+.nav-dropdown__link--my-account
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-my-account.svg")
+
+.nav-dropdown__link--logout
+  @extend $nav-dropdown-link-icon
+
+  &:before
+    background-image: url("../images/_modules/navigations/main-menu/redesigned-v2/icon-logout.svg")
+
+.nav-dropdown__link--logout
+.nav-dropdown__link--my-account
+  &:before
+    top 6px
+    left 6px
+
+.nav-dropdown--user
+  transform none
+  left auto
+  right 0
+  width 312px
+  flex-wrap wrap
+  padding 24px
+
+  .nav-dropdown__info,
+  .nav-dropdown__list
+    width 100%
+
+.nav-dropdown__info-avatar-wrapper
+  width 48px
+  height 48px
+  border-radius 16px
+
+.nav-dropdown__info
+  padding-bottom 24px
+  margin-bottom 24px
+  border-bottom 1px solid #dddddd
+
+.nav-dropdown__info-row
+  grid-row(12)
+  align-items center
+
+.nav-dropdown__info-column
+  grid-column-padding(12)
+
+.nav-dropdown__info-column--avatar
+  width 60px
+
+.nav-dropdown__info-name
+  line-height 24px
+  font-size 14px
+  font-weight 700
+
+.nav-dropdown__info-mail
+  line-height 20px
+  font-size 12px
+
+.nav-dropdown__info--stats
+  padding-bottom 16px
+  margin-bottom 8px
+
+  .nav-dropdown__info-row
+    &:not(:last-child)
+      margin-bottom 8px
+
+  .nav-dropdown__info-column
+    font-size 12px
+    line-height 24px
+
+    &:first-child
+      width 96px
+
+    &:last-child
+      font-weight 700
+      grid-column-width-auto()
+
+.nav-dropdown__item
+  position relative
+
+  &:not(:last-child)
+    margin-bottom 16px
+
+  &.is-open
+    .nav-submenu
+      opacity 1
+      z-index 1
+      visibility visible

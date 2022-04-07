@@ -1,0 +1,381 @@
+@import "../../../../containers/search-engine/search-form/index.styl"
+
+.nav
+  font-family $font-family-base
+  display flex
+  justify-content flex-end
+
+  .nav__list
+    grid-row(24)
+    justify-content flex-end
+    align-items center
+
+  .button,
+  a.button
+    padding 6px
+    font-size 12px
+    line-height 16px
+    font-weight $font-weight-semiBold
+    width 150px
+
+  .nav__link,
+  .nav-dropdown__link
+    flex-center-y()
+    font-size 16px
+    line-height 24px
+    color $gray-900
+    white-space nowrap
+    text-decoration none
+    cursor pointer
+
+    &:hover
+      color #1C78C4
+
+    svg
+      margin-right 8px
+
+  .nav__link
+    position relative
+    width 100%
+    padding 16px 0
+    font-weight 600
+
+    &:hover
+    &.is-active
+    .is-open &
+      color #1C78C4
+
+  .nav-dropdown__link
+    font-weight 400
+    min-width 154px
+
+  .nav-dropdown__link--heading
+    font-weight $font-weight-bolder
+
+  .nav-dropdown__link--see-all
+    font-weight 600
+    text-decoration underline
+
+    &:hover
+      text-decoration none
+
+  .nav-dropdown__link--stats
+    font-weight $font-weight-bolder
+    color #4a90e2
+    text-reduced-with-dots()
+    display block
+    padding 0
+    min-width 1px
+    max-width 160px
+    font-size 12px
+    line-height 24px
+
+    &:hover
+      color #4a90e2
+      opacity .6
+
+  .nav__item
+    position relative
+    grid-column-auto(24)
+
+    &.is-open
+      .nav-dropdown
+        opacity 1
+        z-index 1
+        visibility visible
+
+      .nav__link--toggler
+        &:before
+          transform translateY(-50%) rotate(180deg)
+
+        &:after
+          opacity 1
+
+  .nav__item--user
+    .nav__link
+      padding-top 12px
+      padding-bottom 12px
+      cursor pointer
+
+      &:after
+        display none
+
+  .nav__item--separator
+    padding-left 24px
+    padding-right 18px
+    margin-left 18px
+    position relative
+
+    &:before
+      pseudo()
+      background-color #D4D4D4
+      width 1px
+      left 0
+      top 12px
+      bottom 12px
+
+  .nav__item--search
+    position static
+    margin-left auto
+    .is-ie11 &
+      margin-left 5px
+
+    .nav__link
+      background-size 16px
+      margin-right -6px
+      background-repeat no-repeat
+      background-position center center
+      width 32px
+      padding-left 0 !important
+      padding-right 0 !important
+      background-image: url("../images/_global/forms/icons/icon-search.svg")
+
+    &.is-open
+      .nav__search
+        opacity 1
+        visibility visible
+        user-select auto
+
+  .nav__search,
+  .nav__tooltip
+    position absolute
+    transitions()
+    opacity 0
+    visibility hidden
+    user-select none
+
+  .nav__search
+    top calc(100% + 20px)
+    z-index -1
+    left 50%
+    width 836px
+    margin-left: -418px;
+
+  //width 1033px
+
+  .nav__tooltip
+    width 104px
+    border 1px solid #D4D4D4
+    border-radius $border-radius
+    box-shadow 0 2px 8px rgba(34, 34, 34, 0.28)
+    font-size 12px
+    line-height 16px
+    padding 8px 12px
+    background-color $white
+    top 100%
+    left 50%
+    transform translateX(-50%)
+
+    &:before
+      pseudo()
+      bottom calc(100% - 1px)
+      left 50%
+      transform translateX(-50%)
+      background-repeat no-repeat
+      background-image: url("../images/_modules/navigations/main-menu/redesigned-pdfmp-532/icon-hint-arrow.svg")
+      background-size contain
+      width 16px
+      height 8px
+
+    &.is-visible
+      opacity 1
+      visibility visible
+      user-select auto
+
+  .nav__user-avatar-wrapper,
+  .nav-dropdown__info-avatar-wrapper
+    overflow hidden
+
+  .nav__user-avatar-wrapper
+    border-radius 50%
+    width 32px
+    height 32px
+
+  .nav__user-avatar
+    width 100%
+    height 100%
+    object-fit cover
+
+  &.nav--v1
+    .button,
+    a.button
+      padding 10px 6px
+      font-size 14px
+      line-height 16px
+      width 193px
+      font-weight $font-weight-bolder
+      margin 0 6px
+
+  &.nav--v2
+    &.nav--login
+      .nav__item--separator
+        margin-left 8px
+        margin-right 8px
+        padding-left 32px
+        padding-right 20px
+
+        &:before
+          top: 0;
+          bottom: 0;
+
+    &.nav--purchased
+      .nav__item--separator
+        margin-left 18px
+        margin-right 0
+
+        &:before
+          top: 12px;
+          bottom: 12px;
+
+  &.nav--v3
+  &.nav--v5
+    // padding-left 3%
+    .nav__list
+      grid-row-gap(32)
+      width 100%
+
+    .nav__item
+      grid-column-padding(32)
+
+    .nav__link
+    .nav-dropdown__link
+      &:hover
+      &.is-active
+      .is-open &
+        color #E74C3C
+
+    .nav__link--toggler
+    .nav-dropdown__link--toggler
+      &:hover
+      &.is-active
+      .is-open &
+        &:before
+          background-image url("../images/_modules/navigations/main-menu/redesigned-pdfmp-532/icon-dropdown-arrow-red.svg")
+
+    $dropdown-links-red = ("medical" "insurance" "real-estate" "tax-and-finance" "legal" "human-resources" "document-generation" "contract-management" "robotic-process-automation" "web-forms" "my-account" "logout")
+
+    for link in $dropdown-links-red
+      .nav-dropdown__link--{link}
+        &:after
+          background-image url("../images/_modules/navigations/main-menu/redesigned-pdfmp-532/icon-" + link + "-red.svg")
+
+    &.nav--login
+      //.nav__item--search
+      //  margin-left: 270px
+
+      .nav__search
+        width 836px
+
+    &.nav--purchased
+      .nav__item--search
+        margin-left: 270px
+
+      .nav__search
+        width 836px
+
+  &.nav--v4
+    .nav__list
+      grid-row-gap(32)
+
+    .nav__item
+      grid-column-padding(32)
+
+    .nav__item--separator
+      padding-left 50px
+
+    &.nav--login
+      .nav__item--separator
+        margin-right 8px
+        padding-left: 32px
+
+        &:before
+          opacity 1
+          top 0
+          bottom 0
+
+    &.nav--purchased
+      .nav__item--separator
+        margin-left 18px
+        margin-right 0
+
+        &:before
+          top: 12px;
+          bottom: 12px;
+
+  &.nav--login
+    .nav__list
+      grid-row-gap(24)
+
+    .nav__item
+      grid-column-padding(24)
+
+    .button,
+    a.button
+      &:not(:hover)
+        background-color $white
+        color $gray-900
+
+    .nav__search
+      width: 836px
+
+.page-header--redesigned
+  background-color $white
+  box-shadow none
+
+  .page-header__main-menu
+    width 100%
+
+  .page-header__inner
+    +above($media-screen-desktop)
+      height 56px
+
+    +below($media-screen-desktop - 1)
+      padding-top 12px
+      padding-bottom 12px
+
+  &:not(.page-header--logged)
+    .nav
+      &.nav--v1
+      &.nav--v2
+      &.nav--v3
+      &.nav--v4
+      &.nav--v5
+        .nav__list
+          grid-row-gap(16)
+
+        .nav__item
+          grid-column-padding(14)
+
+      &.nav--v1
+        .button,
+        a.button
+          margin 0
+
+      &.nav--v4
+        .nav__item--separator
+          padding-left 24px
+
+body
+  &.is-redesigned-menu
+    #overlay_message
+      transform translateY(46px)
+
+.nav.nav--v2 .nav__item--separator
+  padding-left 24px!important
+
+.nav.nav--v4.nav--login .nav__item--separator
+  margin-left 10px
+// ie hacks for second dropdown
+body.is-ie11 .nav .has-dropdown:nth-child(3) .nav-dropdown__column {
+  min-width: 220px;
+}
+body.is-ie11 .nav .has-dropdown:nth-child(3) .nav-dropdown__column:nth-child(2) {
+  min-width: 150px;
+}
+
+.popup-cookie.is-visible
+  z-index 99
+
+.nav-dropdown__title--heading
+  font-size 16px
+  font-weight 700

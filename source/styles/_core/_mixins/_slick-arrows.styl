@@ -19,15 +19,22 @@ slick-arrows()
 
     &.slick-arrow--next
       background-image url("../images/_global/slider/arrow-left.svg")
-      left 68px
+      left 60px
 
     &.slick-disabled
       opacity .6
       pointer-events none
 
     &:focus
-      box-shadow 0 0 0 2px $gray-100
+    &.is-focused
+    &:active
+    &.is-active
       outline none
+      box-shadow 0 0 0 1px #fff, 0 0 0 3px #d4d4d4
 
     &:hover
-      opacity .6
+    &.is-hovered
+      opacity .8
+
+  .slick-has-arrows
+    padding-bottom 80px

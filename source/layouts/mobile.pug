@@ -1,0 +1,18 @@
+extends page
+
+block page
+	.layout-responsive(role="main")
+		.layout-responsive__header
+			block header
+
+		.layout-responsive__body   
+			block main
+				
+		.layout-responsive__footer
+			block footer
+
+	.layout-overlay(data-offcanvas-overlay)
+
+	+button-scroll-up()
+
+	block modals

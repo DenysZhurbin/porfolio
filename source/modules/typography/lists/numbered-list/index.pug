@@ -1,0 +1,31 @@
+mixin numbered-list(listItems, startIndex)
+	.numbered-list&attributes(attributes)
+		if (!startIndex)
+			each item, index in listItems
+				if (index < 9)
+					- var counter = "0" + (index + 1)
+				else
+					- var counter = index + 1
+				
+				+numbered-list-item(counter)
+					| !{item}
+			
+		else
+			each item, index in listItems
+				- var calcIndex = index + startIndex
+					
+				if (calcIndex <= 9)
+					- var counter = "0" + calcIndex
+				else
+					- var counter = calcIndex
+					
+				+numbered-list-item(counter)
+					| !{item}
+						
+mixin numbered-list-item(itemCounter)
+	.numbered-list__item
+		.numbered-list__marker
+			= itemCounter
+
+		.numbered-list__description
+			block

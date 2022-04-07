@@ -1,0 +1,7 @@
+mixin modal()
+	- let id = attributes.id
+	- delete attributes.id
+	.modal.modal-animation-slide(id=id aria-hidden="true")&attributes(attributes)
+		.modal__overlay(tabindex="-1" data-micromodal-close)
+			.modal__container(data-micromodal-close)
+				block

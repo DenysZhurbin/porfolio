@@ -1,0 +1,83 @@
+//TODO refactor paddings
+.bread-crumbs-wrapper
+	padding-top 8px
+	padding-bottom 2px
+
+.bread-crumbs
+	width 100%
+	font-size 0
+	line-height 1
+
+.bread-crumbs__item
+	display inline-block
+	margin 0 0 6px
+	color #666
+	vertical-align baseline
+
+	&:after
+		display inline-block
+		margin-right 7px
+		margin-bottom 2px
+		margin-left 7px
+		width 2px
+		height 3px
+		background-image url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyIiBoZWlnaHQ9IjMiIHZpZXdCb3g9IjAgMCAyIDMiPiAgICA8cGF0aCBmaWxsPSIjNDE0MTQxIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGQ9Ik0wIDBoMXYxSDBWMHptMCAyaDF2MUgwVjJ6bTEtMWgxdjFIMVYxeiIvPjwvc3ZnPg==")
+		content ""
+		vertical-align baseline
+
+	&:last-child
+		margin-bottom 0
+		font-weight $font-weight-bolder
+
+		&::after
+			display none
+
+	span
+		color $gray-900
+		font-size 11px
+		line-height 1.45
+
+.bread-crumbs__item
+	.is-reduced &
+		display none
+
+		&:first-child,
+		&:last-child,
+		&:nth-child(2)
+			display inline-block
+
+		&:nth-child(2):not(:last-child)
+			&:before
+				content "..."
+				font-weight $font-weight-bolder
+				font-size 11px
+
+			.bread-crumbs__link
+				display none
+
+.bread-crumbs__item--placeholder
+	font-weight $font-weight-bolder
+	font-size 11px
+
+.bread-crumbs__link
+	display inline-block
+	color $gray-900
+	text-decoration none
+
+	&:hover
+		color $gray-900
+		text-decoration none
+
+		span
+			text-decoration underline
+
+.bread-crumbs-wrapper--reverse
+	.bread-crumbs__item
+		&::after
+			background-image url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyIiBoZWlnaHQ9IjMiIHZpZXdCb3g9IjAgMCAyIDMiPiAgICA8cGF0aCBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGQ9Ik0wIDBoMXYxSDBWMHptMCAyaDF2MUgwVjJ6bTEtMWgxdjFIMVYxeiIvPjwvc3ZnPg==")
+
+		span
+			color $white
+
+.bread-crumbs-wrapper--dark-bg
+	background-color #474c54

@@ -1,0 +1,251 @@
+.mobile-menu
+  position relative
+  display flex
+  flex-direction column
+  justify-content space-between
+  overflow-x hidden
+  height 100%
+  background-color #333333
+  user-select none
+  -webkit-tap-highlight-color transparent
+
+.mobile-menu__body
+  flex 1 0 auto
+  overflow hidden
+
+.mobile-menu__list
+  padding 6px 20px 6px 13px
+
+.mobile-menu__item
+  position relative
+  margin-bottom 12px
+  width 100%
+  opacity 0
+  transition none 0.2s ease
+  transition-property transform, opacity
+  transform translate3d(15%, 0, 0)
+
+  &:first-child
+    transition-delay 0.2s
+
+  &:nth-child(2)
+    transition-delay 0.21s
+
+  &:nth-child(3)
+    transition-delay 0.22s
+
+  &:nth-child(4)
+    transition-delay 0.23s
+
+  &:nth-child(5)
+    transition-delay 0.24s
+
+  &:nth-child(6)
+    transition-delay 0.25s
+
+  &:nth-child(7)
+    transition-delay 0.26s
+
+  &:nth-child(8)
+    transition-delay 0.27s
+
+  &:nth-child(9)
+    transition-delay 0.28s
+
+  &:nth-child(10)
+    transition-delay 0.29s
+
+  &:last-child
+    margin-bottom 0
+
+  &.main-menu-toggler
+    .mobile-menu__link
+      background-color transparent
+      cursor inherit
+      user-select none
+
+      &:hover
+        background-color transparent
+
+  &.is-active
+    &::before
+      pseudo()
+      top 0
+      left -13px
+      width 4px
+      height 100%
+      background-color $orange-500
+
+    .mobile-menu__link
+      background-color transparent
+      cursor inherit
+      user-select none
+
+      &:hover
+        background-color transparent
+
+  &.main-menu-toggler
+    &::after
+      top 16px
+      right 0
+      width 9px
+      height 9px
+      border-color $gray-600
+
+  &.has-dropdown
+    &::after
+      transform rotate(-45deg) translateY(4px) translateX(-4px)
+
+.mobile-menu__link
+  display inline-block
+  padding 8px 12px
+  color $white
+  text-decoration none
+  font-weight $font-weight-bolder
+  font-size 20px
+  line-height 28px
+  user-select none
+
+  &:hover
+    border-radius $border-radius
+    background-color rgba($black, 0.2)
+    color $white
+
+.mobile-menu__submenu
+  display none
+  padding-left 17px
+
+.mobile-menu__submenu-item
+  margin-bottom 5px
+
+  &:last-child
+    margin-bottom 0
+
+  &.is-active
+    .mobile-menu__submenu-link
+      color $white
+      font-weight $font-weight-semiBold
+      cursor inherit
+      user-select none
+
+      &:hover
+        background-color transparent
+
+.mobile-menu__submenu-link
+  display inline-block
+  padding 8px 12px
+  color $light-grey-color
+  text-decoration none
+  font-weight $font-weight-normal
+  font-size 15px
+
+  &:hover
+    border-radius $border-radius
+    background-color rgba($black, 0.2)
+    color $light-grey-color
+
+.mobile-menu__footer
+  margin-top 48px
+  padding 24px
+  opacity 0
+  transition none 0.2s ease
+  transition-delay 0.25s
+  transition-property transform, opacity
+  transform translate3d(15%, 0, 0)
+
+  .user-summary
+    flex-center-y()
+
+  .user-summary-email
+    max-width 220px
+    text-reduced-with-dots()
+    color white
+
+  .user-icon
+    width 36px
+    height 36px
+    border none
+
+.mobile-menu__button
+  flex-center-xy()
+  width 100%
+  height 48px
+  border-radius $border-radius
+  background-color $orange-500
+  color $white
+  text-decoration none
+  font-weight $font-weight-semiBold
+  font-size $font-size-bigger
+
+  &:hover
+    color $white
+
+.mobile-menu__actions-item
+  margin-bottom 16px
+  color $white
+  font-size 15px
+
+  &:last-child
+    margin-bottom 0
+
+  .mobile-menu__link
+    display inline-block
+    padding 0
+    text-decoration underline
+    font-size 15px
+
+    &:hover
+      background-color transparent
+
+.mobile-menu__close
+  position absolute
+  top 4px
+  right 6px
+  width 40px
+  height 40px
+  cursor pointer
+
+  &:before,
+  &:after
+    pseudo()
+    top 20px
+    left 8px
+    width 25px
+    height 2px
+    background-color $white
+    transform rotate(45deg)
+
+  &:after
+    transform rotate(-45deg)
+
+.mobile-menu__header
+  position relative
+  flex none
+  height 44px
+
+.mobile-menu-trigger
+  position absolute
+  top 0
+  right 0
+  flex-center-xy()
+  width 52px
+  height 52px
+
+  svg
+    fill $gray-800
+
+  +above($media-screen-desktop)
+    display none
+
+[data-offcanvas-container][data-offcanvas-hidden="false"]
+  .mobile-menu__item,
+  .mobile-menu__footer
+    opacity 1
+    transform translate3d(0, 0, 0)
+
+.icon--mobile-menu-trigger
+  width 24px
+  height 17px
+  cursor pointer
+
+

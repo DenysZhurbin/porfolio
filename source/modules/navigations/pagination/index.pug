@@ -1,0 +1,30 @@
+//TODO refactoring pug
+mixin pagination()
+	.pagination&attributes(attributes)
+		ul.pagination__list
+			li.pagination__item.pagination__item--backward.is-disabled
+				a(href="#").pagination__link
+					| Prev
+
+			li.pagination__item.pagination__item--first
+				a(href="#").pagination__link 1
+
+			li.pagination__item
+				a(href="#" rel="prev").pagination__link 2
+
+			li.pagination__item.is-active
+				.pagination__text 3
+
+			li.pagination__item
+				a(href="#" rel="next").pagination__link 4
+
+			li.pagination__item.pagination__item--spacer
+				.pagination__text
+					| ...
+	
+			li.pagination__item.pagination__item--last
+				a(href="#").pagination__link 9
+	
+			li.pagination__item.pagination__item--forward
+				a(href="#").pagination__link
+					| Next

@@ -1,0 +1,14 @@
+mixin section-title(mods, el, attrs)
+	- var modifier = ''
+	- var element = el || 'div';
+	- var attributes = attrs || {}
+
+	if (mods)
+		if (mods.constructor === Array)
+			each mod in mods
+				- modifier += ' section-title--'+mod
+		else
+			- modifier = 'section-title--'+mods
+				
+	#{element}.section-title(class=modifier)&attributes(attributes)
+		block

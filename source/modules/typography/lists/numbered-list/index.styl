@@ -1,0 +1,32 @@
+@import "../_index.styl"
+
+.numbered-list
+  @extends $lists
+
+.numbered-list__item
+  @extends $lists-items
+
+.numbered-list__description
+  @extends $lists-items-description-weight
+  @extends $lists-items-description-font
+
+.numbered-list__marker
+  position absolute
+  left 0
+  top 0
+  font-weight $font-weight-extraBold
+  @extends $lists-items-description-font
+
+  &::after
+    pseudo()
+    bottom -2px
+    left 0
+    width 100%
+    height 2px
+    background-color #2192EF
+
+.numbered-list__description
+  padding-left 26px
+
+  +above($media-screen-tablet-lg)
+    padding-left 28px

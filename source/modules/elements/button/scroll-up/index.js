@@ -1,6 +1,7 @@
 import $ from 'jquery';
-import { CLASSES, BREAKPOINTS } from '@/scripts/helpers/constants';
-import { scrollToTop } from '@/scripts/helpers/animations';
+import { CLASSES } from '@/scripts/helpers/constants/classes';
+import { BREAKPOINTS } from '@/scripts/helpers/constants/breakPoints';
+import { scrollToTop } from '@/scripts/helpers/animations/scrollToTop';
 
 export default mode => {
   const { IS_VISIBLE } = CLASSES;

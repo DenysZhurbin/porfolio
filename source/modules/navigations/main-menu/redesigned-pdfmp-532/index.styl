@@ -1,0 +1,40 @@
+@import "imports/_menu.styl"
+@import "imports/_dropdowns.styl"
+
+// hack
+.page-header--redesigned
+  &.page-header--logged
+    .page-header__inner
+      max-width 1105px !important
+
+.page-header--authenticated
+  .page-header__inner
+    max-width 1105px !important
+
+//.layout-responsive__header--redesigned
+//  +below(1105px)
+//     padding-top 0 !important
+
+.layout-responsive__mobile-menu
+  display block !important
+  +above(1105px)
+    display none !important
+
+.is-redesigned-menu
+  .page-header__main-menu
+    display none !important
+    +above(1105px)
+      display block !important
+
+  [data-offcanvas-overlay][data-offcanvas-hidden=false]
+    display block !important
+    +above(1105px)
+      display none !important
+
+  [data-offcanvas-menu][aria-hidden=false]
+  [data-offcanvas-overlay][data-offcanvas-hidden=false]
+    visibility visible !important
+    opacity 1 !important
+    +above(1105px)
+      visibility hidden !important
+      opacity 0 !important

@@ -1,0 +1,102 @@
+//TODO refactoring pug
+mixin mobile-menu()
+	.mobile-menu
+		.mobile-menu__header
+			.mobile-menu__close(data-offcanvas-trigger)
+
+		.mobile-menu__body
+			.mobile-menu__list
+				.mobile-menu__item.is-active
+					a(href="#").mobile-menu__link
+						| Home
+
+				.mobile-menu__item.main-menu-toggler
+					.mobile-menu__link
+						| For Business
+
+					.mobile-menu__submenu
+						.mobile-menu__submenu-item.is-active
+							a(href="#").mobile-menu__submenu-link
+								| Medical
+
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| Insurance
+
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| Real Estate
+
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| Tax & Finance
+
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| See All
+
+				.mobile-menu__item.main-menu-toggler
+					.mobile-menu__link
+						| Solutions
+
+					.mobile-menu__submenu
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| Developers
+
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| API Documentation
+
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| API Pricing
+
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| Integrations
+
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| Desktop app
+
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| Gsuite Add-ons
+
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| Mobile app
+
+						.mobile-menu__submenu-item
+							a(href="#").mobile-menu__submenu-link
+								| Extensions
+
+				.mobile-menu__item
+					a(href="#").mobile-menu__link
+						| Features
+
+				.mobile-menu__item
+					a(href="#").mobile-menu__link
+						| Pricing
+
+		.mobile-menu__footer
+			.mobile-menu__actions-item
+				a(href="#").mobile-menu__button
+					| Log in
+
+			.mobile-menu__actions-item
+				| Don’t have an account?&nbsp;
+				a(href="#").mobile-menu__link
+					| Get Started
+
+			.user-summary
+				.user-summary__avatar
+					.user-icon
+
+				.user-summary__info
+					.user-summary-email
+						| john.smith@gmail.com
+
+
+

@@ -1,0 +1,12 @@
+mixin section-subtitle(mods, el)
+	- var modifier = ''
+	- var element = el || 'div';
+		
+	if (mods)
+		if (mods.constructor === Array)
+			each mod in mods
+				- modifier += ' section-subtitle--'+mod
+		else
+			- modifier = 'section-subtitle--'+mods
+	#{element}.section-subtitle(class=modifier)
+		block

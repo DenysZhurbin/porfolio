@@ -1,0 +1,210 @@
+.main-menu__list
+  clearfix()
+
+.main-menu__item
+  float left
+
+.main-menu__link
+a.main-menu__link
+  display block
+  padding 18px 12px 16px
+  color #888
+  text-align center
+  text-decoration none
+  text-transform uppercase
+  white-space nowrap
+  font-weight $font-weight-semiBold
+  font-size $font-size-small
+  line-height $line-height-small
+
+  &.is-active
+  &:hover
+    color $red-error
+
+.main-menu__link
+  position relative
+
+  &.main-menu-toggler
+    &::after
+      position relative
+      top -4px
+      right -4px
+      display inline-block
+      margin-right 6px
+      margin-left 4px
+      transform rotate(135deg)
+
+  .is-open &
+    &.main-menu-toggler
+      &::after
+        transform rotate(-45deg) translateY(2px) translateX(-1px)
+
+.main-menu__dropdown
+  position absolute
+  top calc(100% - 5px)
+  right -40px
+  left -60px
+  z-index 220
+  visibility hidden
+  padding-bottom 10px
+  text-align center
+  font-size 0
+  backface-visibility hidden
+  opacity 0
+  transition-delay 0.2s, 0.3s
+  transition-duration 0.1s, 0s
+  transition-property opacity, visibility
+  will-change opacity, visibility
+
+.has-dropdown
+  position relative
+
+  &.is-open
+    .main-menu__dropdown
+      visibility visible
+      opacity 1
+      transition-delay 0.25s, 0.2s
+      transition-duration 0.1s, 0s
+      transition-property opacity, visibility
+
+.main-menu__dropdown-list
+  position relative
+  display inline-block
+  padding-top 5px
+  min-width 160px
+  border 1px solid $light-grey-color
+  border-radius $border-radius
+  background-color $white
+  box-shadow 0 2px 10px rgba($black, 0.2)
+  transition all 0.1s 0.05s
+
+  &::before
+  &::after
+    pseudo()
+    background $white
+
+  &::before
+    bottom 100%
+    left 50%
+    box-sizing border-box
+    margin-bottom -17px
+    width 20px
+    height 20px
+    border 1px solid $light-grey-color
+    box-shadow 0 2px 10px rgba($black, 0.2)
+    transform rotate(45deg) translateX(-50%) translateZ(0)
+    will-change transform
+
+  &::after
+    top 0
+    right 0
+    left 0
+    z-index 1
+    height 100%
+    border-radius $border-radius
+
+.main-menu__dropdown-link
+  display block
+  padding 10px 14px
+  color $dark-grey-color
+  text-align left
+  text-decoration none
+  font-weight $font-weight-bolder
+  font-size 13px
+  line-height 13px
+
+  &:hover
+    color $red-error
+
+  &.main-menu-toggler
+    &::after
+      right 15px
+      transform rotate(45deg)
+
+.main-menu__dropdown-list-item
+  position relative
+  z-index 2
+
+  &:hover
+    &.has-dropdown
+      .main-menu__dropdown-link
+        background-color #f2f2f2
+
+      .main-menu__sub-dropdown
+        visibility visible
+        opacity 1
+
+      .main-menu-toggler
+        &::after
+          border-color $red-error
+
+.main-menu__dropdown-list-item.has-dropdown.is-hover
+  .main-menu__dropdown-link
+    background-color #f2f2f2
+    color $red-error
+
+  .main-menu__sub-dropdown
+    visibility visible
+    opacity 1
+
+  .main-menu-toggler
+    &::after
+      border-color $red-error
+
+.main-menu__sub-dropdown
+  position absolute
+  top -1px
+  left calc(100% - 1px)
+  z-index -1
+  visibility hidden
+  font-size 0
+  backface-visibility hidden
+  opacity 0
+  transition all 0.2s ease
+
+.main-menu__sub-dropdown-list
+  position relative
+  display inline-block
+  padding 5px 0
+  min-width 145px
+  border 1px solid $light-grey-color
+  border-radius 0 4px 4px 4px
+  background #f2f2f2
+  box-shadow 0 2px 10px rgba($black, 0.2)
+  font-weight $font-weight-normal
+  font-size 13px
+
+.main-menu__sub-dropdown-link
+  position relative
+  display block
+  padding 6px 15px
+  border-radius 4px 4px 0 0
+  color $dark-grey-color
+  text-align left
+  text-decoration none
+  text-transform none
+  white-space nowrap
+  font-weight $font-weight-normal
+  line-height 17px
+
+  &:hover
+    color $red-error
+
+.main-menu__dropdown-link[href="#"]
+  pointer-events none
+
+// exp. MKT-5104
+.main-menu__item .main-menu__link--free-trial
+  margin-top 10px
+  padding 6px 10px
+  border 2px solid $orange-500
+  border-radius 3px
+  transition border 0.15s
+  background-color transparent
+
+  &:focus
+    box-shadow 0 0 5px 1px rgba(255, 119, 0, 0.51)
+
+  &:hover
+    background $orange-500
+    color $white

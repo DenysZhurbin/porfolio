@@ -1,0 +1,33 @@
+mixin categories-menu(labelElement, itemsArray, mods)
+	- var modifier = ""
+
+		if (mods)
+			if (mods.constructor === Array)
+				each mod in mods
+					- modifier += " categories-menu--"+mod
+			else
+				- modifier = "categories-menu--"+mods
+
+	.categories-menu.js-categories-menu(class=modifier)
+		.categories-menu__label
+			if (labelElement)
+				= labelElement
+
+		.categories-menu__inner
+			.categories-menu__list
+				if (labelElement)
+					a(href="#" title= labelElement).categories-menu__link.is-active
+						= labelElement
+				
+				if (itemsArray)
+					for item in itemsArray
+						a(href="#" title= item).categories-menu__link
+							= item
+
+				if (mods === "with-hidden-list")
+					.categories-menu__list.categories-menu__list--hidden
+						if (itemsArray)
+							for item in itemsArray
+								a(href="#" title="").categories-menu__link
+									= item
+

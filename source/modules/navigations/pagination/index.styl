@@ -1,0 +1,104 @@
+.pagination
+	text-align center
+	font-size 0
+	user-select none
+
+.pagination__list
+	margin-left -10px
+	margin-right -10px
+
+.pagination__item
+	display inline-block
+	margin 0 5px
+	vertical-align middle
+	white-space nowrap
+	line-height normal
+
+	&.is-disabled
+		&:hover
+			&:before
+				transform none
+
+		.pagination__link
+			border-color transparent
+			background none
+			opacity 0.5
+			cursor not-allowed
+			pointer-events none
+
+	&.is-active
+		.pagination__text
+			font-weight $font-weight-bolder
+			cursor default
+			position relative
+
+			&:after
+				pseudo()
+				bottom 0
+				left 0
+				right 0
+				background-color $orange-500
+				height 2px
+
+.pagination__link,
+.pagination__text
+	display block
+	overflow hidden
+	padding 0 4px
+	min-width 16px
+	height 30px
+	color $gray-900
+	text-align center
+	text-decoration none
+	font-weight $font-weight-normal
+	font-size $font-size-bigger
+	line-height 26px
+
+	&:hover
+		color $orange-500
+
+.pagination__text
+	cursor default
+	pointer-events none
+
+.pagination__item--spacer
+	.pagination__text
+		margin 0
+		padding 0
+		min-width auto
+
+.pagination__item--backward,
+.pagination__item--forward
+	margin 0 10px
+	position relative
+
+	&:before
+		pseudo()
+		top calc(50% - 5px)
+		width 6px
+		height 9px
+		background-repeat no-repeat
+		background-size contain
+		transitions()
+
+.pagination__item--backward
+	padding-left 18px
+
+	&:before
+		left 0
+		background-image url("../images/_modules/navigations/pagination/angle-left.svg")
+
+	&:hover
+		&:before
+			transform translateX(-5px)
+
+.pagination__item--forward
+	padding-right 18px
+
+	&:before
+		right 0
+		background-image url("../images/_modules/navigations/pagination/angle-right.svg")
+
+	&:hover
+		&:before
+			transform translateX(5px)

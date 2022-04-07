@@ -1,25 +1,52 @@
-a, .link
-	background-color transparent
-	color $link-color
-	text-decoration none
-	font-weight $font-weight-semiBold
-	cursor pointer
-	transitions()
+$main-link
+  background-color transparent
+  font-weight 600
+  color $link-color
+  cursor pointer
+  transitions()
+  opacity 1
+  text-decoration none
 
-	&:disabled,
-	&[disabled],
-	&.is-disabled
-		color $red-hover
-		cursor default
-		pointer-events none
+  &:hover
+  &.is-hovered
+    opacity 1
+    color $red-hover
+    text-decoration none
 
-	&:active
-	&:hover
-		outline none
-		color $red-hover
+  &:focus
+  &.is-focused
+    box-shadow 0 0 0 1px #fff, 0 0 0 3px #d4d4d4
+
+  &:focus
+  &.is-focused
+  &:active
+  &.is-active
+    border-radius $border-radius
+    outline none
+
+  &:active
+  &.is-active
+    color $red-hover
+
+  &:disabled
+  &[disabled]
+  &.is-disabled
+    &
+    &:hover
+    &:focus
+    &:active
+      color $red-hover
+      opacity 1
+      outline none
+      cursor not-allowed
+      pointer-events auto
+      user-select none
+      box-shadow none
+
+a, .link, .link-action
+  @extend $main-link
 
 .link-action
-	@extend .link
-	display inline-block
-	border-bottom 1px dashed
-	vertical-align inherit
+  display inline-block
+  border-bottom 1px dashed
+  vertical-align inherit

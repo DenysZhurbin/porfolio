@@ -1,0 +1,711 @@
+@import "./_core/_base/_main/_reset.styl"
+@import "./_core/_mixins.styl"
+@import "./_core/_variables.styl"
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/static/Montserrat-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/static/Montserrat-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('../fonts/Playfair Display/static/PlayfairDisplay-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('../fonts/Playfair Display/static/PlayfairDisplay-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+$mobile = 480px
+$tablet = 768px
+$desktop = 960px
+
+// Global
+
+body
+    margin 0
+    font-family: 'Montserrat'
+    font-weight 400
+    font-size 14px
+    line-height 20px
+    color #ffffff
+    +above($mobile)
+        font-size 16px
+        line-height 24px
+
+a
+    color: #ffffff
+    text-decoration: none
+    user-select: none;
+
+img
+    margin: 0
+
+.button
+    padding: 12px 26px;
+    text-align: center
+    background: #99862A
+    border: none
+    user-select: none;
+    font-size: 11px;
+    line-height: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase
+    white-space: pre;
+    &:hover
+        background #8b7a33;
+    &:active
+        box-shadow: 2px 3px 10px #464646;
+    +above($mobile)
+        font-size: 12px;
+        line-height: 16px;    
+    +above($tablet)
+        padding: 15px 30px;
+        font-size: 16px;   
+        line-height: 20px;    
+
+.page-section__inner
+    margin auto
+    max-width 1110px
+    padding 0 14px
+    +above($mobile)
+        padding 0 40px
+
+.title
+    font-family: 'PlayfairDisplay'
+    font-size 20px
+    line-height 26px
+    font-weight: 500;
+    +above($mobile)
+        font-size 28px
+        line-height 36px
+    +above($desktop)
+        font-size 36px
+        line-height 54px
+
+.subtitle 
+    font-family: 'Montserrat'
+    font-weight 400
+    font-size 12px
+    line-height 16px
+    +above($mobile)
+        font-size 13px
+        line-height 18px
+    +above($desktop)
+        font-size 14px
+        line-height 21px
+
+// Global end
+// Header
+
+.mobile-menu
+    position: relative
+    top 30px
+    +above($mobile)
+        top 0
+    +above($tablet)
+        display: none
+
+.mobile-menu__button
+    display: inline-block
+    background: linear-gradient(115deg, #99862a 11.19%, #34342d 93.72%);
+    border-radius: 50%;
+    padding: 8px;  
+    .mobile-menu__image
+        width: 22px
+
+.mobile-menu__items
+    position: absolute
+    top 50px
+    display: none
+    background linear-gradient(115deg, #99862a 11.19%, #ffd9b894 93.72%);
+    a
+        color: black
+
+    animation-name: mobile-menu-header
+    animation-duration: 300ms
+    animation-timing-function: linear
+    // animation-direction: alternate-reverse
+
+@keyframes mobile-menu-header {
+  0% {
+    left: -300px
+  }
+  50% {
+    left: 50px
+    }
+  80% {
+    left: 20px
+    }
+  100%{
+    left: 0px
+  }
+}
+
+.mobile-menu__item
+    border-bottom: 1px solid black
+    padding: 8px 18px
+
+.is-visible.mobile-menu__items //если классы в комбинации, то сработает display: block
+    display: block
+
+// Mobile end
+
+.page-section--intro
+    background url(../images/wine-market/header-background.png) 100%/cover no-repeat
+    background-position center
+    width 100%
+    min-height 700px
+    +above($desktop)
+        min-height 900px
+
+// .page-section__inner--intro
+
+.page-header
+    display flex
+    justify-content space-between
+    position: relative
+    +above($mobile)
+        display block
+
+
+.page-header__information
+    display block
+    order 2
+    justify-content space-between
+    padding 30px 0 20px
+    font-weight 500
+    font-size 12px
+    line-height 19px
+    text-align right
+    +above($mobile)
+        display flex
+        font-size 13px
+
+.header-menu
+    display none
+    order 1
+    text-align center
+    align-items: center
+    +above($tablet)
+       display flex 
+    
+
+.header-menu__item
+    flex: 0 1 25%;
+    font-weight 400
+    font-size 14px
+    line-height 21px
+    border-top 1px solid #FFFFFF
+    border-bottom 1px solid #FFFFFF
+    border-right 1px solid #FFFFFF
+    &:last-child
+        border-right none
+    a
+       padding 13px 0
+       display: block
+    &:hover
+            background-color: #ffffff20
+
+.page-header__actions 
+    position: absolute
+    top:400%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .button:first-child
+        margin-right 0px
+        margin-bottom 10px
+        +above($mobile)
+            margin-bottom 0
+            margin-right 30px
+    +above($mobile)
+        display block
+        width auto
+    +above($desktop)
+        top:610%; 
+
+// .page-section--description
+
+.page-section--description
+    background: #282828;
+    padding: 100px 40px
+
+.page-section__inner--description
+    text-align: center
+    border: 3px solid #C4C4C4;
+    box-sizing: border-box;
+
+.description__wrapper 
+    padding: 40px 10px
+    +above($tablet)
+        padding: 50px 90px
+    +above($desktop)
+        padding: 60px 147px
+
+.description__title
+    position relative
+    padding-bottom: 40px
+    &:after
+        content:"";
+        position:absolute;
+        // bottom -40px;
+        width 160px;
+        border-bottom: 1px solid #ffffff;
+        top: 94px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+.description__text 
+    padding: 20px 0 30px
+    +above($mobile)
+        padding: 40px 0 50px
+
+//.page-section--goods
+
+.page-section--goods
+    background: #E6E3C4;
+    padding: 80px 0
+    color: #282828;
+
+.goods__wrapper 
+    padding: 30px 0
+    border-top: 1px solid #998431;
+    border-bottom: 1px solid #998431;
+    display flex
+    flex-wrap: wrap
+    justify-content: center
+    +above($mobile)
+        padding: 60px 0        
+    +above(990px)
+        flex-wrap: nowrap
+        justify-content: space-between
+
+.goods__column
+    &:first-child
+        padding-right: 0
+        max-width 540px
+        flex: 1 1 55%
+        margin-bottom: 50px
+        +above(990px)
+           padding-right: 30px 
+           flex: 0 1 50%
+           margin: 0
+    &:last-child
+        max-width 540px
+        flex: 1 1 50%
+
+.gallery
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+.gallery__img
+    margin-bottom: 30px  
+    flex: 0 1 100%;
+    min-height: 228px
+    img
+        height 100%
+        width: 100%
+        object-fit: cover
+    +above($tablet)
+        min-height: 500px
+
+.gallery__sub-img 
+    display: block
+    flex: 0 1 100%;
+    min-height: 228px
+    img
+        height 100%
+        width: 100%
+        object-fit: cover
+    +above($tablet) 
+        display: flex
+
+.gallery__sub-img-item
+    &:not(:last-child) 
+        padding-right: 0px
+        padding-bottom: 30px
+        +above($tablet) 
+            padding-right: 30px
+            padding-bottom: 0px        
+.goods__title
+    position: relative
+    max-width 298px
+    padding: 30px 0
+    &:after
+        content:"";
+        position:absolute;
+        bottom 0;
+        width 160px;
+        border-bottom: 1px solid #282828;
+        left:80px
+        transform:translate(-50%, -50%);
+
+.goods__subtitle
+    padding: 30px 0
+
+.goods__item-title
+    font-size: 16px;
+    line-height: 21px;
+    +above($mobile)
+        font-size 18px
+        line-height 27px
+
+.goods__item-year 
+    font-family: 'Montserrat'
+    font-weight 400
+    font-size 12px
+    line-height 16px
+    +above($mobile)
+        font-size 13px
+        line-height 18px
+    +above($desktop)
+        font-size 14px
+        line-height 21px
+
+.goods__item
+    display: flex
+    &:not(:last-child) 
+        border-bottom: 1px solid #282828;
+    
+.goods__item-year
+    border-right: 1px solid #282828;
+    text-align: center
+    padding: 31px 24px 26px 19px
+
+.goods__item-name
+    padding: 10px 37px 15px 30px
+
+.page-section--visit-subscription
+    overflow: hidden
+
+.page-section--visit-subscription
+    background: #282828;
+    padding: 100px 40px
+
+.page-section__inner--visit-subscription
+    position: relative
+    border-right: 3px solid #C4C4C4;
+    border-left: 3px solid #C4C4C4;
+    border-bottom: 3px solid #C4C4C4;
+    padding: 105px 0 80px
+    &:before
+        content: "";
+        display: block;
+        position: absolute;
+        left: 190px
+        top: 0;
+        width: 0px
+        height: 0px;
+        border-top: 3px solid #C4C4C4;
+        +above($desktop)
+            width: 40px;
+        +above(1060px)
+            left: 230px
+        +above(1130px)
+            width: 80px;
+    &:after
+        content: "";
+        display: block;
+        position: absolute;
+        right: 190px
+        top: 0;
+        width: 0
+        height: 0px;
+        border-top: 3px solid #C4C4C4;
+        +above($desktop)
+            width: 40px;
+        +above(1060px)
+            right: 207px
+            width: 60px;
+        +above(1130px)
+            width: 103px;
+
+.form--sing-up
+    text-align: center
+    max-width 541px
+    margin: 0 auto
+    padding: 0 20px
+
+.form__row--title
+    position: absolute
+    top: -4px
+    left: 50%
+    transform:translate(-50%, -50%);
+    &:after
+        content:"";
+        position:absolute;
+        width 118px;
+        border-bottom: 1px solid #ffffff;
+        top: 94px;
+        left:50%;
+        transform:translate(-50%, -50%);
+
+.form__row--subtitle
+    font-size 16px
+    line-height 24px
+    margin-bottom: 80px
+    display inline-block
+    max-width 504px
+    +above(1080px)
+        max-width 100%
+
+.form__row--decoration-img
+    img
+        width: 30%
+        +above($mobile)
+            width: 50%
+        +above($tablet)
+            width: 70%
+        +above(1080px)
+            width: 100%
+
+
+.form__row--decoration-img-left 
+    position: absolute
+    left: -118px
+    top: -39px
+    +above($mobile)
+        left: -84px
+        top: -69px
+    +above($tablet)
+        left: -54px
+        top: -82px
+    +above(1080px)
+        left: -30px
+        top: -69px
+
+.form__row--decoration-img-right
+    position: absolute
+    right: -114px
+    top: -27px
+    +above($mobile)
+        right: -84px
+        top: -48px
+    +above($tablet)
+        right: -53px
+        top: -64px
+
+.form__row--columns
+    display: block
+    justify-content: space-between
+    font-size 13px
+    line-height 20px
+    margin-bottom: 40px
+    +above($mobile)
+        display: flex
+
+.form__row-column
+    flex: 0 1 50%
+    &:not(:last-child) 
+        margin-right 0px
+        margin-bottom: 20px
+        +above($mobile)
+            margin-right 30px
+            margin-bottom: 0
+    input
+        width: 100%
+        color: #ffffff
+        padding: 10px 0;
+        background: #282828;
+        outline: none
+        outline-offset: 0;
+        border: none;
+        border-bottom: 1px solid #ffffff
+
+
+::-webkit-input-placeholder { /* WebKit browsers */
+   color:    #D9D9D9;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #D9D9D9;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #D9D9D9;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #D9D9D9;
+}
+
+.form__row--location
+    text-align: start
+    font-size 13px
+    line-height 20px
+
+.dropdown-menu
+    margin: 0 0 50px 0
+    padding-left: 0
+    border-bottom: 1px solid #ffffff
+    width: 100%
+    color: #ffffff
+    padding: 10px 0;
+    background: #282828;
+    outline: none
+    outline-offset: 0;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+
+
+.dropdown-item
+    padding: 10px 0
+    list-style-type: none
+
+.form-submit
+    width: 100%
+    background: #282828
+    border: 1px solid #ffffff
+    &:hover
+            background-color: #ffffff20
+
+// footer
+
+.page-section--footer
+    background: #998431
+    color: #ffffff
+    padding: 50px 0
+    font-size 14px
+    line-height 21px
+
+.footer-menu
+    display: flex
+    border-top: 1px solid #ffffff
+    padding: 10px 58px
+    justify-content: space-between
+    flex-wrap: wrap
+
+.footer-menu__item
+    padding: 10px 10px
+
+.footer-items
+    display flex
+    text-align center
+    align-items: center
+    text-transform: uppercase
+    font-weight 600
+    flex-wrap: wrap
+
+    
+.footer__item
+    padding 19px 10px
+    flex: 1 0 auto
+    border 1px solid #FFFFFF
+    margin 5px
+    +above($tablet)
+        border-left none
+        border-top 1px solid #FFFFFF
+        border-bottom 1px solid #FFFFFF
+        border-right 1px solid #FFFFFF
+    &:last-child
+        border-right 1px solid #FFFFFF
+        +above($tablet)
+            border-right none
+    &:hover
+        background-color: #ffffff20
+    +above($tablet)
+        margin 0
+
+
+.footer__item--social
+    display: flex
+    justify-content: center
+    a
+        &:not(:last-child) 
+            margin-right: 36px 
+
+
+.footer__item--company-name
+    padding: 19px 0
+
+// modal
+
+.modal
+  display: none
+
+.is-visible.modal
+  display: block
+
+.modal__overlay 
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  opacity 0.5
+  background: black
+  z-index 998
+
+.modal__container 
+  font-family: "Roboto Medium";
+  position: fixed
+  width: 350px
+  padding: 26px
+  min-height: 150px
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%);
+  background: rgb(241, 237, 197)
+  z-index 999
+  color: black
+  text-align: center
+  user-select: none; 
+
+  animation-name: modal
+  animation-duration: 500ms
+
+.modal__c-btn
+  position: fixed
+  top: 0
+  right: 0
+  img
+    width: 30px
+
+.modal__title 
+  padding: 10px 15px
+  font-size: 24px
+
+.modal__message 
+  padding: 5px 10px
+  font-size: 20px
+
+@keyframes modal {
+  0% {
+    top: 0
+  }
+  100%{
+    top: 50%
+  }
+}
+
+// validation
+
+// .error
+//     position: absolute
+//     color: red
+//     bottom: : 10px
+    
+
+
+
+

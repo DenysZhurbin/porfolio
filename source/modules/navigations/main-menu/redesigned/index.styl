@@ -1,0 +1,335 @@
+.page-header
+  background-color $white
+
+  .page-header__inner
+    +below($media-screen-desktop)
+      padding-top 12px
+      padding-bottom 12px
+
+.nav
+  font-family $font-family-base
+
+.nav__list
+  grid-row(24)
+  justify-content flex-end
+  align-items center
+
+  .button
+    letter-spacing 0.3px
+    font-size $font-size-base
+    line-height 16px
+    font-weight $font-weight-bolder
+    width 160px
+    margin-right 12px
+
+.nav__item
+  position relative
+
+  &.is-open
+    .nav-dropdown
+      opacity 1
+      z-index 1
+      visibility visible
+
+    .nav__link--toggler
+      &:before
+        transform translateY(-50%) rotate(180deg)
+
+      &:after
+        opacity 1
+
+.nav__link,
+.nav-dropdown__link,
+.nav-submenu__link
+  flex-center-y()
+  font-size $font-size-small
+  line-height 18px
+  color $gray-900
+  white-space nowrap
+
+  svg
+    margin-right 8px
+
+.nav__link
+  position relative
+  padding 15px 13px 14px
+  font-weight $font-weight-semiBold
+  font-size 13px
+  line-height $line-height-base
+
+  &:after
+    pseudo()
+    bottom -1px
+    left 12px
+    right 12px
+    height 2px
+    background-color #e8501f
+    opacity 0
+    transition .35s opacity
+
+  &:hover
+    color $gray-900
+
+    &:after
+      opacity 1
+
+  &.is-active
+    color #e8501f
+
+.nav__link--toggler
+  padding-right 28px
+
+  &:before
+    pseudo()
+    background-size contain
+    background-repeat no-repeat
+    background-image url("../images/_global/header/dropdown-arrow.svg")
+    width 8px
+    height 5px
+    top 52%
+    transform translateY(-50%)
+    right 12px
+    transitions()
+
+  &:hover
+    &:before
+      transform translateY(-50%) rotate(180deg)
+
+.nav-dropdown,
+.nav-submenu
+  position absolute
+  opacity 0
+  z-index -1
+  visibility hidden
+  transition .25s all
+  padding-top 22px
+  padding-bottom 16px
+  //border solid 1px #efefef
+  box-shadow 0 5px 14px 0 rgba($black, 0.08)
+  background-color $white
+
+.nav-dropdown
+  top calc(100% + 1px)
+  left -20px
+  border-bottom-left-radius $border-radius
+  border-bottom-right-radius $border-radius
+  display flex
+  min-width 183px
+
+.nav-submenu
+  left calc(100% + 6px)
+  top -16px
+  padding-left 12px
+  padding-right 12px
+  border-radius $border-radius
+  min-width 154px
+
+.nav-dropdown__column
+  grid-column-padding(40)
+  min-width 154px
+
+.nav-dropdown__column--left
+  &:not(:last-child)
+    border-right 1px solid #efefef
+
+.nav-dropdown__list
+  &:not(:last-child)
+    position relative
+    padding-bottom 10px
+    margin-bottom 12px
+
+    &:after
+      pseudo()
+      background-color #ececec
+      height 1px
+      bottom 0
+      left 12px
+      right 12px
+
+.nav-dropdown__link,
+.nav-submenu__link
+  font-weight $font-weight-normal
+  border-radius $border-radius
+  padding 4px 12px
+  min-width 132px
+
+  &:hover
+    color $gray-900
+    background-color #f2f2f2
+
+.nav-dropdown__link--heading
+.nav-dropdown__title--heading
+  font-weight $font-weight-bolder
+  margin-bottom 2px
+  font-size $font-size-small
+  line-height $line-height-small
+
+  //&:hover
+  //  background-color transparent
+  //  text-decoration underline
+
+.nav-dropdown__title--heading
+  cursor default
+
+.nav__item--user
+  .nav__link
+    padding-top 12px
+    padding-bottom 12px
+    cursor pointer
+
+    &:after
+      display none
+
+.nav-dropdown--user
+  left auto
+  right -20px
+  width 312px
+  flex-wrap wrap
+  padding 20px
+  margin-top -10px
+
+  .nav-dropdown__info,
+  .nav-dropdown__list
+    width 100%
+
+  .nav-dropdown__link
+    padding-top 6px
+    padding-bottom 6px
+    font-weight $font-weight-bolder
+
+.nav__user-avatar-wrapper,
+.nav-dropdown__info-avatar-wrapper
+  border-radius $border-radius-circle
+  overflow hidden
+
+.nav__user-avatar-wrapper
+  width 32px
+  height 32px
+
+.nav-dropdown__info-avatar-wrapper
+  width 48px
+  height 48px
+
+.nav__user-avatar
+  width 100%
+  height 100%
+  object-fit cover
+
+.nav-dropdown__info
+  padding-bottom 20px
+  margin-bottom 16px
+  border-bottom 1px solid #dddddd
+
+.nav-dropdown__info-row
+  flex-center-y()
+
+.nav-dropdown__info-column
+  grid-column-padding(12)
+
+.nav-dropdown__info-column--avatar
+  width 60px
+
+.nav-dropdown__info-name
+  line-height $line-height-base
+  font-size $font-size-base
+  font-weight $font-weight-bolder
+
+.nav-dropdown__info-mail
+  line-height $line-height-small
+  font-size $font-size-small
+
+.nav-dropdown__info--stats
+  .nav-dropdown__info-row
+    &:not(:last-child)
+      margin-bottom 8px
+
+  .nav-dropdown__info-column
+    font-size $font-size-small
+    line-height $line-height-base
+
+    &:first-child
+      width 96px
+
+    &:last-child
+      font-weight $font-weight-bolder
+      grid-column-width-auto()
+
+    a
+      font-weight $font-weight-bolder
+      color #4a90e2
+
+      &:hover
+        opacity .6
+
+.nav-dropdown__item
+  position relative
+
+  &.is-open
+    .nav-dropdown__link
+      color $gray-900
+      background-color #f2f2f2
+
+    .nav-submenu
+      opacity 1
+      z-index 1
+      visibility visible
+
+.nav-dropdown__link--toggler
+  &:before
+    pseudo()
+    background-size contain
+    background-repeat no-repeat
+    background-image url("../images/_global/header/dropdown-arrow.svg")
+    width 8px
+    height 5px
+    top 11px
+    transform rotate(-90deg)
+    right 6px
+    transitions()
+
+//separators
+separator()
+  pseudo()
+  top 50%
+  left 0
+  transform translateY(-50%)
+  width 1px
+  height 20px
+  background-color #ddd
+
+.nav--non-logged
+  .nav__item
+    &:nth-last-child(2)
+      margin-left 3px
+      padding-left 5px
+      padding-right 12px
+
+      &:before
+        separator()
+
+.nav--non-subscribed
+  .nav__item
+    &:nth-last-child(2)
+      margin-left 11px
+      padding-left 24px
+      padding-right 12px
+
+      &:before
+        separator()
+
+  .button
+    margin-right 0
+
+.nav--logged
+  .nav__item
+    &:last-child
+      padding-left 8px
+      margin-left 8px
+
+      &:before
+        separator()
+
+body
+  &.is-ie11
+    .nav-dropdown__column--right
+      min-width 206px

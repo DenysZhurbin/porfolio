@@ -1,0 +1,335 @@
+mixin main-menu-redesigned-pdfmp-532(attributes)
+	-
+		const mode = attributes.mode || null;
+		const login = attributes.login || null;
+		const purchased = attributes.purchased || null;
+		let menu;
+		let modifier;
+
+		if (mode === "v1") {
+			modifier = "nav--v1";
+			menu = mainMenuPDFMP532_V1;
+		} else if (mode === "v2") {
+			modifier = "nav--v2";
+			menu = mainMenuPDFMP532_V2;
+		} else if (mode === "v3") {
+			modifier = "nav--v3";
+			menu = mainMenuPDFMP532_V2;
+		} else if (mode === "v4") {
+			modifier = "nav--v4";
+			menu = mainMenuPDFMP532_V2;
+		}
+
+		if (login) {
+			modifier = modifier + " nav--login";
+			menu = mainMenuPDFMP532_LOGIN;
+		}
+
+		if (purchased) {
+			modifier = modifier + " nav--purchased";
+		}
+
+	nav.nav(class= modifier)
+		.nav__list
+			for menuItem in menu
+				if !menuItem.hasDropdown
+					.nav__item
+						if (menuItem.isActive)
+							a(href="#" title= menuItem.name).nav__link.is-active
+								= menuItem.name
+
+						else
+							a(href="#" title= menuItem.name).nav__link
+								= menuItem.name
+
+				else
+					.nav__item.has-dropdown
+						if (menuItem.isActive)
+							a(href="#" title= menuItem.name).nav__link.nav__link--toggler.is-active
+								= menuItem.name
+
+						else
+							a(href="#" title= menuItem.name).nav__link.nav__link--toggler
+								= menuItem.name
+
+						.nav-dropdown
+							if (menuItem.leftSidedDropdownBlocks)
+								.nav-dropdown__column.nav-dropdown__column--left
+									for dropdownMenuItem in menuItem.leftSidedDropdownBlocks
+										.nav-dropdown__list
+											if dropdownMenuItem.headingLink
+												.nav-dropdown__item
+													a(href="#" title= dropdownMenuItem.headingLink).nav-dropdown__link.nav-dropdown__link--heading= dropdownMenuItem.headingLink
+
+											if dropdownMenuItem.links
+												for dropdownMenuItemLink in dropdownMenuItem.links
+													if !dropdownMenuItemLink.hasSubmenu
+														.nav-dropdown__item
+															if dropdownMenuItemLink.mod
+																a(href="#" title= dropdownMenuItemLink.name class="nav-dropdown__link--" + dropdownMenuItemLink.mod).nav-dropdown__link= dropdownMenuItemLink.name
+
+															else
+																a(href="#" title= dropdownMenuItemLink.name).nav-dropdown__link= dropdownMenuItemLink.name
+
+													else
+														.nav-dropdown__item.has-submenu
+															a(href="#" title= dropdownMenuItemLink.name).nav-dropdown__link.nav-dropdown__link--toggler= dropdownMenuItemLink.name
+
+															.nav-submenu
+																.nav-dropdown__column
+																	.nav-dropdown__list
+																		for submenuItem in dropdownMenuItemLink.submenuLinks
+																			.nav-dropdown__item
+																				a(href="#" title= submenuItem.name).nav-dropdown__link= submenuItem.name
+
+							if menuItem.rightSidedDropdownBlocks
+								.nav-dropdown__column.nav-dropdown__column--right
+									for dropdownMenuItem in menuItem.rightSidedDropdownBlocks
+										.nav-dropdown__list
+											if dropdownMenuItem.headingLink
+												.nav-dropdown__item
+													a(href="#" title= dropdownMenuItem.headingLink).nav-dropdown__link.nav-dropdown__link--heading= dropdownMenuItem.headingLink
+
+											if dropdownMenuItem.links
+												for dropdownMenuItemLink in dropdownMenuItem.links
+													.nav-dropdown__item
+														if dropdownMenuItemLink.mod
+															a(href="#" title= dropdownMenuItemLink.name class="nav-dropdown__link--" + dropdownMenuItemLink.mod).nav-dropdown__link= dropdownMenuItemLink.name
+
+														else
+															a(href="#" title= dropdownMenuItemLink.name).nav-dropdown__link= dropdownMenuItemLink.name
+															
+			if (mode === "v1")
+				if (!purchased)
+					.nav__item
+						+button(href="#")
+							| Start Free Trial
+				
+				if (!login && !purchased)
+					.nav__item
+						a(href="#" title="Pricing").nav__link
+							| Pricing
+
+					.nav__item
+						a(href="#" title="Log In").nav__link
+							| Log In
+					
+				if (login)
+					.nav__item
+						a(href="#" title="Support").nav__link
+							| Support
+				
+			if (mode === "v2")
+				if (!login && !purchased)
+					.nav__item.nav__item--separator
+						a(href="#" title="Log In").nav__link
+							| Log In
+				
+					.nav__item
+						+button(href="#")
+							| Start Free Trial
+					
+				else if (login && !purchased)
+					.nav__item.nav__item--separator
+						+button(href="#")
+							| Start Free Trial
+				
+				if (login && !purchased)
+					.nav__item
+						a(href="#" title="Support").nav__link
+							| Support
+				
+				else if (login && purchased)
+					.nav__item.nav__item--separator
+						a(href="#" title="Support").nav__link
+							| Support
+				
+			if (mode === "v3")
+				.nav__item.nav__item--search.has-search
+					.nav__link(tabindex="0")
+
+					.nav__tooltip
+						| Forms search
+
+					.nav__search
+						form.form.form--search.form--search-nav(data-search-mode="redirect")
+							.form__column.form__column--input
+								.form__input-wrapper
+									.form-icon
+
+									input(type="text"
+										placeholder="Type document name or keyword").form-input
+
+									.form-reset(tabindex="0")
+				
+				if (!login && !purchased)
+					.nav__item
+						a(href="#" title="Log In").nav__link
+							| Log In
+				
+				if (!purchased)
+					.nav__item
+						+button(href="#")
+							| Start Free Trial
+				
+				if (login)
+					.nav__item
+						a(href="#" title="Support").nav__link
+							| Support
+				
+			if (mode === "v4")
+				if (!login && !purchased)
+					.nav__item.nav__item--separator
+						a(href="#" title="Log In").nav__link
+							| Log In
+				
+				if (!login && !purchased)
+					.nav__item
+						+button(href="#")
+							| Start Free Trial
+
+				else if (login && !purchased)
+					.nav__item.nav__item--separator
+						+button(href="#")
+							| Start Free Trial
+				
+					.nav__item
+						a(href="#" title="Support").nav__link
+							| Support
+				
+				if (login && purchased)
+					.nav__item.nav__item--separator
+						a(href="#" title="Support").nav__link
+							| Support
+				
+			if (login)
+				+nav-item-logged-user()
+
+			//if (!login)													
+				if (mode === "v2" || mode === "v4")
+					.nav__item.nav__item--separator
+						a(href="#" title="Log In").nav__link
+							| Log In
+				
+			//if (mode === "v3")
+				.nav__item.nav__item--search.has-search
+					.nav__link(tabindex="0")
+						
+					.nav__tooltip
+						| Forms search
+						
+					.nav__search
+						form.form.form--search.form--search-nav(data-search-mode="redirect")
+							.form__column.form__column--input
+								.form__input-wrapper
+									.form-icon
+
+									input(type="text"
+										placeholder="Type document name or keyword").form-input
+
+									.form-reset(tabindex="0")
+			
+			//if (!login)
+				if (mode === "v3")
+					.nav__item
+						a(href="#" title="Log In").nav__link
+							| Log In	
+			
+			//if (!purchased)
+				if (mode === "v2" || mode === "v4")
+					.nav__item.nav__item--separator
+						+button(href="#")
+							| Start Free Trial
+					
+				else	
+					.nav__item
+						+button(href="#")
+							| Start Free Trial
+			
+			//if (login)
+				if ((purchased && mode === "v2") || (purchased && mode === "v4"))
+					.nav__item.nav__item--separator
+						a(href="#" title="Support").nav__link
+							| Support
+
+				else
+					.nav__item
+						a(href="#" title="Support").nav__link
+							| Support
+				
+				+nav-item-logged-user()
+			
+			//if (!login)
+				if (mode === "v1")
+					.nav__item
+						a(href="#" title="Pricing").nav__link
+							| Pricing
+						
+					.nav__item
+						a(href="#" title="Log In").nav__link
+							| Log In
+
+mixin nav-item-logged-user()
+	.nav__item.nav__item--user.has-dropdown
+		.nav__link.nav__link--toggler(tabindex="0")
+			.nav__user-avatar-wrapper
+				img(src="images/_global/header/user-avatar.jpg" alt="User Avatar").nav__user-avatar
+
+		.nav-dropdown.nav-dropdown--user
+			.nav-dropdown__info.nav-dropdown__info--username
+				.nav-dropdown__info-row
+					.nav-dropdown__info-column.nav-dropdown__info-column--avatar
+						.nav-dropdown__info-avatar-wrapper
+							img(src="images/_global/header/user-avatar.jpg" alt="User Avatar").nav__user-avatar
+
+					.nav-dropdown__info-column
+						.nav-dropdown__info-name
+							| Taras Shevchenko
+
+						.nav-dropdown__info-mail
+							| tarasshevchenko3000@ukr.net
+
+			.nav-dropdown__info.nav-dropdown__info--stats
+				.nav-dropdown__info-row
+					.nav-dropdown__info-column
+						| Account ID:
+
+					.nav-dropdown__info-column
+						| 10964978
+
+				.nav-dropdown__info-row
+					.nav-dropdown__info-column
+						| Internal Email:
+
+					.nav-dropdown__info-column
+						a(href="#" alt="Mail").nav-dropdown__link.nav-dropdown__link--stats u1+dare.clint@gmail.com
+
+				.nav-dropdown__info-row
+					.nav-dropdown__info-column
+						| Inbound Fax:
+
+					.nav-dropdown__info-column
+						a(href="#" alt="Fax").nav-dropdown__link.nav-dropdown__link--stats Get My Fax Number
+
+				.nav-dropdown__info-row
+					.nav-dropdown__info-column
+						| Subscription:
+
+					.nav-dropdown__info-column
+						| 1 year subscription
+
+				.nav-dropdown__info-row
+					.nav-dropdown__info-column
+						| Time Zone:
+
+					.nav-dropdown__info-column
+						| (UTC +02:00) MART 
+
+			.nav-dropdown__list.nav-dropdown__list--user
+				.nav-dropdown__item
+					a(href="#" title="My Account").nav-dropdown__link.nav-dropdown__link--my-account
+						| My Account
+
+				.nav-dropdown__item
+					a(href="#" title="My Account").nav-dropdown__link.nav-dropdown__link--logout
+						| Log out				

@@ -1,0 +1,28 @@
+mixin accordion(mods)
+	- var modifier = ""
+
+	if (mods)
+		if (mods.constructor === Array)
+			each mod in mods
+				- modifier += " accordion--"+mod
+		else
+			- modifier = "accordion--"+mods
+		
+	.accordion(role="tablist", aria-multiselectable="true" class=modifier)
+		block
+
+mixin accordion-item(title, isSelected, attributes)
+	- 
+		let selected;
+		
+		if (isSelected) selected = "true"
+		else selected = "false"
+
+	.accordion__item
+		.accordion__title.js-accordion-item(role="tab" aria-selected=selected tabindex="0")
+			.icon-expand-status
+				
+			| !{title}
+				
+		.accordion__body(role="tabpanel")
+			block

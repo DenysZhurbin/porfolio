@@ -1,0 +1,17 @@
+mixin bread-crumbs(data)
+	.bread-crumbs-wrapper&attributes(attributes)
+		ul(itemtype="http://schema.org/BreadcrumbList").bread-crumbs
+			each item, index in data
+				-
+					const _index = index + 1
+					
+				li(itemtype="http://schema.org/BreadcrumbList").bread-crumbs__item
+					if data[_index]
+						a(itemprop="" href="#").bread-crumbs__link
+							span(itemprop="name")= item
+							meta(itemprop="position" content=_index)
+						
+					else
+						span(itemprop="name")= item
+						meta(itemprop="position" content=_index)
+

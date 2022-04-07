@@ -1,0 +1,151 @@
+mixin menu-mobile-redesigned-pdfmp-532(attributes)
+	-
+		const mode = attributes.mode || null;
+		const login = attributes.login || null;
+		const purchased = attributes.purchased || null;
+		let menu = mainMenuPDFMP532_V1;
+		let modifier;
+
+		if (mode === "v1") {
+			modifier = "nav-mobile--v1";
+		} else if (mode === "v2") {
+			modifier = "nav-mobile--v2";
+		} else if (mode === "v3") {
+			modifier = "nav-mobile--v3";
+		} else if (mode === "v4") {
+			modifier = "nav-mobile--v4";
+		}
+
+		if (login) {
+			modifier = modifier + " nav-mobile--login";
+			menu = mainMenuPDFMP532_LOGIN_MOBILE;
+		}
+
+		if (purchased) {
+			modifier = modifier + " nav-mobile--purchased";
+		}
+
+	nav.nav-mobile(class= modifier)
+		.nav-mobile__body
+			if (login)
+				a(href="#").nav-mobile__user
+					.nav-mobile__user-row
+						.nav-mobile__user-column.nav-mobile__user-column--avatar
+							.nav-mobile__user-avatar-wrapper
+								img(src="images/_global/header/user-avatar.jpg" alt="User Avatar").nav-mobile__user-avatar
+
+						.nav-mobile__user-column.nav-mobile__user-column--name
+							.nav-mobile__user-name
+								| Taras Shevchenko
+
+							.nav-mobile__user-mail
+								| weimann.myron@hayes.co.uk
+
+			.nav-mobile__list
+				for menuItem in menu
+					if !menuItem.hasDropdown
+						.nav-mobile__item
+							if (menuItem.isActive)
+								a(href="#" title= menuItem.name).nav-mobile__link.is-active
+									= menuItem.name
+
+							else
+								a(href="#" title= menuItem.name).nav-mobile__link
+									= menuItem.name
+
+					else	
+						.nav-mobile__item
+							.nav-mobile__link.nav-mobile__link--toggler
+								= menuItem.name
+
+							.nav-mobile-dropdown
+								if (menuItem.leftSidedDropdownBlocks)
+									.nav-mobile-dropdown__list
+										for dropdownMenuItem in menuItem.leftSidedDropdownBlocks
+											.nav-mobile-dropdown__item
+												if (dropdownMenuItem.headingLink && dropdownMenuItem.links)
+													.nav-mobile-dropdown__link.nav-mobile-dropdown__link--toggler(data-submenu= (dropdownMenuItem.headingLink).replace(' ', '_').replace('/', '_'))= dropdownMenuItem.headingLink
+
+												else
+													a(href="#" title= dropdownMenuItem.headingLink).nav-mobile-dropdown__link= dropdownMenuItem.headingLink
+
+								if (menuItem.rightSidedDropdownBlocks)
+									for dropdownMenuItem in menuItem.rightSidedDropdownBlocks
+										.nav-mobile-dropdown__item
+											if (dropdownMenuItem.headingLink && dropdownMenuItem.links)
+												.nav-mobile-dropdown__link.nav-mobile-dropdown__link--toggler(data-submenu= (dropdownMenuItem.headingLink).replace(' ', '_').replace('/', '_'))= dropdownMenuItem.headingLink
+
+											else
+												a(href="#" title= dropdownMenuItem.headingLink).nav-mobile-dropdown__link= dropdownMenuItem.headingLink
+
+				if (!login)
+					.nav-mobile__item
+						a(href="#" title="").nav-mobile__link
+							| Pricing
+
+				if (login)
+					.nav-mobile__item
+						a(href="#" title="").nav-mobile__link
+							| Support
+
+				if (mode === "v3")
+					.nav-mobile__item
+						form.form.form--search.form--search-mobile(data-search-mode="redirect")
+							.form__input-wrapper
+								.form-icon
+
+								input(type="text"
+									placeholder="i.e. US Passport Applicat...").form-input
+
+								.form-reset(tabindex="0")
+
+				if (!login)
+					.nav-mobile__item.nav-mobile__item--separator
+						a(href="#" title="Log In").nav-mobile__link
+							| Log In
+
+			.nav-mobile__footer
+				if (!purchased)
+					+button(href="#")
+						| Start free trial	
+
+		.nav-mobile__submenus
+			for mainMenuItem in menu
+				if mainMenuItem.leftSidedDropdownBlocks
+					for submenuItem in mainMenuItem.leftSidedDropdownBlocks
+						if submenuItem.links
+							.nav-mobile-submenu(data-submenu= (submenuItem.headingLink).replace(' ', '_').replace('/', '_'))
+								.nav-mobile-submenu__list
+									.nav-mobile-submenu__item
+										.nav-mobile-submenu__link.nav-mobile-submenu__link--back
+											| Back
+
+									for submenuItemLink in submenuItem.links
+										.nav-mobile-submenu__item
+											a(href="#" title= submenuItemLink.name).nav-mobile-submenu__link
+												= submenuItemLink.name
+
+								.nav-mobile-submenu__footer
+									if (!purchased)
+										+button(href="#")
+											| Start free trial											
+
+				if mainMenuItem.rightSidedDropdownBlocks
+					for submenuItem in mainMenuItem.rightSidedDropdownBlocks
+						if submenuItem.links
+							.nav-mobile-submenu(data-submenu= (submenuItem.headingLink).replace(' ', '_').replace('/', '_'))
+								.nav-mobile-submenu__list
+									.nav-mobile-submenu__item
+										.nav-mobile-submenu__link.nav-mobile-submenu__link--back
+											| Back
+
+									for submenuItemLink in submenuItem.links
+										.nav-mobile-submenu__item
+											a(href="#" title= submenuItemLink.name).nav-mobile-submenu__link
+												= submenuItemLink.name
+
+								.nav-mobile-submenu__footer
+									if (!purchased)
+										+button(href="#")
+											| Start free trial	
+					

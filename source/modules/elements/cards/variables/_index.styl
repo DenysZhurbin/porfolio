@@ -1,0 +1,98 @@
+$card
+  padding 15px
+  box-shadow 0 0 20px rgba(0, 0, 0, 0.1)
+  border-radius $border-radius-lg
+  background-color $white
+  border 1px solid $white
+  color $gray-900
+  display flex
+  align-items flex-start
+  flex-direction column
+  font-weight $font-weight-normal
+
+  +above($media-screen-desktop-lg)
+    padding 23px
+
+  .action-arrow
+    margin-top auto
+
+  picture
+    &:not(:last-child)
+      margin-bottom 12px
+
+      +above($media-screen-desktop-lg)
+        margin-bottom 16px
+
+$card-as-link
+  text-decoration none
+
+  &:hover
+  &.is-hovered
+    box-shadow 0 0 50px rgba(0, 0, 0, 0.1)
+
+    .card-title
+    .card-text
+      color $gray-900
+
+  &:focus
+  &.is-focused
+    outline none
+    box-shadow 0 0 0 1px #fff, 0 0 0 3px #d4d4d4
+
+$card-illustration
+  max-width 100%
+  display inline-block
+
+  &:not(:last-child)
+    margin-bottom 12px
+
+    +above($media-screen-desktop-lg)
+      margin-bottom 16px
+
+$card-title
+  font-size 16px
+  line-height 24px
+  font-weight $font-weight-bolder
+
+  +above($media-screen-desktop-lg)
+    font-size 20px
+    line-height 28px
+
+  &:not(:last-child)
+    margin-bottom 8px
+
+    +above($media-screen-tablet)
+      margin-bottom 12px
+
+$card-text
+  font-size 14px
+  line-height 20px
+  width 100%
+  font-weight $font-weight-normal
+
+  +above($media-screen-desktop-lg)
+    font-size 16px
+    line-height 24px
+
+  &:not(:last-child)
+    margin-bottom 16px
+
+    +above($media-screen-desktop-lg)
+      margin-bottom 22px
+
+$card-link
+  margin-top auto
+  font-weight $font-weight-bolder
+  font-size 12px
+  line-height 16px
+  text-transform uppercase
+  transitions()
+
+  color $red-error
+
+  +above($media-screen-tablet)
+    font-size 14px
+    line-height 20px
+
+  &:hover
+    color $red-hover

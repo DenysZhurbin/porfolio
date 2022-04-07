@@ -1,88 +1,44 @@
-//TODO refactor pug
+@import "variables/_index.styl"
+
 .cards-list
-	grid-row(32)
+  grid-row(32)
 
-	.card
-		margin-left 16px
-		margin-right 16px
+  &:last-child
+    +above($media-screen-tablet)
+      margin-bottom -32px
 
-.cards-list--gray
-	.card,
-	a.card
-		background-color $light-grey-200
+  .card
+    grid-column-margin(32)
+    width calc(100% - 32px)
 
-	a.card
-		&:hover
-			background-color $white
+    +above($media-screen-tablet)
+      width calc(50% - 32px)
+      margin-bottom 32px
+
+    +above($media-screen-tablet-lg)
+      width calc((100% / 3) - 32px)
+
+    &:not(:last-child)
+      margin-bottom 16px
+
+      +above($media-screen-tablet)
+        margin-bottom 32px
 
 .card,
 a.card
-	width calc(100% - 32px)
-	min-height 196px
-	padding 24px 16px 12px
-	border-radius $border-radius
-	box-shadow 0 10px 40px 0 rgba($black, 0.08)
-	background-color $white
-	margin-bottom 16px
-	color $gray-900
-	display flex
-	align-items flex-start
-	flex-direction column
-	font-weight $font-weight-normal
-
-	+above($media-screen-tablet)
-		width calc(50% - 32px)
-		margin-bottom 32px
-
-	+above($media-screen-desktop)
-		width calc((100% / 3) - 32px)
-
-	.action-arrow
-		margin-top auto
-		text-transform uppercase
-		margin-bottom 12px
+  @extends $card
 
 a.card
-	&:hover
-		box-shadow 0 10px 25px 0 rgba($black, 0.15)
+  @extends $card-as-link
 
 .card__illustration
-	max-width 100%
-	display inline-block
-
-	& + .card__title
-		margin-top 24px
-
-	& + .card__text
-		margin-top 12px
+  @extends $card-illustration
 
 .card__title
-	font-size $font-size-bigger
-	line-height $line-height-base
-	font-weight $font-weight-bolder
-	margin-bottom 8px
+  @extends $card-title
 
 .card__text
-	font-size $font-size-small
-	line-height $line-height-small
-	margin-bottom 12px
-	width 100%
-
-	+above($media-screen-tablet)
-		font-size $font-size-base
-		line-height $line-height-base
+  @extends $card-text
 
 .card__link
-	margin-top auto
-	font-weight $font-weight-bolder
-	font-size $font-size-small
-	color $red-error
-	text-transform uppercase
-	transition all 0.2s
-	margin-bottom 12px
-
-	+above($media-screen-tablet)
-		font-size $font-size-base
-
-	&:hover
-		color $red-hover
+  @extends $card-link

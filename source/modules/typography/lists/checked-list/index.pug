@@ -1,0 +1,10 @@
+mixin checked-list(listItems)
+	.checked-list&attributes(attributes)
+		each item in listItems
+			+checked-list-item()
+				| !{item}
+
+mixin checked-list-item()
+	.checked-list__item
+		.checked-list__description
+			block

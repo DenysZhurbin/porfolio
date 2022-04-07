@@ -1,0 +1,139 @@
+mixin menu-mobile-redesigned(attributes)
+	//mode can be
+		not specified - regular menu for unlogged user
+		"logged" - for user that logged in
+		"non-subscribed" - for user that logged in but not subscribed
+	-
+		const mode = attributes.mode || null;
+		let menu, modifier;
+
+		if (mode === "logged") {
+			menu = myDocsMobileMenu;
+			modifier = "nav-mobile--logged";
+		} else if (mode === "non-subscribed") {
+			menu = myDocsMobileMenu
+			modifier = "nav-mobile--non-subscribed";
+		} else {
+			menu = mainMenu;
+			modifier = "nav-mobile--non-logged"
+		}
+
+	nav.nav-mobile(class= modifier)
+		.nav-mobile__body
+			if (mode === "logged" || mode === "non-subscribed")
+				a(href="#").nav-mobile__user
+					.nav-mobile__user-row
+						.nav-mobile__user-column.nav-mobile__user-column--avatar
+							.nav-mobile__user-avatar-wrapper
+								img(src="images/_global/header/user-avatar.jpg" alt="User Avatar").nav-mobile__user-avatar
+
+						.nav-mobile__user-column.nav-mobile__user-column--name
+							.nav-mobile__user-name
+								| Taras Shevchenko
+
+							.nav-mobile__user-mail
+								| weimann.myron@hayes.co.uk
+
+			.nav-mobile__list
+				for menuItem in menu
+					if !menuItem.hasDropdown
+						.nav-mobile__item
+							if (menuItem.isActive)
+								a(href="#" title= menuItem.name).nav-mobile__link.is-active
+									= menuItem.name
+
+							else
+								a(href="#" title= menuItem.name).nav-mobile__link
+									= menuItem.name
+
+					else
+						.nav-mobile__item
+							.nav-mobile__link.nav-mobile__link--toggler
+								= menuItem.name
+
+							.nav-mobile-dropdown
+								if (menuItem.leftSidedDropdownBlocks)
+									.nav-mobile-dropdown__list
+										for dropdownMenuItem in menuItem.leftSidedDropdownBlocks
+											.nav-mobile-dropdown__item
+												if (dropdownMenuItem.headingLink && dropdownMenuItem.links)
+													.nav-mobile-dropdown__link.nav-mobile-dropdown__link--toggler(data-submenu= dropdownMenuItem.headingLink)= dropdownMenuItem.headingLink
+
+												else
+													a(href="#" title= dropdownMenuItem.headingLink).nav-mobile-dropdown__link= dropdownMenuItem.headingLink
+
+								if (menuItem.rightSidedDropdownBlocks)
+									for dropdownMenuItem in menuItem.rightSidedDropdownBlocks
+										.nav-mobile-dropdown__item
+											if (dropdownMenuItem.headingLink && dropdownMenuItem.links)
+												.nav-mobile-dropdown__link.nav-mobile-dropdown__link--toggler(data-submenu= dropdownMenuItem.headingLink)= dropdownMenuItem.headingLink
+
+											else
+												a(href="#" title= dropdownMenuItem.headingLink).nav-mobile-dropdown__link= dropdownMenuItem.headingLink
+
+			if (mode === "logged")
+
+
+			else if (mode === "non-subscribed")
+				.nav-mobile__footer
+					+button(href="#")
+						| Start free trial	
+
+			else
+				.nav-mobile__footer
+					+button(href="#")
+						| Start free trial	
+
+		.nav-mobile__submenus
+			for mainMenuItem in menu
+				if mainMenuItem.leftSidedDropdownBlocks
+					for submenuItem in mainMenuItem.leftSidedDropdownBlocks
+						if submenuItem.links
+							.nav-mobile-submenu(data-submenu= submenuItem.headingLink)
+								.nav-mobile-submenu__list
+									.nav-mobile-submenu__item
+										.nav-mobile-submenu__link.nav-mobile-submenu__link--back
+											| Back
+
+									for submenuItemLink in submenuItem.links
+										.nav-mobile-submenu__item
+											a(href="#" title= submenuItemLink.name).nav-mobile-submenu__link
+												= submenuItemLink.name
+
+								if (mode === "logged")
+									
+								else if (mode === "non-subscribed")
+									.nav-mobile-submenu__footer
+										+button(href="#")
+											| Start free trial
+
+								else
+									.nav-mobile-submenu__footer
+										+button(href="#")
+											| Start free trial											
+
+				if mainMenuItem.rightSidedDropdownBlocks
+					for submenuItem in mainMenuItem.rightSidedDropdownBlocks
+						if submenuItem.links
+							.nav-mobile-submenu(data-submenu= submenuItem.headingLink)
+								.nav-mobile-submenu__list
+									.nav-mobile-submenu__item
+										.nav-mobile-submenu__link.nav-mobile-submenu__link--back
+											| Back
+
+									for submenuItemLink in submenuItem.links
+										.nav-mobile-submenu__item
+											a(href="#" title= submenuItemLink.name).nav-mobile-submenu__link
+												= submenuItemLink.name
+
+								if (mode === "logged")
+								else if (mode === "non-subscribed")
+									.nav-mobile-submenu__footer
+										+button(href="#")
+											| Start free trial
+
+								else
+									.nav-mobile-submenu__footer
+										+button(href="#")
+											| Start free trial	
+				

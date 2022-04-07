@@ -1,86 +1,53 @@
 mixin cards-list(mods)
-  - var modifier = ""
+	- var modifier = ""
 
-  if (mods)
-    if (mods.constructor === Array)
-      each mod in mods
-        - modifier += " cards-list--"+mod
-    else
-      - modifier = "cards-list--"+mods
+	if (mods)
+		if (mods.constructor === Array)
+			each mod in mods
+				- modifier += " cards-list--"+mod
+		else
+			- modifier = "cards-list--"+mods
 
-  .cards-list(class=modifier)
-    block
+	.cards-list(class=modifier)
+		block
 
 mixin card(attributes)
-  -
-    let cardTag = "div";
-    let cardClasses = [];
-    let imgSrc, titleText, cardText, linkText, linkTextArrow;
-    const baseClassName = "card";
-    const image = attributes.image || null;
-    const title = attributes.title || null;
-    const text = attributes.text || null;
-    const link = attributes.link || null;
-    const linkArrow = attributes.linkArrow || null;
-    const isLink = attributes.href || null;
+	-
+		let cardClasses = [];
+		let baseClassName = "card";
+		let cardTag = attributes.tag || "div";
+		let imgSrc = attributes.image || null;
+		let titleText = attributes.title || null;
+		let linkText = attributes.link || null;
+		let linkArrow = attributes.arrow || null;
 
-    cardClasses.push(baseClassName);
+		cardClasses.push(baseClassName);
+		delete attributes.image;
+		delete attributes.title;
+		delete attributes.link;
+		delete attributes.arrow;
 
-    // Если у карточки есть картинка
-    if (image) {
-      imgSrc = image;
-      delete attributes.image;
-    }
+		if (linkText || linkArrow)
+			cardTag = "a"
 
-    // Если у карточки есть заголовок
-    if (title) {
-      titleText = title;
-      delete attributes.title;
-    }
+	#{cardTag}(class=cardClasses)&attributes(attributes)
+		if (imgSrc)
+			img(src=imgSrc
+				title= "Card icon"
+				alt= "Card icon" class=baseClassName + "__illustration")
 
-    // Если у карточки есть текст открывается block для текста
-    if (text) {
-      cardText = true;
-      delete attributes.text;
-    }
+		if (titleText)
+			div(class=baseClassName + "__title")
+				| !{titleText}
 
-    // Если у карточки есть ссылка
-    if (link) {
-      cardTag = "a";
-      linkText = link;
-      delete attributes.link;
-    }
+		if (block)
+			div(class=baseClassName + "__text")
+				block
 
-    // Если у карточки есть ссылка со стрелкой
-    if (linkArrow) {
-      cardTag = "a";
-      linkTextArrow = linkArrow;
-      delete attributes.linkArrow;
-    }
+		if (linkText)
+			div(class=baseClassName + "__link")
+				= linkText
 
-    // Еслти у карточки есть ссылка, но нет отдельного текста для ссылки
-    if (isLink) {
-      cardTag = "a";
-    }
-
-  #{cardTag}(class=cardClasses)&attributes(attributes)
-    if (imgSrc)
-      img(src=imgSrc
-        title= "Card icon"
-        alt= "Card icon" class=baseClassName + "__illustration")
-
-    if (titleText)
-      div(class=baseClassName + "__title")
-        = titleText
-
-    if (cardText)
-      div(class=baseClassName + "__text")
-        block
-
-    if (linkText)
-      div(class=baseClassName + "__link")
-        = linkText
-
-    if (linkTextArrow)
-      +action-arrow()
-        = linkTextArrow
+		if (linkArrow)
+			+action-arrow()
+				= linkArrow

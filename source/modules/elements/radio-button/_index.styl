@@ -1,0 +1,58 @@
+.radio-button
+  display block
+  position relative
+  padding-left 24px
+  cursor pointer
+  user-select none
+  font-size 14px
+  line-height 20px
+
+  input
+    position absolute
+    cursor pointer
+    opacity 0
+    height 0
+    width 0
+    transitions()
+
+    &:checked
+      & ~ .radio-button__checkmark
+        &:after
+          opacity 1
+
+    &:focus
+      & ~ .radio-button__checkmark
+        box-shadow 0 0 0 2px #d4d4d4
+
+  &:after
+    content ""
+    position absolute
+    display none
+
+.radio-button__checkmark
+  position absolute
+  top 50%
+  left 0
+  transform translateY(-50%)
+  height 16px
+  width 16px
+  background-color $white
+  border 1px solid $light-grey-color
+  border-radius 50%
+
+  &:after
+    pseudo()
+    top 3px
+    left 3px
+    width 8px
+    height 8px
+    border-radius 50%
+    background-color $black
+    opacity 0
+    transitions()
+
+.radio-buttons-list
+  grid-row(26)
+
+  .radio-buttons-list__item
+    grid-column-auto(26)

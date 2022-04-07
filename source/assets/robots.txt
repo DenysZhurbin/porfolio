@@ -1,6 +1,5 @@
 User-agent: *
 Disallow: /
-Allow: /blogpost/img/
 Allow: /assets/
 Allow: /img/
 Allow: /css/

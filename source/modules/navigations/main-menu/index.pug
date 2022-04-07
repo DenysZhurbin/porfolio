@@ -1,0 +1,137 @@
+//TODO refactor pug
+mixin main-menu(status)
+  if status === "logged"
+    nav.main-menu&attributes(attributes)
+      .main-menu__list
+        .main-menu__item
+          a(href="#").main-menu__link
+            | My Docs
+
+        .main-menu__item
+          a(href="#").main-menu__link
+            | For Business
+
+        .main-menu__item
+          a(href="#").main-menu__link
+            | Developers
+
+        .main-menu__item
+          a(href="#").main-menu__link
+            | Features
+
+        .main-menu__item
+          a(href="#").main-menu__link
+            | Pricing
+
+  else
+    nav.main-menu&attributes(attributes)
+      .main-menu__list
+        .main-menu__item
+          a(href="#").main-menu__link.is-active
+            | Home
+
+        .main-menu__item.has-dropdown
+          a(href="#").main-menu__link.main-menu-toggler
+            | For Business
+
+          .main-menu__dropdown
+            .main-menu__dropdown-list
+              .main-menu__dropdown-list-item
+                a(href="#").main-menu__dropdown-link
+                  | Medical
+
+              .main-menu__dropdown-list-item
+                a(href="#").main-menu__dropdown-link
+                  | Insurance
+
+              .main-menu__dropdown-list-item
+                a(href="#").main-menu__dropdown-link
+                  | Real Estate
+
+              .main-menu__dropdown-list-item
+                a(href="#").main-menu__dropdown-link
+                  | Tax & Finance
+
+              .main-menu__dropdown-list-item
+                a(href="#").main-menu__dropdown-link
+                  | Legal
+
+              .main-menu__dropdown-list-item
+                a(href="#").main-menu__dropdown-link
+                  | Human Resources
+
+              .main-menu__dropdown-list-item
+                a(href="#").main-menu__dropdown-link
+                  | See All
+
+        .main-menu__item.has-dropdown
+          a(href="#").main-menu__link.main-menu-toggler
+            | Solutions
+
+          .main-menu__dropdown
+            .main-menu__dropdown-list
+              .main-menu__dropdown-list-item
+                a(href="#").main-menu__dropdown-link
+                  | Developers
+
+              .main-menu__dropdown-list-item.has-dropdown
+                a(href="#").main-menu__dropdown-link.main-menu-toggler
+                  | API
+
+                .main-menu__sub-dropdown
+                  .main-menu__sub-dropdown-list
+                    .main-menu__sub-dropdown-item
+                      a(href="#").main-menu__sub-dropdown-link
+                        | API Documentation
+
+                    .main-menu__sub-dropdown-item
+                      a(href="#").main-menu__sub-dropdown-link
+                        | API Pricing
+
+              .main-menu__dropdown-list-item.has-dropdown
+                a(href="#").main-menu__dropdown-link.main-menu-toggler
+                  | Integrations
+
+                .main-menu__sub-dropdown
+                  .main-menu__sub-dropdown-list
+                    .main-menu__sub-dropdown-item
+                      a(href="#").main-menu__sub-dropdown-link
+                        | Salesforce
+
+                    .main-menu__sub-dropdown-item
+                      a(href="#").main-menu__sub-dropdown-link
+                        | Dynamics
+
+                    .main-menu__sub-dropdown-item
+                      a(href="#").main-menu__sub-dropdown-link
+                        | See all
+
+              .main-menu__dropdown-list-item.has-dropdown
+                a(href="#").main-menu__dropdown-link.main-menu-toggler
+                  | Apps
+
+                .main-menu__sub-dropdown
+                  .main-menu__sub-dropdown-list
+                    .main-menu__sub-dropdown-item
+                      a(href="#").main-menu__sub-dropdown-link
+                        | Desktop app
+
+                    .main-menu__sub-dropdown-item
+                      a(href="#").main-menu__sub-dropdown-link
+                        | Gsuite Add-ons
+
+                    .main-menu__sub-dropdown-item
+                      a(href="#").main-menu__sub-dropdown-link
+                        | Mobile app
+
+                    .main-menu__sub-dropdown-item
+                      a(href="#").main-menu__sub-dropdown-link
+                        | Extensions
+
+        .main-menu__item
+          a(href="#").main-menu__link
+            | Features
+
+        .main-menu__item
+          a(href="#").main-menu__link.main-menu__link--free-trial
+            | Start Free Trial

@@ -1,0 +1,240 @@
+//TODO add class .navigation to this module for old pages
+.categories-menu
+  &:not(.categories-menu--desktop-lg)
+    +above($media-screen-desktop)
+      margin-bottom 0
+      padding 0
+      box-shadow none
+      background-color transparent
+      height auto
+
+    &::before
+      +above($media-screen-desktop)
+        width 1px
+        background-color #e5e5e5
+
+    &::after
+      +above($media-screen-desktop)
+        display none
+
+    .categories-menu__inner
+      +above($media-screen-desktop)
+        display block
+        position relative
+        top 0
+        max-height none
+        box-shadow none
+        border none
+        overflow visible
+        background transparent
+
+    .categories-menu__list
+      +above($media-screen-desktop)
+        overflow visible
+
+    .categories-menu__label
+      +above($media-screen-desktop)
+        display none
+
+    .categories-menu__link
+      +above($media-screen-desktop)
+        padding 0 0 0 16px
+        margin-bottom 7px
+
+      &:hover
+        +above($media-screen-desktop)
+          color $red-hover
+          text-decoration underline
+          background transparent
+
+    .categories-menu__link
+      &.is-active
+        color $text-color-darken
+
+        &:hover
+          +above($media-screen-desktop)
+            color $text-color-darken
+            text-decoration none
+
+        &::before
+          +above($media-screen-desktop)
+            pseudo()
+            left 0
+            top 0
+            width 4px
+            height 100%
+            background-color $orange-500
+
+.categories-menu
+  position relative
+  flex-center-y()
+  width 100%
+  height 48px
+  margin-bottom 24px
+  padding 0 50px 0 16px
+  line-height 16px
+  font-size $font-size-small
+  font-weight $font-weight-bolder
+  color $gray-900
+  box-sizing border-box
+  border-radius $border-radius
+  box-shadow 0 6px 20px 0 rgba($black, 0.1)
+  background-color $white
+  outline none
+  outline-offset 0
+  transitions()
+  cursor pointer
+
+  +above($media-screen-tablet)
+    margin-bottom 32px
+    font-size $font-size-base
+
+  +above($media-screen-desktop-lg)
+    margin-bottom 0
+    padding 0
+    box-shadow none
+    background-color transparent
+    height auto
+
+  &::before
+  &::after
+    pseudo()
+
+  &::before
+    left 0
+    top 0
+    width 4px
+    height 100%
+    background-color $orange-500
+
+    +above($media-screen-desktop-lg)
+      width 1px
+      background-color #e5e5e5
+
+  &::after
+    right 16px
+    top 50%
+    width 12px
+    height 8px
+    transform translateY(-50%)
+    background url("../images/_global/selectric/arrow-select.svg") no-repeat
+    background-size 12px 8px
+    transitions()
+
+    +above($media-screen-desktop-lg)
+      display none
+
+  &.is-open
+    border-bottom-left-radius 0
+    border-bottom-right-radius 0
+
+    .categories-menu__inner
+      display block
+
+    &::after
+      transform rotate(-180deg) translateY(50%)
+
+.categories-menu__inner
+  display none
+  position absolute
+  top 100%
+  left 0
+  width 100%
+  height auto
+  margin 0
+  max-height 235px
+  overflow auto
+  z-index 12
+  border-radius $border-radius
+  border-top 1px solid #e5e5e5
+  border-top-right-radius 0
+  border-top-left-radius 0
+  background $white
+  box-shadow 0 12px 15px 0 rgba($black, .1)
+
+  +above($media-screen-tablet)
+    max-height 283px
+
+  +above($media-screen-desktop-lg)
+    display block
+    position relative
+    top 0
+    max-height none
+    box-shadow none
+    border none
+    overflow visible
+    background transparent
+
+.categories-menu__list
+  display block
+  margin 0
+  padding 0
+  overflow-y auto
+
+  +above($media-screen-desktop-lg)
+    overflow visible
+
+.categories-menu__list--hidden
+  display block
+
+  +above($media-screen-desktop)
+    display none
+
+.categories-menu__label
+  +above($media-screen-desktop-lg)
+    display none
+
+.categories-menu__link
+  position relative
+  display block
+  padding 12px 16px
+  font-size $font-size-small
+  font-weight $font-weight-normal
+  color $text-color-darken
+  transitions()
+
+  +above($media-screen-tablet)
+    font-size $font-size-base
+    line-height $line-height-base
+
+  +above($media-screen-desktop-lg)
+    padding 0 0 6px 16px
+    margin-bottom 7px
+
+  &:last-child
+    margin-bottom 0
+
+  &:hover
+    background #e6e6e6
+    color $text-color-darken
+
+    +above($media-screen-desktop-lg)
+      color $red-hover
+      text-decoration underline
+      background transparent
+
+.categories-menu__link
+  &.is-active
+    font-weight $font-weight-bolder
+
+    &:hover
+      +above($media-screen-desktop-lg)
+        color $text-color-darken
+        text-decoration none
+
+    &::before
+      +above($media-screen-desktop-lg)
+        pseudo()
+        left 0
+        top 0
+        width 4px
+        height 100%
+        background-color $orange-500
+
+.categories-menu--sm
+  .categories-menu__link
+    +above($media-screen-desktop-lg)
+      padding-top 6px
+      margin-bottom 6px
+      font-size $font-size-small
+      line-height $line-height-small

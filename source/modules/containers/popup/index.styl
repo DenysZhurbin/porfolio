@@ -1,0 +1,61 @@
+.popup
+  position relative
+  width 700px
+  border-radius $border-radius
+  background-color $white
+  text-align center
+
+.popup__title
+  margin-bottom 4px
+  color $gray-900
+  font-weight $font-weight-bolder
+  font-size 20px
+  line-height 32px
+
+  +above($media-screen-tablet)
+    margin-bottom 8px
+    font-size 20px
+
+.popup__message
+  font-size $font-size-small
+  line-height $line-height-base
+  color $gray-900
+
+  +above($media-screen-tablet)
+    font-size $font-size-base
+
+.popup__close
+  modal-close()
+
+popup-default()
+  padding 36px 51px 40px
+  width 288px
+
+  +above($media-screen-tablet)
+    padding 54px 52px 52px
+    width 400px
+
+  &:before
+    display block
+    margin 0 auto 14px
+    width 48px
+    height 48px
+
+.popup--api-success
+.popup--api-fail
+  popup-default()
+
+// todo: refactor - avoid "api" in naming
+.popup--api-success
+.popup--success
+  &:before
+    content url("../images/_global/modals/decoration-success.svg")
+
+.popup--api-fail
+.popup--fail
+  &:before
+    content url("../images/_global/modals/decoration-fail.svg")
+
+.popup__action
+  .button--secondary
+    margin-right 14px

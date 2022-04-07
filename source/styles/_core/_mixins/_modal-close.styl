@@ -11,7 +11,7 @@ modal-close()
   border none
   transitions()
 
-  +above($media-screen-desktop)
+  +above($media-screen-tablet-lg)
     padding 16px
 
   &:before
@@ -24,7 +24,11 @@ modal-close()
     background-image url("../images/_global/modals/icon-close.svg")
 
   &:hover
+  &.is-hovered
     opacity 1
 
+  &:focus
+  &.is-focused
   &:active
-    opacity .8
+    outline none
+    box-shadow 0 0 0 1px #fff, 0 0 0 3px #d4d4d4

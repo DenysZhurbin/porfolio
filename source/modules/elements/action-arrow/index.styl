@@ -1,32 +1,30 @@
 .action-arrow
+a.action-arrow
   display inline-block
-  font-size $font-size-base
-  line-height $line-height-base
-  font-weight $font-weight-bolder
+  text-decoration none
+  font-size 14px
+  line-height 20px
+  font-weight 600
   position relative
-  padding-right 23px
-  max-width 213px
-  color $red-error
   cursor pointer
   transitions()
 
-  +above($media-screen-tablet)
-    max-width 345px
+  color $red-error
 
-  +above($media-screen-desktop)
-    font-size $font-size-bigger
-    max-width 390px
+  +above($media-screen-desktop-lg)
+    font-size 16px
+    line-height 24px
 
   svg
-    position absolute
-    bottom calc(50% - 6px)
-    right 0
+    margin-left 7px
     transitions()
 
     path
       transitions()
 
   &:hover
+  &.is-hovered
+    text-decoration none
     color $red-hover
 
     svg
@@ -35,4 +33,41 @@
       path
         fill $red-hover
 
+  &:focus
+  &.is-focused
+    box-shadow 0 0 0 1px #fff, 0 0 0 3px #d4d4d4
 
+  &:focus
+  &.is-focused
+  &:active
+  &.is-active
+    border-radius $border-radius
+    outline none
+
+  &:active
+  &.is-active
+    color $red-hover
+
+    svg
+      path
+        fill $red-hover
+
+  &:disabled
+  &[disabled]
+  &.is-disabled
+    &
+    &:hover
+    &:focus
+    &:active
+      opacity 1
+      outline none
+      cursor not-allowed
+      pointer-events auto
+      box-shadow none
+      color $red-hover
+
+      svg
+        transform none
+
+        path
+          fill $red-hover

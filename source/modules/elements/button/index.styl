@@ -1,44 +1,59 @@
-// TODO fix problem with Span not having box shadow on focus
+$button-bg-color = #FF9000
+$button-bg-hover-color = #FFA42E
+$button-bg-disabled-color = #FFE3BF
+$button-bg-dark-disabled-color = #BA6900
+$button-bg-active-color = #E88300
+$button-bg-bordered-active-color = #FFEED8
+$button-bg-bordered-color = transparent
+$button-bg-bordered-hover-color = #FFF9F2
+$focus-shadow = 0 0 0 1px #fff, 0 0 0 3px #d4d4d4
 
 .button
 a.button
-  button-sm()
   display inline-block
   position relative
-  border 2px solid $button-color
+  padding 10px 16px
+  min-width 120px
+  border 2px solid $button-bg-color
   border-radius $border-radius
-  background-color $button-color
+  background-color $button-bg-color
   background-image none
   font-weight $font-weight-semiBold
   font-family $font-family-base
+  font-size 14px
+  line-height 16px
   color $white
   vertical-align middle
   text-align center
   text-decoration none
-  letter-spacing 0.3px
   cursor pointer
-  transition all 0.15s ease-in
+  transitions()
   user-select none
   touch-action manipulation
   -webkit-font-smoothing antialiased
 
-  +above($media-screen-tablet)
-    font-size $font-size-bigger
-    line-height $line-height-base
-    font-weight $font-weight-bolder
-    padding 10px 16px
+  +above($media-screen-desktop-lg)
+    font-size 16px
+    line-height 24px
 
-  +above($media-screen-desktop)
-    font-size $font-size-bigger
-    line-height $line-height-base
+  &:hover
+  &.is-hovered
+    text-decoration none
+    background-color $button-bg-hover-color
+    border-color $button-bg-hover-color
+    color $white
 
   &:focus
-  &:active
-  &--active
-    box-shadow 0 0 0 2px $gray-100
+  &.is-focused
+    outline none
+    box-shadow: $focus-shadow
 
   &:active
-  &--active
+  &.is-active
+    outline none
+    box-shadow: $focus-shadow
+    background-color: $button-bg-active-color
+    border-color $button-bg-active-color
     background-image none
 
   &:disabled,
@@ -46,32 +61,21 @@ a.button
   &.is-disabled
     &
     &:hover
+    &.is-hovered
     &:focus
+    &.is-focused
     &:active
+      opacity 1
       outline none
-      border 2px solid $button-color
-      background $button-color
-      box-shadow none
-      color $white
-      opacity .5
+      background-color $button-bg-disabled-color
+      border-color $button-bg-disabled-color
       cursor not-allowed
+      pointer-events auto
+      box-shadow none
+      user-select none
 
   &.is-disabled--custom
     pointer-events none
-
-  &:hover
-  &:focus
-  &:active
-  &--active
-    outline none
-
-  &:hover
-  &:focus
-  &:active
-    border 2px solid $button-hover-color
-    background $button-hover-color
-    color $white
-    text-decoration none
 
 .button--secondary
 a.button--secondary
@@ -108,50 +112,78 @@ a.button--secondary
 #header .g-btn
 .button--bordered
 a.button--bordered
-  border solid 2px $button-color
-  background-color transparent
-  color $text-color-darken
-
-  +above($media-screen-tablet)
-    button-md()
-    padding 5px
-
-  +above($media-screen-desktop)
-    button-lg()
-    padding 5px
-
-  &:focus
-    border solid 2px $button-hover-color
-    background-color $button-hover-color
-
-  &:active
-    border solid 2px $orange-600
-    background-color $orange-600
-    box-shadow 0 0 0 2px $gray-100
+  background-color $button-bg-bordered-color
+  color $gray-900
 
   &:hover
-    border solid 2px $button-hover-color
-    background-color $button-hover-color
+  &.is-hovered
+    color $gray-900
+    background-color $button-bg-bordered-hover-color
+    border-color $button-bg-hover-color
 
   &:disabled,
   &[disabled],
   &.is-disabled
     &
     &:hover
+    &.is-hovered
     &:focus
+    &.is-focused
     &:active
-      border 2px solid $light-orange-600
-      background-color transparent
-      color $gray-800
+      background-color $button-bg-bordered-color
+      border-color $button-bg-disabled-color
+      color #AAAAAA
+
+  &:active
+    background-color $button-bg-bordered-active-color
+    border-color $button-bg-color
+
+.button--dark-bg
+a.button--dark-bg
+  color $white
+
+  &:hover
+  &.is-hovered
+    color $white
+    background-color $button-bg-hover-color
+    border-color $button-bg-color
+
+  &:focus
+  &.is-focused
+    background-color $button-bg-color
+    border-color $button-bg-color
+
+  &:disabled,
+  &[disabled],
+  &.is-disabled
+    &
+    &:hover
+    &.is-hovered
+    &:focus
+    &.is-focused
+    &:active
+      background-color $button-bg-bordered-color
+      border-color $button-bg-dark-disabled-color
+      color #808080
+
+  &:active
+    background-color $button-bg-active-color
+    border-color $button-bg-color
 
 .button--sm
-  button-sm()
+a.button--sm
+  min-width 104px
+  padding 6px 16px
+  font-size 12px
+  line-height 16px
 
-  +above($media-screen-tablet)
-    button-sm()
+.button--lg
+a.button--lg
+  min-width 150px
 
-  +above($media-screen-desktop)
-    button-sm()
+  +above($media-screen-desktop-lg)
+    font-size 20px
+    line-height 28px
 
 .button--md
   +above($media-screen-tablet)
@@ -159,7 +191,3 @@ a.button--bordered
 
   +above($media-screen-desktop)
     button-md()
-
-.button--lg
-  +above($media-screen-desktop)
-    button-lg()

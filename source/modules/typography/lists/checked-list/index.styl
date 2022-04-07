@@ -1,0 +1,30 @@
+@import "../_index.styl"
+
+.checked-list
+  @extends $lists
+
+.checked-list__item
+  @extends $lists-items
+
+.checked-list__description
+  position relative
+  padding-left 31px
+  @extends $lists-items-description-weight
+  @extends $lists-items-description-font
+
+  +above($media-screen-tablet-lg)
+    padding-left 39px
+
+  &:before
+    pseudo()
+    top 0
+    left 0
+    width 20px
+    height 20px
+    background url("../images/_modules/typography/lists/checked-list/icon-check.svg") no-repeat
+    background-size contain
+
+    +above($media-screen-tablet-lg)
+      top -2px
+      width 28px
+      height 28px
